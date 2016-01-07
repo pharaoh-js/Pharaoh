@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App'
+import Viewer from './components/Viewer'
 
 require('./shared/styles.less')
 
