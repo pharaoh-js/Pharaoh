@@ -28,6 +28,7 @@ data
 db
 bundle.js
 build.js
+public
 x/**
 **/api.key
 **.key
