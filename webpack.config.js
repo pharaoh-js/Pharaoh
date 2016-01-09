@@ -3,7 +3,11 @@ var React   = require('react')
   , webpack = require('webpack')
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: [
+    'webpack-dev-server/client?http://0.0.0.0:9090'
+  , 'webpack/hot/only-dev-server'
+  , './src/index.jsx'
+  ],
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'public'),
@@ -13,7 +17,7 @@ module.exports = {
     loaders: [{
         test: /\.jsx$/,
         exclude: /node_modules/,
-        loaders: ['babel']
+        loaders: ['react-hot', 'babel']
       },
       {
         test: /\.less$/,
@@ -22,6 +26,9 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   }
