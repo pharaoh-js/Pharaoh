@@ -3,6 +3,7 @@ import Mirror from './mirror/Mirror'
 
 const Viewer = React.createClass({
   swapDoc (pad) {
+    console.log('sD: ', pad);
     this.setState({pad:pad})
   },
   getInitialState () {

@@ -4,11 +4,17 @@ import InlineCss from 'react-inline-css'
 const BASEREF = 'https://pharaoh-sands.firebaseio.com/'
 
 const Mirror = React.createClass({
-  componentDidMount () {
-    let fpRef = new Firebase(BASEREF + this.props.pad);
+  makeFirePad (subRef) {
+    let fpRef = new Firebase(BASEREF + subRef);
     let codeMirror = CodeMirror(document.getElementById('pad'), { lineWrapping: true });
     let firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
       { defaultText: 'Hello Firepad!!!!' });
+  },
+  componentWillUpdate () {
+    console.log('cWU');
+  },
+  componentDidMount () {
+    this.makeFirePad(this.props.pad)
   },
   render () {
     return (
