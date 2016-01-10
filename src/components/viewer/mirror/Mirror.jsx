@@ -7,11 +7,11 @@ const Mirror = React.createClass({
   makeFirePad (subRef) {
     let fpRef = new Firebase(BASEREF + subRef);
     let codeMirror = CodeMirror(document.getElementById('pad'), { lineWrapping: true });
-    let firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
+    this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
       { defaultText: 'Hello Firepad!!!!' });
   },
-  componentWillUpdate () {
-    console.log('cWU');
+  componentDidUpdate () {
+    this.makeFirePad(this.props.pad)
   },
   componentDidMount () {
     this.makeFirePad(this.props.pad)
@@ -19,7 +19,7 @@ const Mirror = React.createClass({
   render () {
     return (
         <div>
-          <div>This is the Mirror component</div>
+          <div>Show me the '{this.props.pad}' pad</div>
           <div id="pad"></div>
         </div>
     )
