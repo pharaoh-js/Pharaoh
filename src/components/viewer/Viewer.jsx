@@ -10,7 +10,6 @@ const Viewer = React.createClass({
   render () {
     return (
       <div>
-        <h3>This is the viewer component and it is awesome</h3>
         <Mirror pad={this.state.pad} />
       </div>
     )

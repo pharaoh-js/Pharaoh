@@ -13,7 +13,6 @@ const Mirror = React.createClass({
   render () {
     return (
         <div>
-          <div>This is the Mirror component</div>
           <div id="pad"></div>
         </div>
     )

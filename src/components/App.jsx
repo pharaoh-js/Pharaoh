@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
-import Viewer from './viewer/Viewer'
+import Viewer from './viewer/MirrorWrapper'
+import Header from './common/header/Menu'
 
 const App = React.createClass({
   render () {
     return (
         <div>
-          <h2>Pharaoh, king of the tutorial tools</h2>
+          <Header />
           <Viewer />
         </div>
     )
