@@ -33,19 +33,21 @@ const MirrorWrapper = React.createClass({
            padding:4px 0;
         }
                `}>
-                      <div className="file-browser">
-                          <div className="fileHeader">
-                              <div style={{fontSize:'20px'}}>FILES</div>
-                          </div>
-                      <div className="files">File 1</div>
-                       <div className="files">File 2</div>
-                       <div className="files">File 3</div>
-                       <div className="files">File 4</div>
-                       <div className="files">File 5</div>
-                       <div className="files">File 6</div>
-                       <div className="files">File 7</div>
-                        </div>
-       </InlineCss>
+               <div className="file-browser">
+                 <div className="fileHeader">
+                   <div style={{
+                     fontSize: '20px'
+                   }}>FILES</div>
+                 </div>
+                 <div className="files">File 1</div>
+                 <div className="files">File 2</div>
+                 <div className="files">File 3</div>
+                 <div className="files">File 4</div>
+                 <div className="files">File 5</div>
+                 <div className="files">File 6</div>
+                 <div className="files">File 7</div>
+               </div>
+             </InlineCss>
     )
   }
 })
