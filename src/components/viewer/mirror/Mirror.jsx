@@ -19,4 +19,4 @@ const Mirror = React.createClass({
   }
 })
 
-export default Mirror
+export default Mirror 
