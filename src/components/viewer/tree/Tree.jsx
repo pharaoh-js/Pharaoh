@@ -30,7 +30,7 @@ const MirrorWrapper = React.createClass({
         & .fileHeader {
            border-bottom: 2px solid #0FB427;
            text-align:center;
-           padding:4px 0;
+           padding:4px 0px;
         }
                `}>
                <div className="file-browser">

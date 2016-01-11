@@ -13,7 +13,7 @@ const MirrorWrapper = React.createClass({
             text-align:center;
             position: absolute;
             width:87.9%;
-            height:5%;
+            height:4.8%;
             top:0;
             right:0;
             background-color:#37383A;
