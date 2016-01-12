@@ -3,7 +3,8 @@ var React   = require('react')
   , webpack = require('webpack')
 
 module.exports = {
-  entry: [
+  devtool: 'cheap-module-eval-source-map'
+, entry: [
     'webpack-dev-server/client?http://0.0.0.0:9090'
   , 'webpack/hot/only-dev-server'
   , './src/index.jsx'
@@ -31,5 +32,6 @@ module.exports = {
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
-  }
+  },
 }
+
