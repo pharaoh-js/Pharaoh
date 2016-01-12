@@ -22,9 +22,9 @@ const Header = React.createClass({
                 }
                 .header small {
                   position: absolute;
-                  left: 175px;
-                  top: 19px;
-                  font-family:monospace;
+                  left: 190px;
+                  top: 16px;
+                  // font-family:monospace;
                   color:#0FB427;
                 }
                 .header div {
@@ -35,7 +35,7 @@ const Header = React.createClass({
                 color:@mainTextColor;
                 margin: 0px 15px;
                 font-size:15px;
-                font-family:monospace;
+                // font-family:monospace;
                 }
                 .header span:hover{
                 color:rgb(68, 199, 93);

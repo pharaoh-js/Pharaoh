@@ -15,7 +15,7 @@ const Viewer = React.createClass({
           position: 'relative',
           left:'0',
           top: '5px',
-          height:'610px',
+          height:'625px',
           boxShadow: '1px 1px 1px 1px gray',
           backgroundColor:'white',
         }
@@ -23,7 +23,7 @@ const Viewer = React.createClass({
   return (
         <div style={style.container}>
           <TitleBar/>
-          <Tree/>
+          <Tree />
           <MirrorWrapper className="Viewer"/>
           <StatusBar/>
         </div>

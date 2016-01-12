@@ -1,9 +1,20 @@
 // displays left-hand filetree, and currently open filename at the top of the filetree
 import React from 'react'
 import InlineCss from 'react-inline-css'
+import Folders from './Folders'
+import Files from './Files'
 
 const MirrorWrapper = React.createClass({
+  getInitialState: function () {
+    return {
+      openFiles: false,
+    };
+  },
+  openingFiles: function () {
+    this.setState({ openFiles: !this.state.openFiles })
+  },
   render () {
+    var files = this.state.openFiles ? <Files toggleFiles={this.openingFiles} /> : null
     return (
       <InlineCss stylesheet={`
             & .file-browser {
@@ -18,15 +29,6 @@ const MirrorWrapper = React.createClass({
             border-bottom-left-radius: 3px;
             border-top-left-radius: 3px;
         }
-         & .files {
-           padding:5px;
-           border-bottom: 1px solid white;
-         }
-          & .files:hover {
-           background-color: #212223;
-           color:#5B97B4;
-           cursor: pointer;
-        }
         & .fileHeader {
            border-bottom: 2px solid #0FB427;
            text-align:center;
@@ -35,17 +37,15 @@ const MirrorWrapper = React.createClass({
                `}>
                <div className="file-browser">
                  <div className="fileHeader">
-                   <div style={{
-                     fontSize: '20px'
-                   }}>FILES</div>
+                   <div style={{fontSize: '20px'}}>FILES</div>
                  </div>
-                 <div className="files">File 1</div>
-                 <div className="files">File 2</div>
-                 <div className="files">File 3</div>
-                 <div className="files">File 4</div>
-                 <div className="files">File 5</div>
-                 <div className="files">File 6</div>
-                 <div className="files">File 7</div>
+                    <Folders files={files} toggleFiles={this.openingFiles} />
+                   <Folders files={files} toggleFiles={this.openingFiles} />
+                   <Folders toggleFiles={this.openingFiles} />
+                   <Folders toggleFiles={this.openingFiles} />
+                   <Folders toggleFiles={this.openingFiles} />
+                   <Folders toggleFiles={this.openingFiles} />
+                   <Folders toggleFiles={this.openingFiles} />
                </div>
              </InlineCss>
     )
