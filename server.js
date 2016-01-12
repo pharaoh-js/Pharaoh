@@ -7,6 +7,7 @@ new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath
 , hot: true
 , quiet: true
+, devtool: 'cheap-module-eval-source-map'
 , historyApiFallback: true
 }).listen(port, 'localhost', function(err, result){
   if (err){
