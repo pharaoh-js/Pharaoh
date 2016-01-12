@@ -3,7 +3,6 @@ import InlineCss from 'react-inline-css'
 
 const Folders = React.createClass({
   render () {
-    var files = this.props.files;
     return (
       <InlineCss stylesheet={`
                   & .files {
@@ -24,8 +23,10 @@ const Folders = React.createClass({
                    }
                `}>
                 <div>
-                  <div onClick={this.props.toggleFiles} className="files">Folder</div>
-                  {files}
+                  <div className="files">
+                    <img src="http://demo.dnnrox.com/Portals/_default/Skins/Flatna2/img/icons/folder@2x.png" style={{width:'13px',margin:'0 5px 0 0'}}></img>
+                    Folder
+                  </div>
                 </div>
              </InlineCss>
     )

@@ -15,6 +15,7 @@ const Header = React.createClass({
                 // box-shadow: 1px 1px 1px 1px gray;
                 }
                 .header big {
+                color:white;
                 font-size: 25px;
                 position: absolute;
                 left: 10px;
@@ -32,7 +33,7 @@ const Header = React.createClass({
                 margin-right: 10px;
                 }
                 .header span{
-                color:@mainTextColor;
+                color:white;
                 margin: 0px 15px;
                 font-size:15px;
                 // font-family:monospace;

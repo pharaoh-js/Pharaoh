@@ -1,20 +1,11 @@
 // displays left-hand filetree, and currently open filename at the top of the filetree
 import React from 'react'
 import InlineCss from 'react-inline-css'
-import Folders from './Folders'
-import Files from './Files'
+import Folders from './items/Folders'
+import Files from './items/Files'
 
 const MirrorWrapper = React.createClass({
-  getInitialState: function () {
-    return {
-      openFiles: false,
-    };
-  },
-  openingFiles: function () {
-    this.setState({ openFiles: !this.state.openFiles })
-  },
   render () {
-    var files = this.state.openFiles ? <Files toggleFiles={this.openingFiles} /> : null
     return (
       <InlineCss stylesheet={`
             & .file-browser {
@@ -39,13 +30,13 @@ const MirrorWrapper = React.createClass({
                  <div className="fileHeader">
                    <div style={{fontSize: '20px'}}>FILES</div>
                  </div>
-                    <Folders files={files} toggleFiles={this.openingFiles} />
-                   <Folders files={files} toggleFiles={this.openingFiles} />
-                   <Folders toggleFiles={this.openingFiles} />
-                   <Folders toggleFiles={this.openingFiles} />
-                   <Folders toggleFiles={this.openingFiles} />
-                   <Folders toggleFiles={this.openingFiles} />
-                   <Folders toggleFiles={this.openingFiles} />
+                   <Folders />
+                   <Folders />
+                   <Files />
+                   <Folders />
+                   <Files />
+                   <Folders />
+                   <Files />
                </div>
              </InlineCss>
     )
