@@ -11,6 +11,9 @@ const Mirror = React.createClass({
       { defaultText: 'Hello Firepad!!!!' });
   },
   componentDidUpdate () {
+    let parent = this.refs.parent
+    let child = parent.firstChild
+    parent.removeChild(child)
     this.makeFirePad(this.props.pad)
   },
   componentDidMount () {
@@ -19,8 +22,7 @@ const Mirror = React.createClass({
   render () {
     return (
         <div>
-          <div>Show me the '{this.props.pad}' pad</div>
-          <div id="pad"></div>
+          <div ref="parent" id="pad"></div>
         </div>
     )
   }

@@ -7,7 +7,6 @@ import Tree from './tree/Tree'
 const Viewer = React.createClass({
 
   swapDoc (pad) {
-    console.log('sD: ', pad);
     this.setState({pad:pad})
   },
   getInitialState () {
