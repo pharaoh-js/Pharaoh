@@ -1,7 +1,11 @@
-import React, { PropTypes } from 'react'
-import Mirror from './mirror/Mirror'
+import React from 'react'
+import MirrorWrapper from './mirror/MirrorWrapper'
+import StatusBar from './statusbar/Statusbar'
+import TitleBar from './titlebar/Titlebar'
+import Tree from './tree/Tree'
 
 const Viewer = React.createClass({
+
   swapDoc (pad) {
     console.log('sD: ', pad);
     this.setState({pad:pad})
@@ -12,16 +16,29 @@ const Viewer = React.createClass({
     }
   },
   render () {
-    return (
-      <div>
-        <h3>This is the viewer component and it is awesome</h3>
-        <button onClick={this.swapDoc.bind(null, 'one')}>one</button>
-        <button onClick={this.swapDoc.bind(null, 'two')}>two</button>
-        <button onClick={this.swapDoc.bind(null, 'three')}>three</button>
-        <Mirror pad={this.state.pad} />
-      </div>
-    )
-  }
-})
+      let style = {
+        container: {
+          borderRadius:'3px',
+          margin: '5px 0 0 10px',
+          padding:'10px',
+          width:'96%',
+          position: 'relative',
+          left:'0',
+          top: '5px',
+          height:'610px',
+          boxShadow: '1px 1px 1px 1px gray',
+          backgroundColor:'white',
+        }
+      }
+  return (
+        <div style={style.container}>
+          <TitleBar/>
+          <Tree/>
+          <MirrorWrapper pad={this.state.pad} className="Viewer"/>
+          <StatusBar/>
+        </div>
+        )
+      }
+  })
 
 export default Viewer
