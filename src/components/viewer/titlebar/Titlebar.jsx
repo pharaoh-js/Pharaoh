@@ -1,7 +1,7 @@
 import React from 'react'
 import InlineCss from 'react-inline-css'
 
-const MirrorWrapper = React.createClass({
+const TitleBar = React.createClass({
   render () {
     return (
       <InlineCss stylesheet={`
@@ -21,11 +21,14 @@ const MirrorWrapper = React.createClass({
         }
                `}>
             <div className="header-bar">
-                <span>Project.name</span>
+                <button onClick={this.props.swap.bind(null, 'one')}>one</button>
+                <button onClick={this.props.swap.bind(null, 'two')}>two</button>
+                <button onClick={this.props.swap.bind(null, 'three')}>three</button>
+              <span>&nbsp;&nbsp; {this.props.pad}</span>
             </div>
        </InlineCss>
     )
   }
 })
 
-export default MirrorWrapper
+export default TitleBar

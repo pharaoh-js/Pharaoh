@@ -32,10 +32,13 @@ const Viewer = React.createClass({
       }
   return (
         <div style={style.container}>
-          <TitleBar/>
-          <Tree/>
-          <MirrorWrapper pad={this.state.pad} className="Viewer"/>
-          <StatusBar/>
+          <TitleBar swap={ this.swapDoc } pad={this.state.pad}/>
+          <Tree />
+          <MirrorWrapper
+            pad={this.state.pad}
+            className="Viewer"
+            />
+          <StatusBar />
         </div>
         )
       }
