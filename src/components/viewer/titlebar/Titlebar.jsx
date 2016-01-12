@@ -23,7 +23,6 @@ const MirrorWrapper = React.createClass({
                `}>
             <div className="header-bar">
                 <span>Project.name</span>
-                <img src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png" style={{width:'22px',float:'right',margin:'4px 5px 0 0'}}></img>
             </div>
        </InlineCss>
     )

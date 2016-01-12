@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
-import Viewer from './viewer/Viewer'
-import Menu from './common/header/Menu'
+import Viewer from './Viewer'
+import Menu from './../common/header/Menu'
 
-const App = React.createClass({
+const Settings = React.createClass({
   render () {
     return (
         <div>
@@ -13,4 +13,4 @@ const App = React.createClass({
   }
 })
 
-export default App
+export default Settings
