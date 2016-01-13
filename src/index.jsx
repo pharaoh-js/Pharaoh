@@ -18,3 +18,4 @@ ReactDOM.render(
     <Route path="/settings" component={Settings}/>
   </Router>
 ), document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'))

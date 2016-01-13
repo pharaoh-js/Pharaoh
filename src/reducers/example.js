@@ -10,3 +10,4 @@ export default (state = Immutable.List(['stuff']), action) => {
       return state
   }
 }
+

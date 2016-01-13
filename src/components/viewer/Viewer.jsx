@@ -5,6 +5,15 @@ import TitleBar from './titlebar/Titlebar'
 import Tree from './tree/Tree'
 
 const Viewer = React.createClass({
+
+  swapDoc (pad) {
+    this.setState({pad:pad})
+  },
+  getInitialState () {
+    return {
+      pad: 'test3'
+    }
+  },
   render () {
       let style = {
         container: {
@@ -26,6 +35,13 @@ const Viewer = React.createClass({
           <Tree />
           <MirrorWrapper className="Viewer"/>
           <StatusBar/>
+          <TitleBar swap={ this.swapDoc } pad={this.state.pad}/>
+          <Tree />
+          <MirrorWrapper
+            pad={this.state.pad}
+            className="Viewer"
+            />
+          <StatusBar />
         </div>
         )
       }
