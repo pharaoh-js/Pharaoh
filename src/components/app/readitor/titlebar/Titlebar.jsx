@@ -3,7 +3,7 @@ import InlineCss from 'react-inline-css'
 
 const TitleBar = React.createClass({
   render () {
-    const icon = this.props.isSetting ? 'http://www.interparfums.fr/en/img/close_icon.png' : 'https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png'
+    const icon = this.props.isSetting ? 'src/shared/images/close_icon.png' : 'src/shared/images/settings-icon.png'
     return (
       <InlineCss stylesheet={`
         & .header-bar {
@@ -21,10 +21,11 @@ const TitleBar = React.createClass({
             z-index:999;
         }
         & .setting-icon {
-            position:fixed;
-            right: 27px;
-            top: 52px;
-            // float:right;
+            // position:fixed;
+            // right: 27px;
+            // top: 52px;
+            margin:4px;
+            float:right;
             z-index:9999;
           }
           & .setting-icon:hover {
