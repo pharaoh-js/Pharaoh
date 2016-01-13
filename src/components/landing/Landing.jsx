@@ -1,5 +1,6 @@
 import React from 'react'
 import InlineCss from 'react-inline-css'
+import {ReactRouter, Link } from 'react-router'
 
 const Landing = React.createClass({
   render () {
@@ -24,6 +25,7 @@ const Landing = React.createClass({
             <h2>Pharaoh JS</h2>
           </div>
           <span>Enter your URL here: <input type="text"></input></span>
+          <Link to={'/app'}>GO</Link>
           <div className="howto">
             HOW-TO
 
