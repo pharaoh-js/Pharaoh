@@ -8,14 +8,15 @@ const Mirror = React.createClass({
     let fpRef = new Firebase(BASEREF + subRef);
     let codeMirror = CodeMirror(document.getElementById('pad'), {
       lineWrapping: true
-    // ,  mode              : 'javascript'
-    // , matchBrackets     : true
+    ,  mode             : 'javascript'
+    , lineNumbers       : true
+    , matchBrackets     : true
     // , lineWrapping      : true
     // , placeholder       : 'function foo(bar){\n  return bar\n}\n'
-    // , theme             : 'abcdef'
-    // , keyMap            : 'vim' // we should do sublime keybinds here, i think
-    // , autoCloseBrackets : true
-    // , autoCloseTags     : true
+    , theme             : 'abcdef'
+    // , keyMap            : 'sublime'
+    , autoCloseBrackets : true
+    , autoCloseTags     : true
     });
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
       { defaultText: 'Hello Firepad!!!!' });

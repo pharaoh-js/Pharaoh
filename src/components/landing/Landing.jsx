@@ -22,8 +22,10 @@ const Landing = React.createClass({
                `}>
         <div className="container">
           <div className="header">
-            <h2>Pharaoh JS</h2>
-          </div>
+            <h2>Pharaoh JS
+              <img src="src/shared/images/pharaoh.png" style={{width:'50px'}}></img>
+            </h2>
+        </div>
           <span>Enter your URL here: <input type="text"></input></span>
           <Link to={'/app'}>GO</Link>
           <div className="howto">
