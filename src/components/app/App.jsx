@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react'
-import Viewer from './Viewer'
-import Menu from './../common/header/Menu'
+import Readitor from './readitor/Readitor'
+import Menu from './menu/Menu'
 
 const App = React.createClass({
   render () {
     return (
         <div>
           <Menu />
-          <Viewer />
+          <Readitor />
         </div>
     )
   }
