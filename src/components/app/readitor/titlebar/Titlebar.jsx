@@ -3,6 +3,7 @@ import InlineCss from 'react-inline-css'
 
 const TitleBar = React.createClass({
   render () {
+    const icon = this.props.isSetting ? 'http://www.interparfums.fr/en/img/close_icon.png' : 'https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png'
     return (
       <InlineCss stylesheet={`
         & .header-bar {
@@ -19,12 +20,25 @@ const TitleBar = React.createClass({
             background-color:#37383A;
             z-index:999;
         }
+        & .setting-icon {
+            position:fixed;
+            right: 27px;
+            top: 52px;
+            // float:right;
+            z-index:9999;
+          }
+          & .setting-icon:hover {
+            cursor: pointer;
+          }
                `}>
             <div className="header-bar">
                 <button onClick={this.props.swap.bind(null, 'one')}>one</button>
                 <button onClick={this.props.swap.bind(null, 'two')}>two</button>
                 <button onClick={this.props.swap.bind(null, 'three')}>three</button>
               <span>&nbsp;&nbsp; {this.props.pad}</span>
+                <div onClick={this.props.handleClick} className="setting-icon">
+                  <img src={icon} style={{width: '22px'}}></img>
+                </div>
             </div>
        </InlineCss>
     )
@@ -32,4 +46,3 @@ const TitleBar = React.createClass({
 })
 
 export default TitleBar
-

@@ -1,5 +1,5 @@
 import React from 'react'
-import MirrorWrapper from './mirror/MirrorWrapper'
+import Wrapper from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
 import TitleBar from './titlebar/Titlebar'
 import Tree from './tree/Tree'
@@ -11,8 +11,15 @@ const Viewer = React.createClass({
   },
   getInitialState () {
     return {
-      pad: 'test3'
+      pad: 'test3',
+      isSetting: false
     }
+  },
+  toggleSettings () {
+    this.setState({ isSetting: !this.state.isSetting })
+  },
+  handleSettingsClick () {
+    this.toggleSettings();
   },
   render () {
       let style = {
@@ -24,16 +31,22 @@ const Viewer = React.createClass({
           position: 'relative',
           left:'0',
           top: '5px',
-          height:'610px',
+          height:'620px',
           boxShadow: '1px 1px 1px 1px gray',
           backgroundColor:'white',
         }
       }
   return (
         <div style={style.container}>
-          <TitleBar swap={ this.swapDoc } pad={this.state.pad}/>
+          <TitleBar
+            swap={ this.swapDoc }
+            pad={this.state.pad}
+            handleClick={this.handleSettingsClick}
+            isSetting ={this.state.isSetting}
+             />
           <Tree />
-          <MirrorWrapper
+          <Wrapper
+            isSetting={this.state.isSetting}
             pad={this.state.pad}
             className="Viewer"
             />
@@ -44,4 +57,3 @@ const Viewer = React.createClass({
   })
 
 export default Viewer
-
