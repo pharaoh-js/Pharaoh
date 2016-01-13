@@ -24,17 +24,13 @@ const Viewer = React.createClass({
           position: 'relative',
           left:'0',
           top: '5px',
-          height:'625px',
+          height:'620px',
           boxShadow: '1px 1px 1px 1px gray',
           backgroundColor:'white',
         }
       }
   return (
         <div style={style.container}>
-          <TitleBar/>
-          <Tree />
-          <MirrorWrapper className="Viewer"/>
-          <StatusBar/>
           <TitleBar swap={ this.swapDoc } pad={this.state.pad}/>
           <Tree />
           <MirrorWrapper

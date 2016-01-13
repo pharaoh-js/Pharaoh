@@ -1,6 +1,5 @@
 import React from 'react'
 import InlineCss from 'react-inline-css'
-import FontAwesome from 'react-fontawesome'
 
 const TitleBar = React.createClass({
   render () {
@@ -33,4 +32,3 @@ const TitleBar = React.createClass({
 })
 
 export default TitleBar
-

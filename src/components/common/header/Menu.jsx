@@ -31,13 +31,12 @@ const Header = React.createClass({
           float: right;
           margin-right: 10px;
           }
-        & .header span{
+        & .Link{
           color:white;
           margin: 0px 15px;
           font-size:15px;
-          // font-family:monospace;
           }
-        & .header span:hover{
+        & .Link:hover{
           color:#0FB427;
           cursor: pointer;
           }
@@ -56,16 +55,15 @@ const Header = React.createClass({
                      <big>PHARAOH JS</big>
                      <small>king of the tutorial tools.</small>
                        <div>
-                         <span>
-                          <Link to="/home"></Link>
-                           Join a session</span>
-                         <span href="#">About</span>
-                         <span href="#">How to</span>
+                         <Link className="Link" to="/home">Join a session</Link>
+                         <Link className="Link" to="/team">Team</Link>
+                         <Link className="Link" to="/howto">How it works</Link>
                        </div>
                    </div>
                      <div className="setting-icon">
-                       <Link to="/settings"></Link>
-                       <img src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png" style={{width:'22px'}}></img>
+                       <Link to="/settings">
+                         <img src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png" style={{width:'22px'}}></img>
+                       </Link>
                      </div>
                </div>
        </InlineCss>
@@ -74,4 +72,3 @@ const Header = React.createClass({
 })
 
 export default Header
-
