@@ -18,7 +18,7 @@ const Landing = React.createClass({
               padding:0 10px;
             }
             & .header span {
-              font-size:14px;
+              font-size:18px;
               margin-right:20px;
             }
             & .header span input {

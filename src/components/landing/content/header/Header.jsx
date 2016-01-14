@@ -16,7 +16,7 @@ const Header = React.createClass({
               top:'8px'
                 }}></img>
               <div className="header-right">
-                  <span>Enter your URL here: <input type="text"></input>
+                  <span>Enter session code: <input type="text"></input>
                 </span>
                 <Link className="link" to={'/app'}>GO</Link>
               </div>
