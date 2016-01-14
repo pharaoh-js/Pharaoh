@@ -1,9 +1,9 @@
 import React from 'react'
 import InlineCss from "react-inline-css"
-import Tanner from './team/Tanner'
-import Adam from './team/Adam'
-import Zac from './team/Zac'
-import Josh from './team/Josh'
+import Tanner from './Tanner'
+import Adam from './Adam'
+import Zac from './Zac'
+import Josh from './Josh'
 
 
 const Team = React.createClass({

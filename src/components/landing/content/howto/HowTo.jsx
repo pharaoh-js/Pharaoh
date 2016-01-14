@@ -68,7 +68,7 @@ render (){
               Sed ullamcorper magna tellus, ut aliquet orci molestie vel. Quisque tempor tellus purus, ut eleifend eros porta sed. Vestibulum imperdiet suscipit placerat. Cras quis elit at lectus pulvinar rutrum. Donec facilisis ultricies quam et auctor. Praesent a tempor ligula, ac feugiat dolor
             </p>
             <div className="atom-container">
-              <img src="http://www.macupdate.com/images/icons256/53196.png" className="atom-icon"/>
+              <img src="src/shared/images/atom.png" className="atom-icon"/>
               <br/>
               <a href="https://atom.io/">Download Atom today, and get started.</a>
             </div>

@@ -1,8 +1,8 @@
 import React from 'react'
 import InlineCss from 'react-inline-css'
-import {ReactRouter, Link } from 'react-router'
-import HowTo from './content/HowTo'
-import Team from './content/Team'
+import HowTo from './content/howto/HowTo'
+import Team from './content/team/Team'
+import Header from './content/header/Header'
 
 const Landing = React.createClass({
   render () {
@@ -44,17 +44,7 @@ const Landing = React.createClass({
                `}>
         <div className="container">
           <div className="header">
-            <big>Pharaoh JS</big>
-            <img src="src/shared/images/pharaoh.png" style={{
-            width:'50px',
-            position:'relative',
-            top:'8px'
-          }}></img>
-            <div className="header-right">
-                <span>Enter your URL here: <input type="text"></input>
-              </span>
-              <Link className="link" to={'/app'}>GO</Link>
-            </div>
+            <Header />
         </div>
           <HowTo />
           <Team />
