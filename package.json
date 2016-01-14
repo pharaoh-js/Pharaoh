@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "npm-start",
     "start": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
     "lint": "node node_modules/.bin/eslint -c .eslintrc src/**"
   },
