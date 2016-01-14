@@ -10,7 +10,6 @@ const Landing = React.createClass({
       <InlineCss stylesheet={`
             & .header {
               border-bottom: 1px solid black;
-              padding:12px 0;
               background-color:#152329;
               color: #0FB427;
             }
@@ -27,20 +26,30 @@ const Landing = React.createClass({
               width:200px;
             }
             & .header-right {
-              margin:40px 10px;
+              margin:30px 10px;
               float:right;
             }
             & .link {
-              color: #0FB427;
+              color:black;
               background-color:whitesmoke;
               padding:5px;
               border-radius:3px;
+              text-decoration: none;
+            }
+            & .link:hover {
+              color: #0FB427;
+              padding:3px;
+              border:2px solid #0FB427;
             }
                `}>
         <div className="container">
           <div className="header">
             <big>Pharaoh JS</big>
-            <img src="src/shared/images/pharaoh.png" style={{width:'50px'}}></img>
+            <img src="src/shared/images/pharaoh.png" style={{
+            width:'50px',
+            position:'relative',
+            top:'8px'
+          }}></img>
             <div className="header-right">
                 <span>Enter your URL here: <input type="text"></input>
               </span>
