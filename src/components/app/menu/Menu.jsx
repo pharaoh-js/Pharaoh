@@ -14,13 +14,6 @@ const Header = React.createClass({
           padding:10px 0 7px 0;
           height: 20px;
           }
-          & .header big {
-          color:white;
-          font-size: 25px;
-          position: absolute;
-          left: 10px;
-          top: 6px;
-          }
         & .header small {
             position: absolute;
             left: 190px;
@@ -40,15 +33,25 @@ const Header = React.createClass({
           color:#0FB427;
           cursor: pointer;
           }
+        & .title {
+          color:white;
+          font-size: 25px;
+          position: absolute;
+          left: 10px;
+          top: 6px;
+          text-decoration: none;
+        }
+        & .title:hover {
+          color:#0FB427;
+          cursor: pointer;
+        }
                `}>
           <div className="header">
             <div>
-              <big>PHARAOH JS</big>
+              <Link className="title" to={"/"}>PHARAOH JS</Link>
               <small>king of the tutorial tools.</small>
               <div>
-                <span className="link">Join a session</span>
-                <span className="link">Team</span>
-                <span className="link">How it works</span>
+                <span className="link">Start a new session</span>
               </div>
             </div>
           </div> < /InlineCss>
