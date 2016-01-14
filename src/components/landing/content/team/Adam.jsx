@@ -15,7 +15,7 @@ const Adam = React.createClass({
                   I am young Full Stack dev excited about learning more. MEAN stack, React, and CSS.
                 </p>
                     <li>Github: <a className="links" href="https://github.com/romines">here</a></li>
-                    <li>Linkedin: <a className="links"  href="">here</a></li>
+                    <li>Linkedin: <a className="links"  href="https://www.linkedin.com/in/adamromines">here</a></li>
                     <li>Portfolio Site: <a className="links"  href="">here</a></li>
             </InlineCss>
         )
