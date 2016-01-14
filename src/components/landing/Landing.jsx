@@ -1,6 +1,8 @@
 import React from 'react'
 import InlineCss from 'react-inline-css'
 import {ReactRouter, Link } from 'react-router'
+import HowTo from './content/HowTo'
+import Team from './content/Team'
 
 const Landing = React.createClass({
   render () {
@@ -8,60 +10,45 @@ const Landing = React.createClass({
       <InlineCss stylesheet={`
             & .header {
               border-bottom: 1px solid black;
-              padding:20px 0;
+              padding:12px 0;
+              background-color:#152329;
+              color: #0FB427;
             }
             & .header big {
-              font-size:24px;
+              font-size:34px;
+              padding:0 10px;
             }
             & .header span {
               font-size:14px;
-              margin-left:250px;
+              margin-right:20px;
             }
-            & .howto {
-              border:1px solid black;
+            & .header span input {
               border-radius:3px;
-              width:50%;
-              height: 300px;
-              margin:10px;
+              width:200px;
             }
-            & .team {
-              border: 1px solid black;
-              border-radius:3px;
-              display:flex;
+            & .header-right {
+              margin:40px 10px;
+              float:right;
             }
-            & .card {
-              border: 1px solid black;
+            & .link {
+              color: #0FB427;
+              background-color:whitesmoke;
+              padding:5px;
               border-radius:3px;
-              justify-content:space-between;
             }
                `}>
         <div className="container">
           <div className="header">
             <big>Pharaoh JS</big>
-              <img src="src/shared/images/pharaoh.png" style={{
-              width:'50px',
-              margin:'0 10px',
-              position:'absolute',
-              right:'0',
-              top:'8px'
-            }}></img>
-            <span>Enter your URL here: <input type="text"></input>
-            <Link to={'/app'}>GO</Link>
-            </span>
-        </div>
-          <div className="howto">
-            <div style={{borderBottom:'1px solid black', textAlign:'center'}}>
-              HOW-TO
+            <img src="src/shared/images/pharaoh.png" style={{width:'50px'}}></img>
+            <div className="header-right">
+                <span>Enter your URL here: <input type="text"></input>
+              </span>
+              <Link className="link" to={'/app'}>GO</Link>
             </div>
-            blah blah blah
-          </div>
-          <div className="team">
-            <h3>Team Pharaoh JS</h3>
-             <div className="card">Adam</div>
-            <div className="card">Tanner</div>
-            <div className="card">Zac</div>
-            <div className="card">Josh</div>
-          </div>
+        </div>
+          <HowTo />
+          <Team />
         </div>
       </InlineCss>
     )
