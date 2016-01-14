@@ -1,8 +1,9 @@
 import React from 'react'
 import InlineCss from 'react-inline-css'
-import HowTo from './content/howto/HowTo'
-import Team from './content/team/Team'
-import Header from './content/header/Header'
+import Header from './header/Header'
+import HowTo from './howto/HowTo'
+import Team from './team/Team'
+import Stack from './stack/Stack'
 
 const Landing = React.createClass({
   render () {
@@ -48,6 +49,7 @@ const Landing = React.createClass({
         </div>
           <HowTo />
           <Team />
+          <Stack />
         </div>
       </InlineCss>
     )

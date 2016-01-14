@@ -35,21 +35,6 @@ render (){
             margin: 15px;
             border-bottom:1px solid black;
         }
-        & .atom-icon {
-            width: 100px;
-        }
-        & .atom-container {
-            text-align:center;
-            font-size: 18px;
-            padding:10px;
-            margin-top:0;
-        }
-         & .atom-container a {
-            color: black;
-        }
-          & .atom-container a:hover {
-            color: #0FB427;
-        }
         `}>
           <div className="container">
             <div className="header">
@@ -67,14 +52,7 @@ render (){
             <p>
               Sed ullamcorper magna tellus, ut aliquet orci molestie vel. Quisque tempor tellus purus, ut eleifend eros porta sed. Vestibulum imperdiet suscipit placerat. Cras quis elit at lectus pulvinar rutrum. Donec facilisis ultricies quam et auctor. Praesent a tempor ligula, ac feugiat dolor
             </p>
-            <div className="atom-container">
-              <img src="src/shared/images/firebase.png" className="atom-icon"></img>
-              <img src="src/shared/images/unnamed.png" style={{width:'250px'}}></img>
-              <img src="src/shared/images/react-opti.png" style={{width:'250px'}}></img>
-              <img src="src/shared/images/atom.png" className="atom-icon"/>
-              <br/>
-              <a href="https://atom.io/">Download Atom today and get started.</a>
-            </div>
+
           </div>
         </InlineCss>
     )

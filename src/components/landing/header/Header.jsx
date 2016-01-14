@@ -13,7 +13,7 @@ const Header = React.createClass({
                 style={{
               width:'50px',
               position:'relative',
-              top:'8px'
+              top:'6px'
                 }}></img>
               <div className="header-right">
                   <span>Enter session code: <input type="text"></input>

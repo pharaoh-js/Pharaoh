@@ -54,7 +54,8 @@ const Header = React.createClass({
                 <span className="link">Start a new session</span>
               </div>
             </div>
-          </div> < /InlineCss>
+          </div>
+      < /InlineCss>
     )
   }
 })
