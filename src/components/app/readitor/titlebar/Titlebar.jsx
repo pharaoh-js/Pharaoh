@@ -21,11 +21,8 @@ const TitleBar = React.createClass({
             z-index:999;
         }
         & .setting-icon {
-            // position:fixed;
-            // right: 27px;
-            // top: 52px;
-            margin:4px;
             float:right;
+            margin:4px;
             z-index:9999;
           }
           & .setting-icon:hover {

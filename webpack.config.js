@@ -5,14 +5,14 @@ var React   = require('react')
 module.exports = {
   devtool: 'cheap-module-eval-source-map'
 , entry: [
-    'webpack-dev-server/client?http://0.0.0.0:9090'
+    'webpack-dev-server/client?http://127.0.0.1:9090'
   , 'webpack/hot/only-dev-server'
   , './src/index.jsx'
   ],
   output: {
     filename: 'bundle.js'
   , sourceMapFilename: "[file].map"
-  , publicPath: 'http://0.0.0.0:9090/public'
+  , publicPath: 'http://127.0.0.1:9090/public'
   },
   module: {
     loaders: [{
