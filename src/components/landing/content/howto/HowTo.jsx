@@ -16,7 +16,7 @@ render (){
         & .header {
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
-            padding-top:5px;
+            padding-top:2px;
             background-color: #152329;
             color: #0FB427;
             border-bottom: 2px solid black;
@@ -53,7 +53,7 @@ render (){
         `}>
           <div className="container">
             <div className="header">
-              <h2>How to use/About Pharaoh JS</h2>
+              <h2>How to use/About Pharaoh</h2>
             </div>
             <br/>
             <big>About:</big>
@@ -68,9 +68,12 @@ render (){
               Sed ullamcorper magna tellus, ut aliquet orci molestie vel. Quisque tempor tellus purus, ut eleifend eros porta sed. Vestibulum imperdiet suscipit placerat. Cras quis elit at lectus pulvinar rutrum. Donec facilisis ultricies quam et auctor. Praesent a tempor ligula, ac feugiat dolor
             </p>
             <div className="atom-container">
+              <img src="src/shared/images/firebase.png" className="atom-icon"></img>
+              <img src="src/shared/images/unnamed.png" style={{width:'250px'}}></img>
+              <img src="src/shared/images/react-opti.png" style={{width:'250px'}}></img>
               <img src="src/shared/images/atom.png" className="atom-icon"/>
               <br/>
-              <a href="https://atom.io/">Download Atom today, and get started.</a>
+              <a href="https://atom.io/">Download Atom today and get started.</a>
             </div>
           </div>
         </InlineCss>

@@ -48,7 +48,7 @@ const Header = React.createClass({
                `}>
           <div className="header">
             <div>
-              <Link className="title" to={"/"}>PHARAOH JS</Link>
+              <Link className="title" to={"/"}>PHARAOH</Link>
               <small>king of the tutorial tools.</small>
               <div>
                 <span className="link">Start a new session</span>

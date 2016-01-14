@@ -8,7 +8,7 @@ const Header = React.createClass({
             <InlineCss stylesheet={`
 
             `}>
-              <big>Pharaoh JS</big>
+              <big>Pharaoh</big>
               <img src="src/shared/images/pharaoh.png"
                 style={{
               width:'50px',

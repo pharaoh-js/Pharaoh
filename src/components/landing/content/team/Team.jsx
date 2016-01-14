@@ -60,7 +60,7 @@ const Team = React.createClass({
             }
             `}>
               <div className="container">
-                <a className="team-title" href="https://github.com/pharaoh-js">Team Pharaoh JS</a>
+                <a className="team-title" href="https://github.com/pharaoh-js">Team Pharaoh</a>
                 <div className="team">
                     <div className="card">
                       <Zac />
