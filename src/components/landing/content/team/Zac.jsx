@@ -8,7 +8,7 @@ const Zac = React.createClass({
 
             `}>
                 <div>
-                    <img src="https://www.junkfreejune.org.nz/themes/base/production/images/default-profile.png" className="card-pic"/>
+                    <img src="https://s3-us-west-1.amazonaws.com/devepprofiles%2Fzac%40zacanger.com/11188319_10152898699796446_2884929989969112153_n.jpg" className="card-pic"/>
                 </div>
                 <big>Zac Anger</big>
                 <p>
@@ -16,10 +16,11 @@ const Zac = React.createClass({
                 </p>
                     <li>Github: <a className="links" href="https://github.com/zacanger">here</a></li>
                     <li>Linkedin: <a className="links"  href="https://www.linkedin.com/in/zacanger">here</a></li>
-                    <li>Portfolio Site: <a className="links"  href="">here</a></li>
+                    <li>Portfolio Site: <a className="links" href="http://zacanger.com">here</a></li>
             </InlineCss>
         )
     }
 })
 
 export default Zac
+
