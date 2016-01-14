@@ -4,5 +4,9 @@ We're a group of students at [DevMountain](https://github.com/devmountain), buil
 
 Well, that's what we imagined, because right now there's a ton of tooling around Javascript development, but not nearly enough tools for teaching it. We're starting with a React-based student app and a package for one of the most popular editors on the market. We hope to build this into something pretty awesome, because no one should have to use JSBin, Github, and Slack, just to get through one lecture.
 
-For now, please check out our code. PRs welcome.
+This is the front end for our tool, built in React, using Firepad. To get started, `git clone
+https://github.com/pharaoh-js/pharaoh.git`, `cd pharaoh`, `npm i`,  and `npm start`. If you have problems with
+webpack-dev-server's process not dying on `ctrl+c`, use `npm run go` instead.
+
+All PRs welcome!
 
