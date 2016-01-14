@@ -8,6 +8,21 @@ const Landing = React.createClass({
       <InlineCss stylesheet={`
             & .header {
               border-bottom: 1px solid black;
+              padding:20px 0;
+            }
+            & .header big {
+              font-size:24px;
+            }
+            & .header span {
+              font-size:14px;
+              margin-left:250px;
+            }
+            & .howto {
+              border:1px solid black;
+              border-radius:3px;
+              width:50%;
+              height: 300px;
+              margin:10px;
             }
             & .team {
               border: 1px solid black;
@@ -22,18 +37,27 @@ const Landing = React.createClass({
                `}>
         <div className="container">
           <div className="header">
-            <h2>Pharaoh JS
-              <img src="src/shared/images/pharaoh.png" style={{width:'50px'}}></img>
-            </h2>
+            <big>Pharaoh JS</big>
+              <img src="src/shared/images/pharaoh.png" style={{
+              width:'50px',
+              margin:'0 10px',
+              position:'absolute',
+              right:'0',
+              top:'8px'
+            }}></img>
+            <span>Enter your URL here: <input type="text"></input>
+            <Link to={'/app'}>GO</Link>
+            </span>
         </div>
-          <span>Enter your URL here: <input type="text"></input></span>
-          <Link to={'/app'}>GO</Link>
           <div className="howto">
-            HOW-TO
-
+            <div style={{borderBottom:'1px solid black', textAlign:'center'}}>
+              HOW-TO
+            </div>
+            blah blah blah
           </div>
           <div className="team">
-            <div className="card">Adam</div>
+            <h3>Team Pharaoh JS</h3>
+             <div className="card">Adam</div>
             <div className="card">Tanner</div>
             <div className="card">Zac</div>
             <div className="card">Josh</div>
