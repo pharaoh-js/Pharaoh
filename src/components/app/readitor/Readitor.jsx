@@ -18,10 +18,10 @@ const Viewer = React.createClass({
   showSettings () {
     this.setState({ isSetting: true });
     console.log(this.state.isSetting);
-    document.addEventListener("click", this.hideSettings.bind(this));
+    document.addEventListener("click", this.hideSettings);
   },
   hideSettings () {
-    document.removeEventListener("click", this.hideSettings.bind(this));
+    document.removeEventListener("click", this.hideSettings);
     this.setState({isSetting: false});
     console.log(this.state.isSetting);
   },
