@@ -11,7 +11,7 @@ const Viewer = React.createClass({
   },
   getInitialState () {
     return {
-      pad: 'test3',
+      pad: 'default',
       isSetting: false
     }
   },

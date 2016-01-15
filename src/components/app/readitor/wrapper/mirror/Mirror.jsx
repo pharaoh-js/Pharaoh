@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import InlineCss from 'react-inline-css'
 
-const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
+const BASEREF = 'https://pharaohjs.firebaseio.com/session/projectKey/'
 
-const Mirror = React.createClass({
+const Mirror = React.createClass({ 
   makeFirePad (subRef) {
     let fpRef = new Firebase(BASEREF + subRef);
     let codeMirror = CodeMirror(document.getElementById('pad'), {
