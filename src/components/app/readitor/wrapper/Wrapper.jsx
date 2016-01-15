@@ -5,12 +5,12 @@ import Settings from './settings/Settings'
 
 const Wrapper = React.createClass({
   render () {
-    const mirror =   <Mirror pad={this.props.pad} />;
-    const settings = <Settings />;
-    const content = this.props.isSetting ? settings: mirror
+    let mirror =   <Mirror pad={this.props.pad} />;
+    let settings = this.props.isSetting ? <Settings /> : null
     return (
       <div>
-        {content}
+        {mirror}
+        {settings}
       </div>
     )
   }

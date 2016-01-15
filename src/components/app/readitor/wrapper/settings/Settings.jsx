@@ -1,6 +1,5 @@
 import React from 'react'
 import InlineCss from 'react-inline-css'
-import Header from './header/Header'
 import Options from './options/Options'
 
 const Settings = React.createClass({
@@ -8,18 +7,19 @@ const Settings = React.createClass({
     return (
       <InlineCss stylesheet={`
           & .settings {
+            z-index: 5;
             position: absolute;
-            bottom:0;
-            right:0;
-            min-height: 350px;
-            height:95%;
-            width:86.75%;
+            top: 0;
+            right: 0;
+            min-height: 250px;
+            height:75%;
+            width:22%;
             background-color:rgb(225, 225, 225);
           }
+
                `}>
               <div className="settings">
-                <Header />
-                  <Options />
+                <Options />
               </div>
        </InlineCss>
     )

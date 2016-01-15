@@ -15,11 +15,15 @@ const Viewer = React.createClass({
       isSetting: false
     }
   },
-  toggleSettings () {
-    this.setState({ isSetting: !this.state.isSetting })
+  showSettings () {
+    this.setState({ isSetting: true });
+    console.log(this.state.isSetting);
+    document.addEventListener("click", this.hideSettings.bind(this));
   },
-  handleSettingsClick () {
-    this.toggleSettings();
+  hideSettings () {
+    document.removeEventListener("click", this.hideSettings.bind(this));
+    this.setState({isSetting: false});
+    console.log(this.state.isSetting);
   },
   render () {
       let style = {
@@ -40,8 +44,9 @@ const Viewer = React.createClass({
         <div style={style.container}>
           <TitleBar
             swap={ this.swapDoc }
-            pad={this.state.pad}
-            handleClick={this.handleSettingsClick}
+            pad={ this.state.pad }
+            showSettings={this.showSettings}
+            hideSettings={this.hideSettings}
             isSetting ={this.state.isSetting}
              />
           <Tree />
