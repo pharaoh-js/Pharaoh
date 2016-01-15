@@ -2,7 +2,7 @@ import React from 'react'
 import Wrapper from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
 import TitleBar from './titlebar/Titlebar'
-import Tree from './tree/Tree'
+import Tree from './tree/FileTree.jsx'
 
 const Viewer = React.createClass({
 
@@ -44,7 +44,7 @@ const Viewer = React.createClass({
             handleClick={this.handleSettingsClick}
             isSetting ={this.state.isSetting}
              />
-          <Tree />
+          <Tree swapDoc={this.swapDoc} />
           <Wrapper
             isSetting={this.state.isSetting}
             pad={this.state.pad}
