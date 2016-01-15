@@ -2,6 +2,7 @@ import React from 'react';
 import Folder from './Folder.jsx';
 import Firebase from 'firebase';
 import _ from 'lodash';
+import InlineCss from 'react-inline-css';
 
 class FileTree extends React.Component {
   constructor(props){
@@ -50,10 +51,30 @@ class FileTree extends React.Component {
 
   render(){
     return (
-      <div>
-        <h1>{this.state.projectName}</h1>
-        <Folder folder={this.state.projectDirectory} handleToggle={this.handleToggle} isOpen={this.state.isOpen} root={true} swapDoc={this.props.swapDoc} />
-      </div>
+      <InlineCss stylesheet={`
+        & .file-browser {
+        position: absolute;
+        bottom:0;
+        left:0;
+        width:13%;
+        border-right: 2px solid #0FB427;
+        height:100%;
+        background-color:#37383A;
+        color: white;
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+      }
+        & .file-header {
+        border-bottom: 2px solid #0FB427;
+        text-align:center;
+        padding:4px 0px;
+      }
+     `}>
+        <div className="file-browser">
+          <h2 className="file-header">{this.state.projectName}</h2>
+          <Folder folder={this.state.projectDirectory} handleToggle={this.handleToggle} isOpen={this.state.isOpen} root={true} swapDoc={this.props.swapDoc} />
+        </div>
+      </InlineCss>
     )
   }
 }
