@@ -8,12 +8,12 @@ const Mirror = React.createClass({
     let fpRef = new Firebase(BASEREF + subRef);
     let codeMirror = CodeMirror(document.getElementById('pad'), {
       lineWrapping: true
-    ,  mode             : 'javascript'
+    , mode             : 'javascript'
+    , theme             : 'abcdef'
     , lineNumbers       : true
     // , matchBrackets     : true
     // , lineWrapping      : true
     // , placeholder       : 'function foo(bar){\n  return bar\n}\n'
-    // , theme             : 'abcdef'
     // , keyMap            : 'sublime'
     // , autoCloseBrackets : true
     // , autoCloseTags     : true
