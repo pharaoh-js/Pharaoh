@@ -24,7 +24,7 @@ const Folders = React.createClass({
                `}>
                 <div>
                   <div className="files">
-                    <img src="http://demo.dnnrox.com/Portals/_default/Skins/Flatna2/img/icons/folder@2x.png" style={{width:'13px',margin:'0 5px 0 0'}}></img>
+                    <img src="src/shared/images/folder@2x.png" style={{width:'13px',margin:'0 5px 0 0'}}></img>
                     Folder
                   </div>
                 </div>

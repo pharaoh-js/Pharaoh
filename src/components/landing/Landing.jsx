@@ -1,6 +1,9 @@
 import React from 'react'
 import InlineCss from 'react-inline-css'
-import {ReactRouter, Link } from 'react-router'
+import Header from './header/Header'
+import HowTo from './howto/HowTo'
+import Team from './team/Team'
+import Stack from './stack/Stack'
 
 const Landing = React.createClass({
   render () {
@@ -8,34 +11,45 @@ const Landing = React.createClass({
       <InlineCss stylesheet={`
             & .header {
               border-bottom: 1px solid black;
+              background-color:#152329;
+              color: #0FB427;
             }
-            & .team {
-              border: 1px solid black;
-              border-radius:3px;
-              display:flex;
+            & .header big {
+              font-size:34px;
+              padding:0 10px;
             }
-            & .card {
-              border: 1px solid black;
+            & .header span {
+              font-size:18px;
+              margin-right:20px;
+            }
+            & .header span input {
               border-radius:3px;
-              justify-content:space-between;
+              width:200px;
+            }
+            & .header-right {
+              margin:30px 10px;
+              float:right;
+            }
+            & .link {
+              color:black;
+              background-color:whitesmoke;
+              padding:5px;
+              border-radius:3px;
+              text-decoration: none;
+            }
+            & .link:hover {
+              color: #0FB427;
+              padding:3px;
+              border:2px solid #0FB427;
             }
                `}>
         <div className="container">
           <div className="header">
-            <h2>Pharaoh JS</h2>
-          </div>
-          <span>Enter your URL here: <input type="text"></input></span>
-          <Link to={'/app'}>GO</Link>
-          <div className="howto">
-            HOW-TO
-
-          </div>
-          <div className="team">
-            <div className="card">Adam</div>
-            <div className="card">Tanner</div>
-            <div className="card">Zac</div>
-            <div className="card">Josh</div>
-          </div>
+            <Header />
+        </div>
+          <HowTo />
+          <Team />
+          <Stack />
         </div>
       </InlineCss>
     )

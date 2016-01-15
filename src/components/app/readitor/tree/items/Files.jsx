@@ -21,7 +21,7 @@ const Files = React.createClass({
                `}>
                 <div>
                   <div className="subFile">
-                    <img src="http://4vector.com/i/free-vector-text-file-icon_101919_Text_File_Icon.png" style={{width:'15px',margin:'0 5px 0 0'}}></img>
+                    <img src="src/shared/images/file.png" style={{width:'15px',margin:'0 5px 0 0'}}></img>
                      subFile.js
                   </div>
                 </div>
