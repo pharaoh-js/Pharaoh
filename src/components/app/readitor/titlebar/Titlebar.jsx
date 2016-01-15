@@ -3,7 +3,7 @@ import InlineCss from 'react-inline-css'
 
 const TitleBar = React.createClass({
   render () {
-    const icon = this.props.isSetting ? 'http://www.interparfums.fr/en/img/close_icon.png' : 'https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png'
+    const icon = this.props.isSetting ? 'src/shared/images/close_icon.png' : 'src/shared/images/settings-icon.png'
     return (
       <InlineCss stylesheet={`
         & .header-bar {

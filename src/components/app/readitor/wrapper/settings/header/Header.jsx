@@ -17,7 +17,7 @@ const Header = React.createClass({
                `}>
                   <div className="header">
                     <div>Settings
-                      <img src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png"
+                      <img src="src/shared/images/settings-icon.png"
                          style={{
                       width:'22px',
                       marginLeft:'3px',
