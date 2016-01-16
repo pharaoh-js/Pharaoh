@@ -14,9 +14,8 @@ const Options = React.createClass({
          <div className="container">
            <h3>Themes</h3>
                  <div className="option">
-                     <span>
-                       blah:
-                       <input type="checkbox"></input>
+                     <span onclick={this.props.updateSettings.bind(null, 'theme', 'acbdef')}>
+                       abcdef
                      </span>
                 </div>
                 <div className="option">

@@ -4,6 +4,18 @@ import StatusBar from './statusbar/Statusbar'
 import TitleBar from './titlebar/Titlebar'
 import Tree from './tree/Tree'
 
+const cmConfig = {
+    lineWrapping      : true
+  , mode              : 'javascript'
+  , theme             : 'default'
+  , lineNumbers       : true
+  , matchBrackets     : true
+  , lineWrapping      : true
+  // , keyMap            : 'sublime'
+  , autoCloseBrackets : true
+  , autoCloseTags     : true
+  }
+
 const Viewer = React.createClass({
 
   swapDoc (pad) {
@@ -11,19 +23,24 @@ const Viewer = React.createClass({
   },
   getInitialState () {
     return {
-      pad: 'test3',
-      isSetting: false
+        pad: 'test3'
+      , isSetting: false
+      , cmConfig : cmConfig
     }
   },
   showSettings () {
     this.setState({ isSetting: true });
-    console.log(this.state.isSetting);
     document.addEventListener("click", this.hideSettings);
   },
   hideSettings () {
     document.removeEventListener("click", this.hideSettings);
     this.setState({isSetting: false});
-    console.log(this.state.isSetting);
+  },
+  updateSettings (prop, val) {
+    console.log('updateSettings: ', prop, val);
+    let config = this.state.cmConfig
+    config[prop] = val;
+    setState({cmConfig:config})
   },
   render () {
       let style = {
@@ -53,6 +70,8 @@ const Viewer = React.createClass({
           <Wrapper
             isSetting={this.state.isSetting}
             pad={this.state.pad}
+            config={this.state.cmConfig}
+            updateSettings={this.updateSettings}
             className="Viewer"
             />
           <StatusBar />

@@ -19,7 +19,7 @@ const Settings = React.createClass({
 
                `}>
               <div className="settings">
-                <Options />
+                <Options updateSettings={this.props.updateSettings} />
               </div>
        </InlineCss>
     )
