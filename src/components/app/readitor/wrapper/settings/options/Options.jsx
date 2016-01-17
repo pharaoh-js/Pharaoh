@@ -1,6 +1,6 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from 'react-inline-css'
-const stylesheet = require('!css!less!./options.less').toString();
+const stylesheet = require('!css!less!./options.less').toString()
 
 const Options = React.createClass({
   render () {
@@ -47,3 +47,4 @@ const Options = React.createClass({
 })
 
 export default Options
+

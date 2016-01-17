@@ -1,8 +1,8 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from 'react-inline-css'
-import Header from './header/Header'
-import Options from './options/Options'
-const stylesheet = require('!css!less!./settings.less').toString();
+import Header    from './header/Header'
+import Options   from './options/Options'
+const stylesheet = require('!css!less!./settings.less').toString()
 
 const Settings = React.createClass({
   render() {
@@ -18,3 +18,4 @@ const Settings = React.createClass({
 })
 
 export default Settings
+

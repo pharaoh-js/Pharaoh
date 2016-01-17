@@ -1,6 +1,6 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from 'react-inline-css'
-const stylesheet = require('!css!less!./folders.less').toString();
+const stylesheet = require('!css!less!./folders.less').toString()
 
 const Folders = React.createClass({
   render() {
@@ -12,7 +12,7 @@ const Folders = React.createClass({
               width: '13px',
               margin: '0 5px 0 0'
             }}></img>
-            Folder
+            Directory
           </div>
         </div>
       </InlineCss>
@@ -21,3 +21,4 @@ const Folders = React.createClass({
 })
 
 export default Folders
+

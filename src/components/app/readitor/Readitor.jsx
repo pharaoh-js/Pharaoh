@@ -1,10 +1,10 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from "react-inline-css"
-import Wrapper from './wrapper/Wrapper'
+import Wrapper   from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
-import TitleBar from './titlebar/Titlebar'
-import Tree from './tree/Tree'
-const stylesheet = require('!css!less!./readitor.less').toString();
+import TitleBar  from './titlebar/Titlebar'
+import Tree      from './tree/Tree'
+const stylesheet = require('!css!less!./readitor.less').toString()
 
 const Viewer = React.createClass({
 
@@ -47,3 +47,4 @@ const Viewer = React.createClass({
   })
 
 export default Viewer
+

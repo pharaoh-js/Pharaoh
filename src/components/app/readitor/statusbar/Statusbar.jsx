@@ -1,6 +1,6 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from 'react-inline-css'
-const stylesheet = require('!css!less!./statusbar.less').toString();
+const stylesheet = require('!css!less!./statusbar.less').toString()
 
 const StatusBar = React.createClass({
   render() {
@@ -15,3 +15,4 @@ const StatusBar = React.createClass({
 })
 
 export default StatusBar
+

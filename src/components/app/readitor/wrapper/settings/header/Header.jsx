@@ -1,6 +1,6 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from 'react-inline-css'
-const stylesheet = require('!css!less!./header.less').toString();
+const stylesheet = require('!css!less!./header.less').toString()
 
 const Header = React.createClass({
   render() {
@@ -21,3 +21,4 @@ const Header = React.createClass({
 })
 
 export default Header
+
