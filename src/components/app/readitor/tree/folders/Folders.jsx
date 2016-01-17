@@ -8,7 +8,7 @@ const Folders = React.createClass({
       <InlineCss componentName="Folders" stylesheet={stylesheet}>
         <div>
           <div className="files">
-            <img src="src/shared/images/folder@2x.png" style={{
+            <img src="src/shared/images/folder2x.png" style={{
               width: '13px',
               margin: '0 5px 0 0'
             }}></img>

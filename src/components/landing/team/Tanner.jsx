@@ -7,7 +7,7 @@ const Tanner = React.createClass({
     return (
       <InlineCss componentName="Card" stylesheet={stylesheet}>
         <div>
-          <img src="src/shared/images/Porter,-Jeremy-01s.jpg" className="card-pic"/>
+          <img src="src/shared/images/tanner.jpg" className="card-pic"/>
         </div>
         <big>J. Tanner Porter</big>
         <p>
