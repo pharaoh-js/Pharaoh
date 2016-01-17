@@ -1,7 +1,7 @@
-import React from 'react'
-import InlineCss from "react-inline-css"
+import React                from 'react'
+import InlineCss            from "react-inline-css"
 import {ReactRouter, Link } from 'react-router'
-const stylesheet = require('!css!less!./header.less').toString();
+const stylesheet = require('!css!less!./header.less').toString()
 
 const Header = React.createClass({
   render() {
@@ -25,3 +25,4 @@ const Header = React.createClass({
 })
 
 export default Header
+

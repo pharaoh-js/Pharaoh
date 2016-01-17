@@ -1,6 +1,6 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from "react-inline-css"
-const stylesheet = require('!css!less!./card.less').toString();
+const stylesheet = require('!css!less!./card.less').toString()
 
 const Adam = React.createClass({
   render() {
@@ -13,18 +13,19 @@ const Adam = React.createClass({
         <p>
           I am young Full Stack dev excited about learning more. MEAN stack, React, and CSS.
         </p>
-        <li>Github:
-          <a className="links" href="https://github.com/romines">here</a>
+         <li>
+          <a className="links" href="">WWW</a>
         </li>
-        <li>Linkedin:
-          <a className="links" href="https://www.linkedin.com/in/adamromines">here</a>
+    <li>
+          <a className="links" href="https://github.com/romines">Github</a>
         </li>
-        <li>Portfolio Site:
-          <a className="links" href="">here</a>
+        <li>
+          <a className="links" href="https://www.linkedin.com/in/adamromines">LinkedIn</a>
         </li>
-      </InlineCss>
+         </InlineCss>
     )
   }
 })
 
 export default Adam
+
