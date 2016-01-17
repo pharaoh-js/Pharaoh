@@ -30,17 +30,16 @@ const Viewer = React.createClass({
   },
   showSettings () {
     this.setState({ isSetting: true });
-    document.addEventListener("click", this.hideSettings);
+    // document.addEventListener("click", this.hideSettings);
   },
   hideSettings () {
-    document.removeEventListener("click", this.hideSettings);
+    // document.removeEventListener("click", this.hideSettings);
     this.setState({isSetting: false});
   },
   updateSettings (prop, val) {
-    console.log('updateSettings: ', prop, val);
     let config = this.state.cmConfig
-    config[prop] = val;
-    setState({cmConfig:config})
+    config.theme = val;
+    this.setState({ cmConfig:config })
   },
   render () {
       let style = {

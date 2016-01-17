@@ -14,7 +14,7 @@ const Options = React.createClass({
          <div className="container">
            <h3>Themes</h3>
                  <div className="option">
-                     <span onclick={this.props.updateSettings.bind(null, 'theme', 'acbdef')}>
+                     <span onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
                        abcdef
                      </span>
                 </div>
