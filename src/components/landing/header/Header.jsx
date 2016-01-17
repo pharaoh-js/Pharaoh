@@ -17,7 +17,7 @@ const Header = React.createClass({
           <span>Enter session code:
             <input type="text"></input>
           </span>
-          <Link className="link" to={'/app'}>GO</Link>
+          <Link className="link" to={'/app'}>Go!</Link>
         </div>
       </InlineCss>
     )
