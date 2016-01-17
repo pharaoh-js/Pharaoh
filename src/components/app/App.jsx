@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import Readitor from './readitor/Readitor'
-import Menu from './menu/Menu'
+import Readitor             from './readitor/Readitor'
+import Menu                 from './menu/Menu'
 
 const App = React.createClass({
   render () {
@@ -14,3 +14,4 @@ const App = React.createClass({
 })
 
 export default App
+

@@ -1,8 +1,10 @@
-import React from 'react'
-import Wrapper from './wrapper/Wrapper'
+import React     from 'react'
+import InlineCss from "react-inline-css"
+import Wrapper   from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
-import TitleBar from './titlebar/Titlebar'
-import Tree from './tree/Tree'
+import TitleBar  from './titlebar/Titlebar'
+import Tree      from './tree/Tree'
+const stylesheet = require('!css!less!./readitor.less').toString()
 
 const Viewer = React.createClass({
 
@@ -22,38 +24,27 @@ const Viewer = React.createClass({
     this.toggleSettings();
   },
   render () {
-      let style = {
-        container: {
-          borderRadius:'3px',
-          margin: '5px 0 0 10px',
-          padding:'10px',
-          width:'96%',
-          position: 'relative',
-          left:'0',
-          top: '5px',
-          height:'620px',
-          boxShadow: '1px 1px 1px 1px gray',
-          backgroundColor:'white',
-        }
-      }
-  return (
-        <div style={style.container}>
-          <TitleBar
-            swap={ this.swapDoc }
-            pad={this.state.pad}
-            handleClick={this.handleSettingsClick}
-            isSetting ={this.state.isSetting}
-             />
-          <Tree />
-          <Wrapper
-            isSetting={this.state.isSetting}
-            pad={this.state.pad}
-            className="Viewer"
-            />
-          <StatusBar />
-        </div>
+    return (
+          <InlineCss componentName="Readitor" stylesheet={stylesheet}>
+            <div className="container">
+              <TitleBar
+                swap={ this.swapDoc }
+                pad={this.state.pad}
+                handleClick={this.handleSettingsClick}
+                isSetting ={this.state.isSetting}
+              />
+              <Tree />
+              <Wrapper
+                isSetting={this.state.isSetting}
+                pad={this.state.pad}
+                className="Viewer"
+              />
+              <StatusBar />
+            </div>
+          </InlineCss>
         )
-      }
+    }
   })
 
 export default Viewer
+

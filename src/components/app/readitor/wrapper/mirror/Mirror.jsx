@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import InlineCss from 'react-inline-css'
 
 const BASEREF = 'https://pharaoh-sands.firebaseio.com/'
 
@@ -40,3 +39,4 @@ const Mirror = React.createClass({
 })
 
 export default Mirror
+

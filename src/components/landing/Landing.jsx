@@ -1,9 +1,9 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from 'react-inline-css'
-import Header from './header/Header'
-import HowTo from './howto/HowTo'
-import Team from './team/Team'
-import Stack from './stack/Stack'
+import Header    from './header/Header'
+import HowTo     from './howto/HowTo'
+import Team      from './team/Team'
+import Stack     from './stack/Stack'
 
 const Landing = React.createClass({
   render () {
@@ -57,3 +57,4 @@ const Landing = React.createClass({
 })
 
 export default Landing
+

@@ -1,34 +1,11 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from 'react-inline-css'
+const stylesheet = require('!css!less!./options.less').toString()
 
 const Options = React.createClass({
   render () {
     return (
-      <InlineCss stylesheet={`
-                & .container {
-                  border-bottom: 1px solid black;
-                  // height:282.5px;
-                  height: 400px;
-                  width:80%;
-                  float:left;
-                  text-align: center;
-                }
-                & .themes {
-                  text-align: center;
-                  float:left;
-                  border-right: 1px solid black;
-                  height: 100%;
-                  width:33%;
-                }
-                & .themes div {
-                  padding:5px;
-                }
-                & .themes h3 {
-                  border-bottom:1px solid black;
-                  width:80%;
-                  margin-left:10%;
-                }
-               `}>
+      <InlineCss componentName="Options" stylesheet={stylesheet}>
                <div className="container">
                   <div className="themes">
                     <h3>Theme</h3>
@@ -70,3 +47,4 @@ const Options = React.createClass({
 })
 
 export default Options
+
