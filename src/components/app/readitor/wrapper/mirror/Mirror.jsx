@@ -11,8 +11,8 @@ const Mirror = React.createClass({
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
       { defaultText: 'Hello Firepad!!!!' });
   },
-  // shouldComponentUpdate() {
-  //   return false;
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.props.config !== nextProps.config ;
   // },
   componentDidUpdate () {
     let parent = this.refs.parent

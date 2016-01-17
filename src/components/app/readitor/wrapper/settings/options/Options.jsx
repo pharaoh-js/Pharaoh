@@ -14,34 +14,15 @@ const Options = React.createClass({
          <div className="container">
            <h3>Themes</h3>
                  <div className="option">
-                     <span onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
-                       abcdef
-                     </span>
+                   <span onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
+                     abcdef
+                   </span>
                 </div>
                 <div className="option">
-                    <span>
-                      blah:
-                      <input type="checkbox"></input>
-                    </span>
-               </div>
-               <div className="option">
-                   <span>
-                     blah:
-                     <input type="checkbox"></input>
-                   </span>
-              </div>
-              <div className="option">
-                  <span>
-                    blah:
-                    <input type="checkbox"></input>
+                  <span onClick={this.props.updateSettings.bind(null, 'theme', 'default')}>
+                    default
                   </span>
-             </div>
-             <div className="option">
-                 <span>
-                   blah:
-                   <input type="checkbox"></input>
-                 </span>
-            </div>
+               </div>
          </div>
        </InlineCss>
     )
