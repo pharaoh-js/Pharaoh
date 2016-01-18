@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import Mirror from './mirror/Mirror'
-import Settings from './settings/Settings'
+import Mirror               from './mirror/Mirror'
+import Settings             from './settings/Settings'
 
 
 const Wrapper = React.createClass({
@@ -8,7 +8,7 @@ const Wrapper = React.createClass({
     let mirror =   <Mirror pad={this.props.pad} config={this.props.config}/>;
     let settings = this.props.isSetting ? <Settings updateSettings={this.props.updateSettings}/> : null
     return (
-      <div>
+      <div className="wrapper">
         {mirror}
         {settings}
       </div>

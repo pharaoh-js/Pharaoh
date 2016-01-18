@@ -1,8 +1,10 @@
-import React from 'react'
-import Wrapper from './wrapper/Wrapper'
+import React     from 'react'
+import InlineCss from "react-inline-css"
+import Wrapper   from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
-import TitleBar from './titlebar/Titlebar'
-import Tree from './tree/Tree'
+import TitleBar  from './titlebar/Titlebar'
+import Tree      from './tree/Tree'
+const stylesheet = require('!css!less!./readitor.less').toString()
 
 const cmConfig = {
     lineWrapping      : true
@@ -42,22 +44,9 @@ const Viewer = React.createClass({
     this.setState({ cmConfig:config })
   },
   render () {
-      let style = {
-        container: {
-          borderRadius:'3px',
-          margin: '5px 0 0 10px',
-          padding:'10px',
-          width:'96%',
-          position: 'relative',
-          left:'0',
-          top: '5px',
-          height:'620px',
-          boxShadow: '1px 1px 1px 1px gray',
-          backgroundColor:'white',
-        }
-      }
-  return (
-        <div style={style.container}>
+    return (
+      <InlineCss componentName="Readitor" stylesheet={stylesheet}>
+        <div className="container">
           <TitleBar
             swap={ this.swapDoc }
             pad={ this.state.pad }
@@ -73,10 +62,10 @@ const Viewer = React.createClass({
             updateSettings={this.updateSettings}
             className="Viewer"
             />
-          <StatusBar />
-        </div>
-        )
-      }
+          <StatusBar />            </div>
+        </InlineCss>
+      )
+    }
   })
 
 export default Viewer

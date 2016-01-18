@@ -1,61 +1,32 @@
-import React from 'react'
+import React     from 'react'
 import InlineCss from 'react-inline-css'
+const stylesheet = require('!css!less!./howto.less').toString()
 
 const HowTo = React.createClass({
-render (){
-    return(
-        <InlineCss stylesheet={`
-        & .container {
-            border: 1px solid black;
-            border-radius: 10px;
-            width:70%;
-            margin: 3% 15%;
-            box-shadow: 5px 5px 5px 5px gray;
-            background-color:whitesmoke;
-        }
-        & .header {
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            padding-top:2px;
-            background-color: #152329;
-            color: #0FB427;
-            border-bottom: 2px solid black;
-            text-align:center;
-        }
-           & .container h2 {
-               margin-bottom: 8px;
-        }
-        & .container p {
-            padding: 0 10px;
-            font-size: 16px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-          & .container big {
-            font-weight: bold;
-            margin: 15px;
-            border-bottom:1px solid black;
-        }
-        `}>
-          <div className="container">
-            <div className="header">
-              <h2>How to use/About Pharaoh</h2>
-            </div>
-            <br/>
-            <big>About:</big>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, mi in malesuada molestie, lorem turpis aliquam augue, eget tincidunt arcu tellus in ipsum. Vestibulum eget mi nec nibh convallis pretium quis sit amet erat. Sed ullamcorper magna tellus, ut aliquet orci molestie vel. Quisque tempor tellus purus, ut eleifend eros porta sed. Vestibulum imperdiet suscipit placerat. Cras quis elit at lectus pulvinar rutrum. Donec facilisis ultricies quam et auctor. Praesent a tempor ligula, ac feugiat dolor
-            </p>
-            <big>How to use:</big>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, mi in malesuada molestie, lorem turpis aliquam augue, eget tincidunt arcu tellus in ipsum. Vestibulum eget mi nec nibh convallis pretium quis sit amet erat.
-            </p>
-            <p>
-              Sed ullamcorper magna tellus, ut aliquet orci molestie vel. Quisque tempor tellus purus, ut eleifend eros porta sed. Vestibulum imperdiet suscipit placerat. Cras quis elit at lectus pulvinar rutrum. Donec facilisis ultricies quam et auctor. Praesent a tempor ligula, ac feugiat dolor
-            </p>
-
+  render() {
+    return (
+      <InlineCss componentName="HowTo" stylesheet={stylesheet}>
+        <div className="container">
+          <div className="header">
+            <h2>About Pharaoh</h2>
           </div>
-        </InlineCss>
+          <br/>
+          <big>About:</big>
+          <p>
+            We're a group of students at <a href="http://devmounta.in">DevMountain</a>, building just about the neatest instructor tool you've ever seen. Imagine a lecture with no JSBin or JSFiddle, with no opening the Developer Tools in your browser just to show something in the console, with no rushed projects thrown together and then sent out on Slack. Imagine a read-only app that would allow students to see your code in realtime, as you make changes, and see everything you `import` or `require`, and check out the files you're pulling from.
+              </p><p>Well, that's what we imagined, because right now there's a ton of tooling around Javascript development, but not nearly enough tools for teaching it. We're starting with a React-based student app and a package for one of the most popular editors on the market. We hope to build this into something pretty awesome, because no one should have to use JSBin, Github, and Slack, just to get through one lecture.
+          </p>
+          <big>Usage:</big>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, mi in malesuada molestie, lorem turpis aliquam augue, eget tincidunt arcu tellus in ipsum. Vestibulum eget mi nec nibh convallis pretium quis sit amet erat.
+              </p><p>
+            Sed ullamcorper magna tellus, ut aliquet orci molestie vel. Quisque tempor tellus purus, ut eleifend eros porta sed. Vestibulum imperdiet suscipit placerat. Cras quis elit at lectus pulvinar rutrum. Donec facilisis ultricies quam et auctor. Praesent a tempor ligula, ac feugiat dolor
+          </p>
+          </div>
+      </InlineCss>
     )
   }
 })
+
 export default HowTo
+
