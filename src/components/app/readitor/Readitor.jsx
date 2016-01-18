@@ -7,12 +7,16 @@ import Tree from './tree/FileTree.jsx'
 const Viewer = React.createClass({
 
   swapDoc (pad) {
-    this.setState({pad:pad})
+    this.setState({
+      pad:pad.link,
+      activeFile: pad.fileName
+    })
   },
   getInitialState () {
     return {
       pad: 'default',
-      isSetting: false
+      isSetting: false,
+      activeFile: ''
     }
   },
   toggleSettings () {
@@ -40,7 +44,7 @@ const Viewer = React.createClass({
         <div style={style.container}>
           <TitleBar
             swap={ this.swapDoc }
-            pad={this.state.pad}
+            pad={this.state.activeFile}
             handleClick={this.handleSettingsClick}
             isSetting ={this.state.isSetting}
              />

@@ -4,7 +4,13 @@ import InlineCss from 'react-inline-css';
 class File extends React.Component {
   constructor(props){
     super(props);
+    this.sendLink = this.sendLink.bind(this);
   }
+  sendLink (){
+    this.props.swapDoc(this.props.file);
+    // this.setState({activeFile: this.props.file.fileName});
+  }
+  // <div onClick={this.props.swapDoc.bind(null, this.props.file.link)} className="file">
 
   render(){
     return (
@@ -22,7 +28,7 @@ class File extends React.Component {
           color: #0FB427;
         }
       `}>
-       <div onClick={this.props.swapDoc.bind(null, this.props.file.link)} className="file">
+      <div onClick={this.sendLink} className="file">
          <li><h5>{this.props.file.fileName}</h5></li>
        </div>
       </InlineCss>
