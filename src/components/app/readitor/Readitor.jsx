@@ -56,11 +56,11 @@ const Viewer = React.createClass({
             swap={ this.swapDoc }
             pad={this.state.activeFile}
             showSettings={this.showSettings}
-            hideSettings={this.hideSettings}
             isSetting ={this.state.isSetting}
-             />
+          />
           <Tree swapDoc={this.swapDoc} />
           <Wrapper
+            hideSettings={this.hideSettings}
             isSetting={this.state.isSetting}
             pad={this.state.pad}
             config={this.state.cmConfig}
