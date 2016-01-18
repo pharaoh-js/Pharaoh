@@ -1,0 +1,58 @@
+FileTree {
+  & .file-browser {
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:13%;
+  height:100%;
+  background-color:#37383A;
+  color: white;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+  & .file-header {
+  border-bottom: 2px solid #0FB427;
+  text-align:center;
+  padding:7.25px 4px;
+  font-size: 18px;
+}
+& .folder {
+  list-style-type: none;
+  margin-bottom: 0px;
+  padding:5px;
+}
+& .folder:hover {
+  background-color: #212223;
+  color:#5B97B4;
+  cursor: pointer;
+}
+& .folder:active {
+background-color: #212223;
+color:#5B97B4;
+cursor: pointer;
+}
+& .folder-select {
+  overflow: hidden;
+  width:500px;
+}
+& .file-length {
+  overflow: hidden;
+  width:500px;
+}
+& .custom-list {
+  padding-left: 10px;
+  margin: 0px;
+  }
+  & .file {
+    list-style-type: none;
+  }
+  & .file:hover {
+    cursor: pointer;
+    background-color: #212223;
+    color:#5B97B4;
+  }
+  & .file:active {
+    cursor: pointer;
+    color: #0FB427;
+  }
+}

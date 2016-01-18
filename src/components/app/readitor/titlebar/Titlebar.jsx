@@ -11,8 +11,7 @@ const TitleBar = React.createClass({
     return (
       <InlineCss componentName="TitleBar" stylesheet={stylesheet}>
         <div className="header-bar">
-          <span>&nbsp;&nbsp;
-            {this.props.pad}</span>
+          <span>{this.props.pad}</span>
           <div onClick={handleClick} className="setting-icon">
             <img src={icon} style={{
               width: '22px'
