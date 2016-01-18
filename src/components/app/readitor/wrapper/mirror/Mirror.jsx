@@ -1,34 +1,34 @@
 import React, { PropTypes } from 'react'
-import InlineCss from 'react-inline-css'
 
 const BASEREF = 'https://pharaohjs.firebaseio.com/session/projectKey/'
 
-const Mirror = React.createClass({ 
-  makeFirePad (subRef) {
+const Mirror = React.createClass({
+
+  makeFirePad (subRef, config) {
     let fpRef = new Firebase(BASEREF + subRef);
-    let codeMirror = CodeMirror(document.getElementById('pad'), {
-      lineWrapping: true
-    ,  mode             : 'javascript'
-    , lineNumbers       : true
-    // , matchBrackets     : true
-    // , lineWrapping      : true
-    // , placeholder       : 'function foo(bar){\n  return bar\n}\n'
-    // , theme             : 'abcdef'
-    // , keyMap            : 'sublime'
-    // , autoCloseBrackets : true
-    // , autoCloseTags     : true
-    });
+    let codeMirror = CodeMirror(document.getElementById('pad'), config);
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
       { defaultText: 'Hello Firepad!!!!' });
   },
+  // // TODO: prevent re-render except when ref or config changes
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('current: ', this.props.config.theme);
+  //   console.log('next: ', nextProps.config.theme);
+  //   if (this.props.pad !== nextProps.pad) {
+  //     return true
+  //   } else if ( this.props.config.theme !== nextProps.config.theme) {
+  //     return true
+  //   }
+  //   return false
+  // },
   componentDidUpdate () {
     let parent = this.refs.parent
     let child = parent.firstChild
     parent.removeChild(child)
-    this.makeFirePad(this.props.pad)
+    this.makeFirePad(this.props.pad, this.props.config)
   },
   componentDidMount () {
-    this.makeFirePad(this.props.pad)
+    this.makeFirePad(this.props.pad, this.props.config)
   },
   render () {
     return (
