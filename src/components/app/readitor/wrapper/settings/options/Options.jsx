@@ -7,16 +7,16 @@ const Options = React.createClass({
     return (
       <InlineCss componentName="Options" stylesheet={stylesheet}>
          <div>
-           <h3>Themes</h3>
+           <div className="head">Themes</div>
              <div className="option">
-               <span onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
-                 abcdef
-               </span>
+               <div onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
+                 - abcdef
+               </div>
             </div>
             <div className="option">
-              <span onClick={this.props.updateSettings.bind(null, 'theme', 'default')}>
-                default
-              </span>
+              <div onClick={this.props.updateSettings.bind(null, 'theme', 'default')}>
+                - default
+              </div>
            </div>
          </div>
        </InlineCss>
