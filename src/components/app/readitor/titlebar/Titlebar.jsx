@@ -4,9 +4,10 @@ const stylesheet = require('!css!less!./titlebar.less').toString()
 
 const TitleBar = React.createClass({
   render() {
-    const icon = this.props.isSetting
+    let icon = this.props.isSetting
       ? 'src/shared/images/close_icon.png'
       : 'src/shared/images/settings-icon.png'
+    let handleClick = this.props.isSetting ? this.props.hideSettings : this.props.showSettings;
     return (
       <InlineCss componentName="TitleBar" stylesheet={stylesheet}>
         <div className="header-bar">
@@ -15,7 +16,7 @@ const TitleBar = React.createClass({
           <button onClick={this.props.swap.bind(null, 'three')}>three</button>
           <span>&nbsp;&nbsp;
             {this.props.pad}</span>
-          <div onClick={this.props.handleClick} className="setting-icon">
+          <div onClick={handleClick} className="setting-icon">
             <img src={icon} style={{
               width: '22px'
             }}></img>
@@ -27,4 +28,3 @@ const TitleBar = React.createClass({
 })
 
 export default TitleBar
-

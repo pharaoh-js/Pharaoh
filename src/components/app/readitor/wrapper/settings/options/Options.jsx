@@ -6,45 +6,22 @@ const Options = React.createClass({
   render () {
     return (
       <InlineCss componentName="Options" stylesheet={stylesheet}>
-               <div className="container">
-                  <div className="themes">
-                    <h3>Theme</h3>
-                    <select>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
-                      <option value="">4</option>
-                      <option value="">5</option>
-                      <option value="">6</option>
-                      <option value="">7</option>
-                    </select>
-                  </div>
-                  <div className="themes">
-                    <h3>Mode</h3>
-                    <select>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
-                      <option value="">4</option>
-                      <option value="">5</option>
-                      <option value="">6</option>
-                      <option value="">7</option>
-                    </select>
-                  </div>
-                  <div className="themes">
-                    <h3>Add-ons</h3>
-                      <div>asdfasdf: <input type="checkbox"></input></div>
-                      <div>asdfasdf: <input type="checkbox"></input></div>
-                      <div>asdfasdf: <input type="checkbox"></input></div>
-                      <div>asdfasdf: <input type="checkbox"></input></div>
-                      <div>asdfasdf: <input type="checkbox"></input></div>
-                      <div>asdfasdf: <input type="checkbox"></input></div>
-                  </div>
-               </div>
+         <div>
+           <h3>Themes</h3>
+             <div className="option">
+               <span onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
+                 abcdef
+               </span>
+            </div>
+            <div className="option">
+              <span onClick={this.props.updateSettings.bind(null, 'theme', 'default')}>
+                default
+              </span>
+           </div>
+         </div>
        </InlineCss>
     )
   }
 })
 
 export default Options
-

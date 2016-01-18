@@ -5,16 +5,15 @@ import Settings             from './settings/Settings'
 
 const Wrapper = React.createClass({
   render () {
-    const mirror =   <Mirror pad={this.props.pad} />;
-    const settings = <Settings />;
-    const content = this.props.isSetting ? settings: mirror
+    let mirror =   <Mirror pad={this.props.pad} config={this.props.config}/>;
+    let settings = this.props.isSetting ? <Settings updateSettings={this.props.updateSettings}/> : null
     return (
-      <div>
-        {content}
+      <div className="wrapper" style={{height: '100%', position: 'relative'}}>
+        {mirror}
+        {settings}
       </div>
     )
   }
 })
 
 export default Wrapper
-
