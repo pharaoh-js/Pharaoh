@@ -6,18 +6,23 @@ const Options = React.createClass({
   render () {
     return (
       <InlineCss componentName="Options" stylesheet={stylesheet}>
-         <div>
-           <div className="head">Themes</div>
-             <div className="option">
-               <div onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
-                 - abcdef
-               </div>
+        <div>
+          <div className="head">Themes</div>
+          <div className="option">
+            <div onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
+            - abcdef
             </div>
-            <div className="option">
-              <div onClick={this.props.updateSettings.bind(null, 'theme', 'default')}>
-                - default
-              </div>
-           </div>
+          </div>
+          <div className="option">
+            <div onClick={this.props.updateSettings.bind(null, 'theme', 'default')}>
+            - default
+            </div>
+          </div>
+          <div className="option">
+            <div onClick={this.props.updateSettings.bind(null, 'theme', 'monokai')}>
+              - monokai
+            </div>
+         </div>
          </div>
        </InlineCss>
     )

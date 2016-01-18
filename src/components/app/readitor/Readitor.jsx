@@ -45,7 +45,7 @@ const Viewer = React.createClass({
   },
   updateSettings (prop, val) {
     let config = Object.assign({},this.state.cmConfig)
-    config.theme = val;
+    config[prop] = val;
     this.setState({ cmConfig:config })
   },
   render () {

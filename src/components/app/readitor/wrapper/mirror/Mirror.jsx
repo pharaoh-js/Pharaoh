@@ -10,10 +10,9 @@ const Mirror = React.createClass({
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
       { defaultText: 'Hello Firepad!!!!' });
   },
-  // TODO: prevent re-render except when ref or config changes
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('current: ', this.props.config.theme);
-    console.log('next: ', nextProps.config.theme);
+    // console.log('current: ', this.props.config.theme);
+    // console.log('next: ', nextProps.config.theme);
     if (this.props.pad !== nextProps.pad) {
       return true
     } else if ( this.props.config.theme !== nextProps.config.theme) {
