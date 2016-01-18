@@ -11,7 +11,7 @@ const Settings = React.createClass({
         <div className="settings">
           <div className="settings-tab"><span>
             <small onClick={handleClick}>
-              <img onClick={this.props.hideSettings} src="http://uxrepo.com/static/icon-sets/google-material/svg/android-close.svg" style={{width:'10px',marginRight:'10px'}}></img>
+              <img onClick={this.props.hideSettings} src="src/shared/images/closeicon.svg" style={{width:'10px',marginRight:'10px'}}></img>
             </small>
             Settings
           </span></div>
