@@ -62,8 +62,9 @@ const Viewer = React.createClass({
             updateSettings={this.updateSettings}
             className="Viewer"
             />
-          <StatusBar />            </div>
-        </InlineCss>
+          <StatusBar />
+        </div>
+      </InlineCss>
       )
     }
   })
