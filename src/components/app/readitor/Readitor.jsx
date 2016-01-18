@@ -2,8 +2,9 @@ import React     from 'react'
 import InlineCss from "react-inline-css"
 import Wrapper   from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
-import TitleBar  from './titlebar/Titlebar'
-import Tree      from './tree/Tree'
+import TitleBar from './titlebar/Titlebar'
+import Tree from './tree/FileTree.jsx'
+
 const stylesheet = require('!css!less!./readitor.less').toString()
 
 const cmConfig = {
@@ -21,13 +22,17 @@ const cmConfig = {
 const Viewer = React.createClass({
 
   swapDoc (pad) {
-    this.setState({pad:pad})
+    this.setState({
+      pad:pad.link,
+      activeFile: pad.fileName
+    })
   },
   getInitialState () {
     return {
-        pad: 'test3'
+        pad: 'default'
       , isSetting: false
       , cmConfig : cmConfig
+      , activeFile: ''
     }
   },
   showSettings () {
@@ -49,12 +54,12 @@ const Viewer = React.createClass({
         <div className="container">
           <TitleBar
             swap={ this.swapDoc }
-            pad={ this.state.pad }
+            pad={this.state.activeFile}
             showSettings={this.showSettings}
             hideSettings={this.hideSettings}
             isSetting ={this.state.isSetting}
              />
-          <Tree />
+          <Tree swapDoc={this.swapDoc} />
           <Wrapper
             isSetting={this.state.isSetting}
             pad={this.state.pad}

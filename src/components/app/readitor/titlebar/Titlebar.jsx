@@ -11,9 +11,6 @@ const TitleBar = React.createClass({
     return (
       <InlineCss componentName="TitleBar" stylesheet={stylesheet}>
         <div className="header-bar">
-          <button onClick={this.props.swap.bind(null, 'one')}>one</button>
-          <button onClick={this.props.swap.bind(null, 'two')}>two</button>
-          <button onClick={this.props.swap.bind(null, 'three')}>three</button>
           <span>&nbsp;&nbsp;
             {this.props.pad}</span>
           <div onClick={handleClick} className="setting-icon">
