@@ -21,7 +21,6 @@ const TitleBar = React.createClass({
               width: '22px'
             }}></img>
           </div>
-          <div style={{clear: 'both'}}></div>
         </div>
       </InlineCss>
     )
