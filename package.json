@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/pharaoh-js/pharaoh#readme",
   "dependencies": {
-    "codemirror": "^5.10.0",
     "firebase": "^2.3.2",
     "firepad": "^1.3.0",
     "history": "^1.17.0",
@@ -58,4 +57,3 @@
     "webpack-dev-server": "^1.14.0"
   }
 }
-
