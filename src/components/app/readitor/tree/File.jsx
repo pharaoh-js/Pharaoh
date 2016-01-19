@@ -9,10 +9,10 @@ class File extends React.Component {
   }
   sendLink (){
     this.props.swapDoc(this.props.file);
+    this.props.setMode(this.props.file.fileName);
     // this.setState({activeFile: this.props.file.fileName});
   }
   // <div onClick={this.props.swapDoc.bind(null, this.props.file.link)} className="file">
-
   render(){
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
