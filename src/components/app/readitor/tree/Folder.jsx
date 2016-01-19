@@ -18,7 +18,6 @@ class Folder extends React.Component {
     let newFolder = ref.push().set({
       folderName: newFolderName
     });
-    // console.log(`${this.props.firebaseRef}/${this.props.firebaseComponentPath}`);
   };
 
   createFile (){
