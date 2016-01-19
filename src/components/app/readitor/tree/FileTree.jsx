@@ -49,8 +49,8 @@ class FileTree extends React.Component {
     this.projectRef.once('value', (projectName)=> {
       let projectSession = projectName.val();
       this.setState({projectName: projectSession.projectName});
-      this.labelChildren(this.firebaseRef, this.refFromRouter);
     });
+    this.labelChildren(this.firebaseRef, this.refFromRouter);
 
     this.handleToggle = this.handleToggle.bind(this);
   }
@@ -86,7 +86,7 @@ class FileTree extends React.Component {
         text-align:center;
         padding:4px 0px;
         }
-      `}>
+        `}>
         <div className="file-browser">
           <h2 className="file-header">{this.state.projectName}</h2>
           <Folder
@@ -95,7 +95,8 @@ class FileTree extends React.Component {
             isOpen={this.state.isOpen}
             root={true}
             swapDoc={this.props.swapDoc}
-            firebasePath={this.refFromRouter}/>
+            firebaseRef={this.firebaseRef}
+            firebaseComponentPath={this.refFromRouter}/>
         </div>
       </InlineCss>
     )

@@ -1,17 +1,27 @@
 import React from 'react';
 import File from './File.jsx';
 import _ from 'lodash';
+import Firebase from 'firebase';
 import InlineCss from 'react-inline-css';
 
 class Folder extends React.Component {
   constructor(props){
     super(props);
     this.handleToggle = this.handleToggle.bind(this);
+    this.createFolder = this.createFolder.bind(this);
   }
+
+  createFolder (){
+    let ref = new Firebase(`${this.props.firebaseRef}/${this.props.firebaseComponentPath}`);
+    let newFolder = ref.push().set({
+      fileName: 'testFolder'
+    });
+    // console.log(`${this.props.firebaseRef}/${this.props.firebaseComponentPath}`);
+  };
 
   handleToggle (){
     this.props.handleToggle(this.props.folder.folderName)
-    console.log(this.props.firebasePath);
+    console.log(this.props.firebaseComponentPath);
   };
 
   render(){
@@ -28,8 +38,9 @@ class Folder extends React.Component {
               handleToggle={that.props.handleToggle}
               isOpen={that.props.isOpen}
               swapDoc={that.props.swapDoc}
-              firebasePath={`${that.props.firebasePath}/${folderItem.key}`} />
-          );
+              firebaseRef={that.props.firebaseRef}
+              firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`} />
+            );
         }
       });
       var files = _.values(folderObj).map((folderItem, index)=> {
@@ -39,7 +50,8 @@ class Folder extends React.Component {
               file={folderItem}
               key={index}
               swapDoc={that.props.swapDoc}
-              firebasePath={`${that.props.firebasePath}/${folderItem.key}`} />
+              firebaseRef={that.firebaseRef}
+              firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`} />
           );
         }
       });
@@ -74,7 +86,7 @@ class Folder extends React.Component {
             margin: 0px;
           }
        `}>
-        <div className="folder" onClick={this.handleToggle}>{folderTitle}</div>
+        <div className="folder" onClick={this.handleToggle}>{folderTitle}</div><button onClick={this.createFolder}></button>
         <ul className="custom-list">
           {folderContents}
         </ul>
