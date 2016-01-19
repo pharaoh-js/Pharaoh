@@ -4,20 +4,20 @@ const stylesheet = require('!css!less!./options.less').toString()
 
 const Options = React.createClass({
   render () {
+    let themes = this.props.themes.map((theme, i)=> {
+      return (
+        <div className="option" onClick={this.props.updateSettings.bind(null, 'theme', theme)} key={i}>
+          <div>
+            - {theme}
+          </div>
+        </div>
+      )
+    })
     return (
       <InlineCss componentName="Options" stylesheet={stylesheet}>
-         <div>
-           <div className="head">Themes</div>
-             <div className="option">
-               <div onClick={this.props.updateSettings.bind(null, 'theme', 'abcdef')}>
-                 - abcdef
-               </div>
-            </div>
-            <div className="option">
-              <div onClick={this.props.updateSettings.bind(null, 'theme', 'default')}>
-                - default
-              </div>
-           </div>
+        <div>
+          <div className="head">Themes</div>
+            {themes}
          </div>
        </InlineCss>
     )

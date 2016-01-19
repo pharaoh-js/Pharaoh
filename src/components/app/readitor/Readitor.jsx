@@ -19,6 +19,8 @@ const cmConfig = {
   , autoCloseTags     : true
   }
 
+const themeNames = ['default','monokai','mbo','solarized dark','base16-dark','railscast','tommorrow-night-bright']
+
 const Viewer = React.createClass({
 
   swapDoc (pad) {
@@ -31,8 +33,9 @@ const Viewer = React.createClass({
     return {
         pad: 'default'
       , isSetting: false
-      , cmConfig : cmConfig
+      , cmConfig: cmConfig
       , activeFile: ''
+      , themes: themeNames
     }
   },
   showSettings () {
@@ -44,8 +47,9 @@ const Viewer = React.createClass({
     this.setState({isSetting: false});
   },
   updateSettings (prop, val) {
+    // let config = this.state.config  // don't do this!
     let config = Object.assign({},this.state.cmConfig)
-    config.theme = val;
+    config[prop] = val;
     this.setState({ cmConfig:config })
   },
   render () {
@@ -53,13 +57,16 @@ const Viewer = React.createClass({
       <InlineCss componentName="Readitor" stylesheet={stylesheet}>
         <div className="container">
           <TitleBar
-            swap={ this.swapDoc }
             pad={this.state.activeFile}
             showSettings={this.showSettings}
             isSetting ={this.state.isSetting}
           />
-          <Tree swapDoc={this.swapDoc} />
+          <Tree
+            project={this.props.project}
+            swapDoc={this.swapDoc}
+            />
           <Wrapper
+            themes={this.state.themes}
             hideSettings={this.hideSettings}
             isSetting={this.state.isSetting}
             pad={this.state.pad}
