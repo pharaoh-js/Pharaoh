@@ -1,13 +1,10 @@
 import React     from 'react'
 import InlineCss from 'react-inline-css'
-// import Theme     from './Theme'
 const stylesheet = require('!css!less!./options.less').toString()
-
-// const themes = this.props.themes;
 
 const Options = React.createClass({
   render () {
-    let themes = this.props.themes.map((theme)=> {
+    let themes = this.props.themes.map((theme,i)=> {
       return (
         <div className="option" onClick={this.props.updateSettings.bind(null, 'theme', {theme})}>
           <div>
