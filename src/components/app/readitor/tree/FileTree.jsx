@@ -15,7 +15,6 @@ class FileTree extends React.Component {
       isOpen: {}
     };
 
-
     this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
 
     //get projectName needs to improve

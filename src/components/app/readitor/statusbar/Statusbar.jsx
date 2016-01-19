@@ -7,7 +7,9 @@ const StatusBar = React.createClass({
     return (
       <InlineCss componentName="StatusBar" stylesheet={stylesheet}>
         <div className="footer-bar">
-          <span>Ln 99, Col 55 JavaScript</span>
+        <div style={{position:'absolute',right:'0px'}}>
+          <span style={{float:'left'}}>Ln 99, Col 55 </span>
+          {this.props.currentMode}</div>
         </div>
       </InlineCss>
     )
@@ -15,4 +17,3 @@ const StatusBar = React.createClass({
 })
 
 export default StatusBar
-

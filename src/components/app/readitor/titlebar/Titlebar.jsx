@@ -2,6 +2,7 @@ import React     from 'react'
 import InlineCss from 'react-inline-css'
 const stylesheet = require('!css!less!./titlebar.less').toString()
 
+
 const TitleBar = React.createClass({
   render() {
     let icon = this.props.isSetting

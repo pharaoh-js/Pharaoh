@@ -20,13 +20,21 @@ const cmConfig = {
   }
 
 const themeNames = ['default','monokai','mbo','abcdef','base16-dark','bespin','midnight']
+// const modeNames = ['js','html','css','jsx','sass' ]
+const modeObj = {
+  html: 'htmlembedded',
+  js: 'javascript',
+  css: 'css',
+  jsx: 'jsx',
+  sass: 'sass'
+}
 
 const Viewer = React.createClass({
-
   swapDoc (pad) {
     this.setState({
       pad:pad.link,
-      activeFile: pad.fileName
+      activeFile: pad.fileName,
+      mode: this.modeFromFilename(pad.fileName)
     })
   },
   getInitialState () {
@@ -36,8 +44,14 @@ const Viewer = React.createClass({
       , cmConfig: cmConfig
       , activeFile: ''
       , themes: themeNames
+      , mode: ''
     }
   },
+  modeFromFilename(fileName) {
+   let arr = fileName.split('.')
+   let ext = arr[arr.length-1]
+   return modeObj[ext];
+ },
   showSettings () {
     this.setState({ isSetting: true });
     // document.addEventListener("click", this.hideSettings);
@@ -72,7 +86,7 @@ const Viewer = React.createClass({
             updateSettings={this.updateSettings}
             className="Viewer"
             />
-          <StatusBar />
+          <StatusBar currentMode={this.state.mode} />
         </div>
       </InlineCss>
       )
