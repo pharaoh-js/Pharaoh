@@ -57,7 +57,11 @@ const Viewer = React.createClass({
   modeFromFilename(fileName) {
    let arr = fileName.split('.')
    let ext = arr[arr.length-1]
-   return modeObj[ext];
+   return modeObj[ext]
+ },
+ setMode(fileName) {
+   let mode = this.modeFromFilename(fileName);
+   this.updateSettings('mode', mode);
  },
   showSettings () {
     this.setState({ isSetting: true });
@@ -72,6 +76,7 @@ const Viewer = React.createClass({
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val;
     this.setState({ cmConfig:config })
+    console.log(prop,val);
   },
   render () {
     return (
@@ -85,7 +90,9 @@ const Viewer = React.createClass({
           <Tree
             project={this.props.project}
             swapDoc={this.swapDoc}
-            />
+            pad={this.state.pad}
+            setMode={this.setMode}
+          />
           <Wrapper
             themes={this.state.themes}
             hideSettings={this.hideSettings}
@@ -94,7 +101,7 @@ const Viewer = React.createClass({
             config={this.state.cmConfig}
             updateSettings={this.updateSettings}
             className="Viewer"
-            />
+          />
           <StatusBar currentMode={this.state.mode} />
         </div>
       </InlineCss>

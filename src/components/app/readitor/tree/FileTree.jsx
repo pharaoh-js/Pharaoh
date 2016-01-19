@@ -55,7 +55,13 @@ class FileTree extends React.Component {
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="file-browser">
           <div className="file-header">From url: {this.props.project}</div>
-          <Folder folder={this.state.projectDirectory} handleToggle={this.handleToggle} isOpen={this.state.isOpen} root={true} swapDoc={this.props.swapDoc} />
+          <Folder
+            folder={this.state.projectDirectory}
+            handleToggle={this.handleToggle}
+            isOpen={this.state.isOpen} root={true}
+            swapDoc={this.props.swapDoc}
+            setMode={this.props.setMode}
+            />
         </div>
       </InlineCss>
     )
