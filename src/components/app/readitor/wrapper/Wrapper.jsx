@@ -8,7 +8,7 @@ const Wrapper = React.createClass({
     let mirror =   <Mirror pad={this.props.pad} config={this.props.config}/>;
     let settings = this.props.isSetting ? <Settings themes={this.props.themes} hideSettings={this.props.hideSettings} updateSettings={this.props.updateSettings}/> : null
     return (
-      <div className="wrapper" style={{height: '100%', position: 'relative',left:'13%', width:'86.75%'}}>
+      <div className="wrapper" style={{height: '100%', position: 'relative',left:'19%', width:'81%'}}>
         {mirror}
         {settings}
       </div>

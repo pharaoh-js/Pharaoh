@@ -78,12 +78,14 @@ const Viewer = React.createClass({
       <InlineCss componentName="Readitor" stylesheet={stylesheet}>
         <div className="container">
           <TitleBar
-            swap={ this.swapDoc }
             pad={this.state.activeFile}
             showSettings={this.showSettings}
             isSetting ={this.state.isSetting}
           />
-          <Tree swapDoc={this.swapDoc} />
+          <Tree
+            project={this.props.project}
+            swapDoc={this.swapDoc}
+            />
           <Wrapper
             themes={this.state.themes}
             hideSettings={this.hideSettings}
