@@ -8,9 +8,8 @@ class File extends React.Component {
   }
   sendLink (){
     this.props.swapDoc(this.props.file);
-    // this.setState({activeFile: this.props.file.fileName});
+    console.log(this.props.firebasePath);
   }
-  // <div onClick={this.props.swapDoc.bind(null, this.props.file.link)} className="file">
 
   render(){
     return (

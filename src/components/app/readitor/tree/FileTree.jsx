@@ -13,27 +13,56 @@ class FileTree extends React.Component {
       isOpen: {}
     };
 
+    this.labelChildren = function(refBase, folderRef, folderPath1, folderPath2){
+      let newRef = new Firebase(`${refBase}/${folderRef}`);
+      newRef.on('child_added', (item)=> {
+        if(this.state.projectDirectory[item.key()] || typeof item.val() !== 'object'){
+          return;
+        }
+        let newPath1 = {};
+        let newPath2 = {};
+        let itemVal = item.val();
+        itemVal.key = item.key();
+        let toChange = Object.assign({}, this.state.projectDirectory);
+        // debugger;
+        if(folderPath1 === undefined){
+          toChange[itemVal.key] = itemVal;
+          newPath1 = itemVal.key;
+        }else if(folderPath1 && folderPath2 === undefined){
+          toChange[folderPath1][itemVal.key] = itemVal;
+          newPath1 = folderPath1
+          newPath2 = itemVal.key;
+        }else if(folderPath2){
+          toChange[folderPath1][folderPath2][itemVal.key] = itemVal;
+        }
+        this.setState({projectDirectory: toChange});
+        if(itemVal.folderName){this.labelChildren(newRef, itemVal.key, newPath1)}
+        if(itemVal.folderName && folderPath1 && folderPath2 === undefined){this.labelChildren(newRef, itemVal.key, newPath1, newPath2)}
+      });
+    }
 
     this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
 
     //get projectName needs to improve
-    this.projectRef = new Firebase(`${this.firebaseRef}/projectKey`);
+    this.refFromRouter = 'projectKey'
+    this.projectRef = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`);
     this.projectRef.once('value', (projectName)=> {
-      let nameVal = projectName.val();
-      this.setState({projectName: nameVal.projectName});
+      let projectSession = projectName.val();
+      this.setState({projectName: projectSession.projectName});
+      this.labelChildren(this.firebaseRef, this.refFromRouter);
     });
 
     //get directory items needs to improve
-    this.projectRef.on('child_added', (item)=> {
-      if(this.state.projectDirectory[item.key()]){
-        return;
-      }
-
-      let itemVal = item.val();
-      itemVal.key = item.key();
-      this.state.projectDirectory[itemVal.key] = itemVal;
-      this.setState({projectDirectory: this.state.projectDirectory});
-    });
+    // this.projectRef.on('child_added', (item)=> {
+    //   if(this.state.projectDirectory[item.key()] || typeof item.val() !== 'object'){
+    //     return;
+    //   }
+    //   let itemVal = item.val();
+    //   itemVal.key = item.key();
+    //   this.state.projectDirectory[itemVal.key] = itemVal;
+    //   this.setState({projectDirectory: this.state.projectDirectory});
+    //   if(itemVal.folderName){this.labelChildren(this.projectRef, itemVal.key)}
+    // });
 
     this.handleToggle = this.handleToggle.bind(this);
   }
@@ -63,16 +92,22 @@ class FileTree extends React.Component {
         color: white;
         border-bottom-left-radius: 3px;
         border-top-left-radius: 3px;
-      }
+        }
         & .file-header {
         border-bottom: 2px solid #0FB427;
         text-align:center;
         padding:4px 0px;
-      }
-     `}>
+        }
+      `}>
         <div className="file-browser">
           <h2 className="file-header">{this.state.projectName}</h2>
-          <Folder folder={this.state.projectDirectory} handleToggle={this.handleToggle} isOpen={this.state.isOpen} root={true} swapDoc={this.props.swapDoc} />
+          <Folder
+            folder={this.state.projectDirectory}
+            handleToggle={this.handleToggle}
+            isOpen={this.state.isOpen}
+            root={true}
+            swapDoc={this.props.swapDoc}
+            firebasePath={this.projectRef}/>
         </div>
       </InlineCss>
     )

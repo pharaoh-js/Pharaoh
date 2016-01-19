@@ -11,6 +11,7 @@ class Folder extends React.Component {
 
   handleToggle (){
     this.props.handleToggle(this.props.folder.folderName)
+    console.log(this.props.firebasePath);
   };
 
   render(){
@@ -21,14 +22,24 @@ class Folder extends React.Component {
       var folders = _.values(folderObj).map((folderItem, index)=> {
         if(folderItem.folderName){
           return (
-            <Folder key={index} folder={folderItem} handleToggle={that.props.handleToggle} isOpen={that.props.isOpen} swapDoc={that.props.swapDoc} />
+            <Folder
+              key={index}
+              folder={folderItem}
+              handleToggle={that.props.handleToggle}
+              isOpen={that.props.isOpen}
+              swapDoc={that.props.swapDoc}
+              firebasePath={`${that.props.firebasePath}/${folderItem}`} />
           );
         }
       });
       var files = _.values(folderObj).map((folderItem, index)=> {
         if(folderItem.fileName){
           return (
-            <File file={folderItem} key={index} swapDoc={that.props.swapDoc} />
+            <File
+              file={folderItem}
+              key={index}
+              swapDoc={that.props.swapDoc}
+              firebasePath={`${that.props.firebasePath}/${folderItem}`} />
           );
         }
       });
