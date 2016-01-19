@@ -19,15 +19,22 @@ const cmConfig = {
   , autoCloseTags     : true
   }
 
-const themeNames = ['default','monokai','mbo','abcdef','base16-dark','bespin','midnight']
-// const modeNames = ['js','html','css','jsx','sass' ]
-const modeObj = {
-  html: 'htmlembedded',
-  js: 'javascript',
-  css: 'css',
-  jsx: 'jsx',
-  sass: 'sass'
-}
+  const themeNames = ['default','monokai','mbo','abcdef','base16-dark','base16-light','solarized dark','solarized light','tomorrow-night-eighties','tomorrow-night-bright','zenburn']
+
+  const modeObj = {
+    html: 'htmlmixed',
+    js: 'javascript',
+    css: 'css',
+    jsx: 'jsx',
+    scss: 'sass',
+    py: 'python',
+    clj: 'clojure',
+    cofee:'cofeescript',
+    md: 'gfm',
+    php: 'php',
+    rb: 'ruby',
+    swift: 'swift'
+  }
 
 const Viewer = React.createClass({
   swapDoc (pad) {
