@@ -19,7 +19,7 @@ const cmConfig = {
   , autoCloseTags     : true
   }
 
-const themeNames = ['default','monokai','mbo','solarized dark','base16-dark','railscast','tommorrow-night-bright']
+const themeNames = ['default','monokai','mbo','abcdef','base16-dark','bespin','midnight']
 
 const Viewer = React.createClass({
 
