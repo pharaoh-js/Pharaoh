@@ -9,15 +9,26 @@ class Folder extends React.Component {
     super(props);
     this.handleToggle = this.handleToggle.bind(this);
     this.createFolder = this.createFolder.bind(this);
+    this.createFile = this.createFile.bind(this);
   }
 
   createFolder (){
     let ref = new Firebase(`${this.props.firebaseRef}/${this.props.firebaseComponentPath}`);
+    let newFolderName = 'testFolder'
     let newFolder = ref.push().set({
-      fileName: 'testFolder'
+      folderName: newFolderName
     });
     // console.log(`${this.props.firebaseRef}/${this.props.firebaseComponentPath}`);
   };
+
+  createFile (){
+    let ref = new Firebase(`${this.props.firebaseRef}/${this.props.firebaseComponentPath}`);
+    let newFileName = 'testFile.js';
+    let newFile = ref.push().set({
+      fileName: newFileName
+    });
+    this.props.swapDoc(newFile, newFileName);
+  }
 
   handleToggle (){
     this.props.handleToggle(this.props.folder.folderName)
@@ -86,7 +97,7 @@ class Folder extends React.Component {
             margin: 0px;
           }
        `}>
-        <div className="folder" onClick={this.handleToggle}>{folderTitle}</div><button onClick={this.createFolder}></button>
+        <div className="folder" onClick={this.handleToggle}>{folderTitle}</div><button onClick={this.createFile}></button>
         <ul className="custom-list">
           {folderContents}
         </ul>
