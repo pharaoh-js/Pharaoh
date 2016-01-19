@@ -47,6 +47,7 @@ const Viewer = React.createClass({
     this.setState({isSetting: false});
   },
   updateSettings (prop, val) {
+    // let config = this.state.config  // don't do this!
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val;
     this.setState({ cmConfig:config })

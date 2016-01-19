@@ -5,6 +5,7 @@ const BASEREF = 'https://pharaohjs.firebaseio.com/session/projectKey/'
 const Mirror = React.createClass({
 
   makeFirePad (subRef, config) {
+    console.log(config);
     let fpRef = new Firebase(BASEREF + subRef);
     let codeMirror = CodeMirror(document.getElementById('pad'), config);
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
