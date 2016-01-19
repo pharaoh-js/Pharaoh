@@ -7,8 +7,7 @@ class File extends React.Component {
     this.sendLink = this.sendLink.bind(this);
   }
   sendLink (){
-    this.props.swapDoc(this.props.file);
-    console.log(this.props.firebasePath);
+    this.props.swapDoc(this.props.firebasePath, this.props.file.fileName);
   }
 
   render(){

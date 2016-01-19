@@ -52,18 +52,6 @@ class FileTree extends React.Component {
       this.labelChildren(this.firebaseRef, this.refFromRouter);
     });
 
-    //get directory items needs to improve
-    // this.projectRef.on('child_added', (item)=> {
-    //   if(this.state.projectDirectory[item.key()] || typeof item.val() !== 'object'){
-    //     return;
-    //   }
-    //   let itemVal = item.val();
-    //   itemVal.key = item.key();
-    //   this.state.projectDirectory[itemVal.key] = itemVal;
-    //   this.setState({projectDirectory: this.state.projectDirectory});
-    //   if(itemVal.folderName){this.labelChildren(this.projectRef, itemVal.key)}
-    // });
-
     this.handleToggle = this.handleToggle.bind(this);
   }
   //pull firebase info before rendering anything, at least the once value thing
@@ -107,7 +95,7 @@ class FileTree extends React.Component {
             isOpen={this.state.isOpen}
             root={true}
             swapDoc={this.props.swapDoc}
-            firebasePath={this.projectRef}/>
+            firebasePath={this.refFromRouter}/>
         </div>
       </InlineCss>
     )

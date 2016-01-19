@@ -28,7 +28,7 @@ class Folder extends React.Component {
               handleToggle={that.props.handleToggle}
               isOpen={that.props.isOpen}
               swapDoc={that.props.swapDoc}
-              firebasePath={`${that.props.firebasePath}/${folderItem}`} />
+              firebasePath={`${that.props.firebasePath}/${folderItem.key}`} />
           );
         }
       });
@@ -39,7 +39,7 @@ class Folder extends React.Component {
               file={folderItem}
               key={index}
               swapDoc={that.props.swapDoc}
-              firebasePath={`${that.props.firebasePath}/${folderItem}`} />
+              firebasePath={`${that.props.firebasePath}/${folderItem.key}`} />
           );
         }
       });
