@@ -14,7 +14,7 @@ const GettingStarted = React.createClass({
             <img src="src/shared/images/pharaohclient.png" style={{width:'240px',float:'left',margin:'20px 0 0 5px'}}></img>
             <div className="start-session">
               <span>Start new Session
-                <button>Go</button>
+                <input placeholder="url extension...." type="text"></input>  <button>Go</button>
               </span>
               <p>lskdj falksdjfals kdjf;alk dsjf alk d alsk df jlkj lsdkjfa lsk djf alskdjf
               al sk jflsk dfja l sdj fa;ls kdj fa;lk jdf als dkj fa;l skdjf.
