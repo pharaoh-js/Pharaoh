@@ -81,7 +81,12 @@ class FileTree extends React.Component {
     }
 
     this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
-    this.refFromRouter = 'projectKey'
+    this.refFromRouter = this.props.projectKey || 'projectKey';
+
+    this.handleToggle = this.handleToggle.bind(this);
+    this.createFolder = this.createFolder.bind(this);
+  }
+  componentDidMount (){
     this.projectRef = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`);
     this.projectRef.once('value', (projectName)=> {
       let projectSession = projectName.val();
@@ -91,9 +96,6 @@ class FileTree extends React.Component {
     this.readProjectDirectory(this.firebaseRef, this.refFromRouter);
     this.removeProjectItem(this.firebaseRef, this.refFromRouter);
     this.updateProjectItem(this.firebaseRef, this.refFromRouter);
-
-    this.handleToggle = this.handleToggle.bind(this);
-    this.createFolder = this.createFolder.bind(this);
   }
 
   createFolder (){
@@ -117,7 +119,7 @@ class FileTree extends React.Component {
     return (
           <InlineCss componentName="FileTree" stylesheet={stylesheet}>
             <div className="file-browser">
-              <div className="file-header">From url: {this.props.projectKey}</div><button onClick={this.createFolder}>mkFolder</button>
+              <div className="file-header">From url: {this.state.projectName}</div><button onClick={this.createFolder}>mkFolder</button>
               <Folder
                 folder={this.state.projectDirectory}
                 handleToggle={this.handleToggle}
