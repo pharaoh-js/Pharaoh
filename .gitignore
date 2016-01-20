@@ -11,6 +11,7 @@ npm-debug.log*
 *.tar
 *.bz2
 *.7z
+*.zip
 TAGS
 tags
 __pycache__/
@@ -28,9 +29,8 @@ data
 db
 bundle.js
 build.js
-public
 x/**
 **/api.key
 **.key
 codemirror_libs
-
+**/codemirror_libs

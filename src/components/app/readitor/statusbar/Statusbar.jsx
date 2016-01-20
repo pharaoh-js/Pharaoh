@@ -17,3 +17,4 @@ const StatusBar = React.createClass({
 })
 
 export default StatusBar
+
