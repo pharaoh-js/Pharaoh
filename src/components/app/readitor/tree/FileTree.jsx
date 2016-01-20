@@ -52,7 +52,17 @@ class FileTree extends React.Component {
       this.setState({projectName: projectSession.projectName});
     });
     this.labelChildren(this.firebaseRef, this.refFromRouter);
+
     this.handleToggle = this.handleToggle.bind(this);
+    this.createFolder = this.createFolder.bind(this);
+  }
+
+  createFolder (){
+    let ref = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`);
+    let newFolderName = 'testFolder'
+    let newFolder = ref.push().set({
+      folderName: newFolderName
+    })
   }
 
   handleToggle (folderName){
@@ -68,17 +78,16 @@ class FileTree extends React.Component {
     return (
           <InlineCss componentName="FileTree" stylesheet={stylesheet}>
             <div className="file-browser">
-              <div className="file-header">From url: {this.props.project}</div>
+              <div className="file-header">From url: {this.props.project}</div><button onClick={this.createFolder}>folder</button>
               <Folder
-            folder={this.state.projectDirectory}
-            handleToggle={this.handleToggle}
-            isOpen={this.state.isOpen}
-            root={true}
-            swapDoc={this.props.swapDoc}
-            setMode={this.props.setMode}
-            firebaseRef={this.firebaseRef}
-            firebaseComponentPath={this.refFromRouter}
-            />
+                folder={this.state.projectDirectory}
+                handleToggle={this.handleToggle}
+                isOpen={this.state.isOpen}
+                root={true}
+                swapDoc={this.props.swapDoc}
+                setMode={this.props.setMode}
+                firebaseRef={this.firebaseRef}
+                firebaseComponentPath={this.refFromRouter} />
         </div>
       </InlineCss>
     )
