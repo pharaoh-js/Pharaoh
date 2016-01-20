@@ -25,7 +25,7 @@ const GettingStarted = React.createClass({
           <div className="desktop">
             <big>Or install Pharaoh desktop app.</big>
             <div>
-              <span className="npmInstall">npm i -g pharaoh</span>
+              <span className="npmInstall">$ npm i -g pharaoh</span>
               <p>lskdj falksdjfals kdjf;alk dsjf alk d alsk df jlkj lsdkjfa lsk djf alskdjf
               al sk jflsk dfja l sdj fa;ls kdj fa;lk jdf als dkj fa;l skdjf.
               </p>
