@@ -117,7 +117,7 @@ class FileTree extends React.Component {
     return (
           <InlineCss componentName="FileTree" stylesheet={stylesheet}>
             <div className="file-browser">
-              <div className="file-header">From url: {this.props.project}</div><button onClick={this.createFolder}>mkFolder</button>
+              <div className="file-header">From url: {this.props.projectKey}</div><button onClick={this.createFolder}>mkFolder</button>
               <Folder
                 folder={this.state.projectDirectory}
                 handleToggle={this.handleToggle}

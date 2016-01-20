@@ -7,6 +7,8 @@ import Tree from './tree/FileTree.jsx'
 
 const stylesheet = require('!css!less!./readitor.less').toString()
 
+const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
+
 const cmConfig = {
     lineWrapping      : true
   , mode              : 'javascript'
@@ -78,6 +80,9 @@ const Viewer = React.createClass({
     this.setState({ cmConfig:config })
     console.log(prop,val);
   },
+  // componentDidMount () {
+  //   console.log('role: ', this.props.role, 'project: ', this.props.project);
+  // },
   render () {
     return (
       <InlineCss componentName="Readitor" stylesheet={stylesheet}>
@@ -88,7 +93,7 @@ const Viewer = React.createClass({
             isSetting ={this.state.isSetting}
           />
           <Tree
-            project={this.props.project}
+            projectKey={this.props.projectKey}
             swapDoc={this.swapDoc}
             pad={this.state.pad}
             setMode={this.setMode}
