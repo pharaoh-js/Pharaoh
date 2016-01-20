@@ -29,7 +29,7 @@ const GettingStarted = React.createClass({
               <p>lskdj falksdjfals kdjf;alk dsjf alk d alsk df jlkj lsdkjfa lsk djf alskdjf
               al sk jflsk dfja l sdj fa;ls kdj fa;lk jdf als dkj fa;l skdjf.
               </p>
-              <img src="src/shared/images/pharaohclient.png" style={{
+              <img src="src/shared/images/desktop.png" style={{
                 width:'240px',position:'absolute',right:'8px',bottom:'20px'
                 }}></img>
               </div>
