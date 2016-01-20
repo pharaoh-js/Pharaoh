@@ -2,8 +2,8 @@ import React     from 'react'
 import InlineCss from "react-inline-css"
 import Wrapper   from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
-import TitleBar from './titlebar/Titlebar'
-import Tree from './tree/FileTree.jsx'
+import TitleBar  from './titlebar/Titlebar'
+import Tree      from './tree/FileTree.jsx'
 
 const stylesheet = require('!css!less!./readitor.less').toString()
 
@@ -22,18 +22,18 @@ const cmConfig = {
   const themeNames = ['default','monokai','mbo','abcdef','base16-dark','base16-light','solarized dark','solarized light','tomorrow-night-eighties','tomorrow-night-bright','zenburn']
 
   const modeObj = {
-    html: 'htmlmixed',
-    js: 'javascript',
-    css: 'css',
-    jsx: 'jsx',
-    scss: 'sass',
-    py: 'python',
-    clj: 'clojure',
-    cofee:'cofeescript',
-    md: 'gfm',
-    php: 'php',
-    rb: 'ruby',
-    swift: 'swift'
+    html: 'htmlmixed'
+  , js: 'javascript'
+  , css: 'css'
+  , jsx: 'jsx'
+  , scss: 'sass'
+  , py: 'python'
+  , clj: 'clojure'
+  , cofee:'cofeescript'
+  , md: 'gfm'
+  , php: 'php'
+  , rb: 'ruby'
+  , swift: 'swift'
   }
 
 const Viewer = React.createClass({
@@ -110,3 +110,4 @@ const Viewer = React.createClass({
   })
 
 export default Viewer
+
