@@ -36,7 +36,7 @@ class Folder extends React.Component {
           style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
         </img>
         {this.props.folder.folderName}
-        <span className="edit-btns">
+        <span>
           <img className="icons" src="src/shared/images/Delete-icon (2).png"></img>
           <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
           <img className="icons" src="src/shared/images/edit-file.png"></img>

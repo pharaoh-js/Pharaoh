@@ -19,7 +19,7 @@ FileTree {
 & .folder {
   list-style-type: none;
   margin-bottom: 0px;
-  padding:5px 0px;
+  padding:7px 0px;
   & .edit-btns {
     padding:0 7px;
   }
@@ -38,9 +38,6 @@ cursor: pointer;
   overflow: hidden;
   width:99%;
 }
-& .edit-btns:hover {
-    display: inline;
-}
 & .file-length {
   overflow: hidden;
   width:99%;
@@ -51,6 +48,7 @@ cursor: pointer;
   }
   & .file {
     list-style-type: none;
+    padding:2px 0;
   }
   & .file:hover {
     cursor: pointer;
@@ -70,10 +68,17 @@ cursor: pointer;
     cursor: pointer;
   }
   & .icons {
+    visibility: hidden;
     margin:0 3px;
     width:16px;
     position:relative;
     top:4px;
     float:right;
+  }
+  & .file:hover .icons {
+    visibility: visible;
+  }
+  & .folder:hover .icons {
+    visibility: visible;
   }
 }
