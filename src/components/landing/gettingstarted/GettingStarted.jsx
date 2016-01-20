@@ -32,7 +32,13 @@ const GettingStarted = React.createClass({
               <img src="src/shared/images/desktop.png" style={{
                 width:'46%',position:'absolute',right:'8px',bottom:'20px'
                 }}></img>
-              </div>
+            </div>
+          </div>
+        </div>
+        <div className="scroll-down">
+          <big>Scroll Down</big>
+          <div>
+            <span style={{position:'relative',left:'2.3px'}}>\</span><span style={{position:'relative',right:'2.3px'}}>/</span>
           </div>
         </div>
       </InlineCss>
