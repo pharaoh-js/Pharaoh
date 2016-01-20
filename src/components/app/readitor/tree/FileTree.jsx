@@ -93,7 +93,7 @@ class FileTree extends React.Component {
 
   handleToggle (folderName){
     let oldVal = this.state.isOpen[folderName];
-    let newState = this.state.isOpen;
+    let newState = Object.assign({}, this.state.isOpen);
     newState[folderName] = oldVal ? false : true;
     this.setState({
       isOpen: newState
