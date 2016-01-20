@@ -1,6 +1,6 @@
 {
   "name": "pharaoh",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "The front-end for a live code broadcasting app.",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/pharaoh-js/pharaoh#readme",
   "dependencies": {
-    "codemirror": "^5.10.0",
     "firebase": "^2.3.2",
     "firepad": "^1.3.0",
     "history": "^1.17.0",
@@ -51,8 +50,6 @@
     "eslint": "^1.10.3",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.14.0",
-    "http-server": "^0.8.5",
-    "jsx-loader": "^0.13.2",
     "less": "^2.5.3",
     "less-loader": "^2.2.2",
     "style-loader": "^0.13.0",

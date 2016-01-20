@@ -11,10 +11,10 @@ const GettingStarted = React.createClass({
           <div className="option1">
             <big>Option 1</big>
             <li>Paraoh browser based editor.</li>
-            <img src="src/shared/images/pharaohclient.png" style={{width:'240px',float:'left',margin:'20px 0 0 5px'}}></img>
+            <img src="src/shared/images/pharaohclient.png" style={{width:'47%',float:'left',margin:'20px 0 0 5px'}}></img>
             <div className="start-session">
               <span>Start new Session
-                <input placeholder="url extension...." type="text"></input>  <button>Go</button>
+                <input style={{width:'60%'}} placeholder="url extension...." type="text"></input>  <button>Go</button>
               </span>
               <p>lskdj falksdjfals kdjf;alk dsjf alk d alsk df jlkj lsdkjfa lsk djf alskdjf
               al sk jflsk dfja l sdj fa;ls kdj fa;lk jdf als dkj fa;l skdjf.
@@ -30,7 +30,7 @@ const GettingStarted = React.createClass({
               al sk jflsk dfja l sdj fa;ls kdj fa;lk jdf als dkj fa;l skdjf.
               </p>
               <img src="src/shared/images/desktop.png" style={{
-                width:'240px',position:'absolute',right:'8px',bottom:'20px'
+                width:'46%',position:'absolute',right:'8px',bottom:'20px'
                 }}></img>
               </div>
           </div>

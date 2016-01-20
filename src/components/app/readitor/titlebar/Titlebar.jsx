@@ -2,7 +2,6 @@ import React     from 'react'
 import InlineCss from 'react-inline-css'
 const stylesheet = require('!css!less!./titlebar.less').toString()
 
-
 const TitleBar = React.createClass({
   render() {
     let icon = this.props.isSetting
@@ -10,7 +9,7 @@ const TitleBar = React.createClass({
       : <img src='src/shared/images/settings-icon.png' style={{
         width: '22px'
       }}></img>
-    let handleClick = this.props.isSetting ? this.props.hideSettings : this.props.showSettings;
+    let handleClick = this.props.isSetting ? this.props.hideSettings : this.props.showSettings
     return (
       <InlineCss componentName="TitleBar" stylesheet={stylesheet}>
         <div className="header-bar">
@@ -25,3 +24,4 @@ const TitleBar = React.createClass({
 })
 
 export default TitleBar
+

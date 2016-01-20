@@ -18,9 +18,9 @@ const HowTo = React.createClass({
           </p>
           <big>Usage:</big>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, mi in malesuada molestie, lorem turpis aliquam augue, eget tincidunt arcu tellus in ipsum. Vestibulum eget mi nec nibh convallis pretium quis sit amet erat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, mi in malesuada molestie.
               </p><p>
-            Sed ullamcorper magna tellus, ut aliquet orci molestie vel. Quisque tempor tellus purus, ut eleifend eros porta sed. Vestibulum imperdiet suscipit placerat. Cras quis elit at lectus pulvinar rutrum. Donec facilisis ultricies quam et auctor. Praesent a tempor ligula, ac feugiat dolor
+            Sed ullamcorper magna tellus, ut aliquet orci molestie vel. Quisque tempor tellus purus, ut eleifend eros porta sed. Vestibulum imperdiet suscipit placerat. Cras quis elit at lectus pulvinar rutrum.
           </p>
           </div>
       </InlineCss>
@@ -29,4 +29,3 @@ const HowTo = React.createClass({
 })
 
 export default HowTo
-
