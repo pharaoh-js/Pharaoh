@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-const BASEREF = 'https://pharaohjs.firebaseio.com/session/projectKey/'
+const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
 
 const Mirror = React.createClass({
 

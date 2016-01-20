@@ -19,29 +19,41 @@ const cmConfig = {
   , autoCloseTags     : true
   }
 
-  const themeNames = ['default','monokai','mbo','abcdef','base16-dark','base16-light','solarized dark','solarized light','tomorrow-night-eighties','tomorrow-night-bright','zenburn']
+  const themeNames = [
+    'default'
+  , 'monokai'
+  , 'mbo'
+  , 'abcdef'
+  , 'base16-dark'
+  , 'base16-light'
+  , 'solarized-light'
+  , 'solarized-dark'
+  , 'tomorrow-night-eighties'
+  , 'tomorrow-night-bright'
+  , 'zenburn'
+  ]
 
   const modeObj = {
-    html: 'htmlmixed'
-  , js: 'javascript'
-  , css: 'css'
-  , jsx: 'jsx'
-  , scss: 'sass'
-  , py: 'python'
-  , clj: 'clojure'
-  , cofee:'cofeescript'
-  , md: 'gfm'
-  , php: 'php'
-  , rb: 'ruby'
-  , swift: 'swift'
+    html   : 'htmlmixed'
+  , js     : 'javascript'
+  , css    : 'css'
+  , jsx    : 'jsx'
+  , scss   : 'sass'
+  , py     : 'python'
+  , clj    : 'clojure'
+  , coffee : 'coffeescript'
+  , md     : 'gfm'
+  , php    : 'php'
+  , rb     : 'ruby'
+  , swift  : 'swift'
   }
 
 const Viewer = React.createClass({
-  swapDoc (pad) {
+  swapDoc (path, name) {
     this.setState({
-      pad:pad.link,
-      activeFile: pad.fileName,
-      mode: this.modeFromFilename(pad.fileName)
+      pad: path,
+      activeFile: name,
+      mode: this.modeFromFilename(name)
     })
   },
   getInitialState () {
@@ -60,23 +72,23 @@ const Viewer = React.createClass({
    return modeObj[ext]
  },
  setMode(fileName) {
-   let mode = this.modeFromFilename(fileName);
-   this.updateSettings('mode', mode);
+   let mode = this.modeFromFilename(fileName)
+   this.updateSettings('mode', mode)
  },
   showSettings () {
-    this.setState({ isSetting: true });
+    this.setState({ isSetting: true })
     // document.addEventListener("click", this.hideSettings);
   },
   hideSettings () {
     // document.removeEventListener("click", this.hideSettings);
-    this.setState({isSetting: false});
+    this.setState({isSetting: false})
   },
   updateSettings (prop, val) {
     // let config = this.state.config  // don't do this!
     let config = Object.assign({},this.state.cmConfig)
-    config[prop] = val;
+    config[prop] = val
     this.setState({ cmConfig:config })
-    console.log(prop,val);
+    console.log(prop,val)
   },
   render () {
     return (
