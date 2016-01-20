@@ -15,7 +15,8 @@ class FileTree extends React.Component {
       isOpen: {}
     };
 
-    this.labelChildren = function(refBase, folderRef, folderPath1, folderPath2){
+    //adds firebase listeners to initialize items on state and watch for new ones
+    this.readProjectDirectory = function(refBase, folderRef, folderPath1, folderPath2){
       let newRef = new Firebase(`${refBase}/${folderRef}`);
       newRef.on('child_added', (item)=> {
         if(this.state.projectDirectory[item.key()] || typeof item.val() !== 'object'){
@@ -26,32 +27,57 @@ class FileTree extends React.Component {
         let itemVal = item.val();
         itemVal.key = item.key();
         let toChange = Object.assign({}, this.state.projectDirectory);
-        // debugger;
         if(folderPath1 === undefined){
           toChange[itemVal.key] = itemVal;
           newPath1 = itemVal.key;
         }else if(folderPath1 && folderPath2 === undefined){
           toChange[folderPath1][itemVal.key] = itemVal;
-          newPath1 = folderPath1
+          newPath1 = folderPath1;
           newPath2 = itemVal.key;
         }else if(folderPath2){
           toChange[folderPath1][folderPath2][itemVal.key] = itemVal;
         }
         this.setState({projectDirectory: toChange});
-        if(itemVal.folderName){this.labelChildren(newRef, itemVal.key, newPath1)}
-        if(itemVal.folderName && folderPath1 && folderPath2 === undefined){this.labelChildren(newRef, itemVal.key, newPath1, newPath2)}
+        if(itemVal.folderName){this.readProjectDirectory(newRef, itemVal.key, newPath1)}
+        if(itemVal.folderName && folderPath1 && folderPath2 === undefined){this.readProjectDirectory(newRef, itemVal.key, newPath1, newPath2)}
+      });
+    }
+
+    //adds firebase listeners to watch for item removal and remove from state
+    this.removeProjectItem = function(refBase, folderRef, folderPath1, folderPath2){
+      let newRef = new Firebase(`${refBase}/${folderRef}`);
+      newRef.on('child_removed', (item)=> {
+        let itemVal = item.val();
+        itemVal.key = item.key();
+        let newPath1 = {};
+        let newPath2 = {};
+        let toChange = Object.assign({}, this.state.projectDirectory);
+        if(folderPath1 === undefined){
+          delete toChange[itemVal.key];
+          newPath1 = itemVal.key;
+        }else if(folderPath1 && folderPath2 === undefined){
+          delete toChange[folderPath1][itemVal.key];
+          newPath1 = folderPath1;
+          newPath2 = itemVal.key;
+        }else if(folder2){
+          delete toChange[folderPath1][folderPath2][itemVal.key];
+        }
+        this.setState({projectDirectory: toChange});
+        if(itemVal.folderName){this.removeProjectItem(newRef, itemVal.key, newPath1)}
+        if(itemVal.folderName && folderPath1 && folderPath2 === undefined){this.removeProjectItem(newRef, itemVal.key, newPath1, newPath2)}
       });
     }
 
     this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
-
     this.refFromRouter = 'projectKey'
     this.projectRef = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`);
     this.projectRef.once('value', (projectName)=> {
       let projectSession = projectName.val();
       this.setState({projectName: projectSession.projectName});
     });
-    this.labelChildren(this.firebaseRef, this.refFromRouter);
+
+    this.readProjectDirectory(this.firebaseRef, this.refFromRouter);
+    this.removeProjectItem(this.firebaseRef, this.refFromRouter);
 
     this.handleToggle = this.handleToggle.bind(this);
     this.createFolder = this.createFolder.bind(this);
@@ -78,7 +104,7 @@ class FileTree extends React.Component {
     return (
           <InlineCss componentName="FileTree" stylesheet={stylesheet}>
             <div className="file-browser">
-              <div className="file-header">From url: {this.props.project}</div><button onClick={this.createFolder}>folder</button>
+              <div className="file-header">From url: {this.props.project}</div><button onClick={this.createFolder}>mkFolder</button>
               <Folder
                 folder={this.state.projectDirectory}
                 handleToggle={this.handleToggle}

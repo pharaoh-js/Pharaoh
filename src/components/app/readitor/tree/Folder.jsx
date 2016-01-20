@@ -75,7 +75,7 @@ class Folder extends React.Component {
     }
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
-        <div className="folder" onClick={this.handleToggle}>{folderTitle}</div><button onClick={this.createFile}>file</button>
+        <div className="folder" onClick={this.handleToggle}>{folderTitle}</div><button onClick={this.createFile}>mkFile</button>
         <ul className="custom-list">
           {folderContents}
         </ul>
