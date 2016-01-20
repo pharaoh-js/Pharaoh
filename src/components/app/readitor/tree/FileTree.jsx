@@ -118,9 +118,8 @@ class FileTree extends React.Component {
             <div className="file-browser">
               <div className="file-header">From url: {this.props.project}</div>
               <div className="create-folder" onClick={this.createFolder}>
-                <img src="http://4vector.com/i/free-vector-tango-folder-new_100371_tango_folder_new.png"
-                  style={{
-                  width:'20px',position:'relative',top:'5px',padding:'0 5px'
+                <img src="src/shared/images/createfolder.png"
+                  style={{width:'20px',position:'relative',top:'5px',padding:'0 5px'
                   }}></img>
                   create new folder
             </div>
