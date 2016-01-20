@@ -28,9 +28,9 @@ data
 db
 bundle.js
 build.js
-public
 x/**
 **/api.key
 **.key
 codemirror_libs
+**/codemirror_libs
 
