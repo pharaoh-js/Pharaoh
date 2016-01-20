@@ -23,7 +23,6 @@ class Folder extends React.Component {
 
   handleToggle (){
     this.props.handleToggle(this.props.folder.key)
-    console.log(this.props.firebaseComponentPath)
   }
 
   render(){
@@ -31,13 +30,15 @@ class Folder extends React.Component {
     var folderContents
     var folderTitle = this.props.folder.folderName ? (
       <div className="folder-select">
-        <img
-          src="src/shared/images/folder2x.png"
-          style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
-        </img>
-        {this.props.folder.folderName}
+        <div onClick={this.handleToggle}>
+          <img
+            src="src/shared/images/folder2x.png"
+            style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
+          </img>
+          {this.props.folder.folderName}
+        </div>
         <span>
-          <img className="icons" src="src/shared/images/Delete-icon (2).png"></img>
+          <img className="icons" src="src/shared/images/Delete-icon (2).png" onClick={this.deleteItem}></img>
           <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
           <img className="icons" src="src/shared/images/edit-file.png"></img>
         </span>
@@ -88,7 +89,7 @@ class Folder extends React.Component {
     }
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
-        <div className="folder" onClick={this.handleToggle}>
+        <div className="folder">
         {folderTitle}
         </div>
           <ul className="custom-list">
