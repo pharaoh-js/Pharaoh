@@ -117,7 +117,13 @@ class FileTree extends React.Component {
           <InlineCss componentName="FileTree" stylesheet={stylesheet}>
             <div className="file-browser">
               <div className="file-header">From url: {this.props.project}</div>
-              <button onClick={this.createFolder}>mkFolder</button>
+              <div className="create-folder" onClick={this.createFolder}>
+                <img src="http://4vector.com/i/free-vector-tango-folder-new_100371_tango_folder_new.png"
+                  style={{
+                  width:'20px',position:'relative',top:'5px',padding:'0 5px'
+                  }}></img>
+                  create new folder
+            </div>
               <Folder
                 folder={this.state.projectDirectory}
                 handleToggle={this.handleToggle}
@@ -135,4 +141,3 @@ class FileTree extends React.Component {
 }
 
 export default FileTree
-

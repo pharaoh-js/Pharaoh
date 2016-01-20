@@ -20,6 +20,9 @@ FileTree {
   list-style-type: none;
   margin-bottom: 0px;
   padding:5px 0px;
+  & .edit-btns {
+    padding:0 7px;
+  }
 }
 & .folder:hover {
   background-color: #212223;
@@ -33,11 +36,14 @@ cursor: pointer;
 }
 & .folder-select {
   overflow: hidden;
-  width:500px;
+  width:99%;
+}
+& .edit-btns:hover {
+    display: inline;
 }
 & .file-length {
   overflow: hidden;
-  width:500px;
+  width:99%;
 }
 & .custom-list {
   padding-left: 10px;
@@ -55,5 +61,12 @@ cursor: pointer;
     cursor: pointer;
     color: #0FB427;
   }
+  & .create-folder {
+    padding:5px 0;
+  }
+  & .create-folder:hover {
+    background-color: #212223;
+    color:#5B97B4;
+    cursor: pointer;
+  }
 }
-

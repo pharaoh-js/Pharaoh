@@ -36,6 +36,11 @@ class Folder extends React.Component {
           style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
         </img>
         {this.props.folder.folderName}
+        <span className="edit-btns">
+          <img src="src/shared/images/Delete-icon (2).png" style={{width:'15px',float:'right',position:'relative',top:'4px',margin:'0 8px'}}></img>
+          <img src="src/shared/images/plus-icon.png" onClick={this.createFile} style={{width:'18px', position:'relative', top:'3px',float:'right'}}></img>
+          <img src="src/shared/images/edit-file.png" style={{width:'15px',float:'right',position:'relative',top:'4px',margin:'0 8px'}}></img>
+        </span>
       </div>) : null //keeps react from rendering an empty item
 
       var readDirectory = function(folderObj){
@@ -80,15 +85,15 @@ class Folder extends React.Component {
     }
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
-        <div className="folder" onClick={this.handleToggle}>{folderTitle}</div>
-        <button onClick={this.createFile}>mkFile</button>
-        <ul className="custom-list">
+        <div className="folder" onClick={this.handleToggle}>
+        {folderTitle}
+        </div>
+          <ul className="custom-list">
           {folderContents}
-        </ul>
+          </ul>
       </InlineCss>
     )
   }
 }
 
 export default Folder
-
