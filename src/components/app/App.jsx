@@ -3,7 +3,7 @@ import Readitor             from './readitor/Readitor'
 import Menu                 from './menu/Menu'
 import Firebase             from 'firebase'
 
-const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
+const BASEURL = 'https://pharaohjs.firebaseio.com/session/'
 const App = React.createClass({
   getInitialState () {
     return {project: 'sandbox'}
@@ -11,8 +11,8 @@ const App = React.createClass({
   componentWillMount() {
     this.role = this.props.params.role
     if (this.role === 'w') {
-      let ref = new Firebase(BASEREF);
-      let projectRef = ref.push().set({
+      let ref = new Firebase(BASEURL);
+      let projectRef = ref.push({
         projectName : 'Project Name'
       })
       this.projectKey = projectRef.key();
