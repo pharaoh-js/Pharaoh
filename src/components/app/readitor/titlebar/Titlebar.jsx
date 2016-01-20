@@ -2,21 +2,21 @@ import React     from 'react'
 import InlineCss from 'react-inline-css'
 const stylesheet = require('!css!less!./titlebar.less').toString()
 
+
 const TitleBar = React.createClass({
   render() {
     let icon = this.props.isSetting
-      ? 'src/shared/images/close_icon.png'
-      : 'src/shared/images/settings-icon.png'
+      ? ''
+      : <img src='src/shared/images/settings-icon.png' style={{
+        width: '22px'
+      }}></img>
     let handleClick = this.props.isSetting ? this.props.hideSettings : this.props.showSettings;
     return (
       <InlineCss componentName="TitleBar" stylesheet={stylesheet}>
         <div className="header-bar">
-          <span>&nbsp;&nbsp;
-            {this.props.pad}</span>
+          <span>{this.props.pad}</span>
           <div onClick={handleClick} className="setting-icon">
-            <img src={icon} style={{
-              width: '22px'
-            }}></img>
+            {icon}
           </div>
         </div>
       </InlineCss>

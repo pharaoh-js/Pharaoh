@@ -3,6 +3,7 @@ import File from './File.jsx';
 import _ from 'lodash';
 import Firebase from 'firebase';
 import InlineCss from 'react-inline-css';
+const stylesheet = require('!css!less!./fileTree.less').toString()
 
 class Folder extends React.Component {
   constructor(props){
@@ -28,16 +29,18 @@ class Folder extends React.Component {
     });
     this.props.swapDoc(newFile, newFileName);
   }
-
   handleToggle (){
     this.props.handleToggle(this.props.folder.folderName)
     console.log(this.props.firebaseComponentPath);
   };
-
   render(){
     let that = this;
     var folderContents;
-    var folderTitle = this.props.folder.folderName ? (<li className="folder-select"><h4>{this.props.folder.folderName}</h4></li>) : null; //keeps react from rendering an empty item
+    var folderTitle = this.props.folder.folderName ? (
+      <div className="folder-select">
+        <img src="src/shared/images/folder2x.png" style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}></img>
+        {this.props.folder.folderName}
+      </div>) : null; //keeps react from rendering an empty item
     var readDirectory = function(folderObj){
       var folders = _.values(folderObj).map((folderItem, index)=> {
         if(folderItem.folderName){
@@ -49,10 +52,12 @@ class Folder extends React.Component {
               isOpen={that.props.isOpen}
               swapDoc={that.props.swapDoc}
               firebaseRef={that.props.firebaseRef}
-              firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`} />
+              firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
+              setMode={that.props.setMode} />
             );
         }
       });
+
       var files = _.values(folderObj).map((folderItem, index)=> {
         if(folderItem.fileName){
           return (
@@ -61,11 +66,11 @@ class Folder extends React.Component {
               key={index}
               swapDoc={that.props.swapDoc}
               firebaseRef={that.firebaseRef}
-              firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`} />
+              firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
+              setMode={that.props.setMode} />
           );
         }
       });
-      //Mapped the arrays seperately to sort sibling folders above files in the view, I didn't know a good way to arr.sort(reactElements)
       var nodes = folders.concat(files);
       return nodes;
     };
@@ -75,27 +80,7 @@ class Folder extends React.Component {
       folderContents = this.props.isOpen[this.props.folder.folderName] ? readDirectory(this.props.folder) : null;
     }
     return (
-      <InlineCss stylesheet={`
-          & .folder {
-            list-style-type: none;
-            margin-bottom: 0px;
-          }
-          & .folder-select:hover {
-            background-color: #212223;
-            color:#5B97B4;
-            cursor: pointer;
-          }
-          & .folder-select:active {
-          background-color: #212223;
-          color:#5B97B4;
-          cursor: pointer;
-          // border: 2px solid white;
-          }
-          & .custom-list {
-            padding-left: 10px;
-            margin: 0px;
-          }
-       `}>
+      <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="folder" onClick={this.handleToggle}>{folderTitle}</div><button onClick={this.createFile}></button>
         <ul className="custom-list">
           {folderContents}

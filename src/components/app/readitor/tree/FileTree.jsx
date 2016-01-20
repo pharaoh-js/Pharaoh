@@ -3,6 +3,8 @@ import Folder from './Folder.jsx';
 import Firebase from 'firebase';
 import _ from 'lodash';
 import InlineCss from 'react-inline-css';
+const stylesheet = require('!css!less!./fileTree.less').toString()
+
 
 class FileTree extends React.Component {
   constructor(props){
@@ -43,7 +45,6 @@ class FileTree extends React.Component {
 
     this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
 
-    //get projectName needs to improve
     this.refFromRouter = 'projectKey'
     this.projectRef = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`);
     this.projectRef.once('value', (projectName)=> {
@@ -51,10 +52,8 @@ class FileTree extends React.Component {
       this.setState({projectName: projectSession.projectName});
     });
     this.labelChildren(this.firebaseRef, this.refFromRouter);
-
     this.handleToggle = this.handleToggle.bind(this);
   }
-  //pull firebase info before rendering anything, at least the once value thing
 
   handleToggle (folderName){
     let oldVal = this.state.isOpen[folderName];
@@ -65,38 +64,21 @@ class FileTree extends React.Component {
     })
   }
 
-
   render(){
     return (
-      <InlineCss stylesheet={`
-        & .file-browser {
-        position: absolute;
-        bottom:0;
-        left:0;
-        width:13%;
-        border-right: 2px solid #0FB427;
-        height:100%;
-        background-color:#37383A;
-        color: white;
-        border-bottom-left-radius: 3px;
-        border-top-left-radius: 3px;
-        }
-        & .file-header {
-        border-bottom: 2px solid #0FB427;
-        text-align:center;
-        padding:4px 0px;
-        }
-        `}>
-        <div className="file-browser">
-          <h2 className="file-header">{this.state.projectName}</h2>
-          <Folder
+          <InlineCss componentName="FileTree" stylesheet={stylesheet}>
+            <div className="file-browser">
+              <div className="file-header">From url: {this.props.project}</div>
+              <Folder
             folder={this.state.projectDirectory}
             handleToggle={this.handleToggle}
             isOpen={this.state.isOpen}
             root={true}
             swapDoc={this.props.swapDoc}
+            setMode={this.props.setMode}
             firebaseRef={this.firebaseRef}
-            firebaseComponentPath={this.refFromRouter}/>
+            firebaseComponentPath={this.refFromRouter}
+            />
         </div>
       </InlineCss>
     )

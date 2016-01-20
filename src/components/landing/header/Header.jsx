@@ -4,6 +4,12 @@ import {ReactRouter, Link } from 'react-router'
 const stylesheet = require('!css!less!./header.less').toString()
 
 const Header = React.createClass({
+  getInitialState () {
+    return {project: ''}
+  },
+  handleProjectEntry (e) {
+    this.setState({project: e.target.value})
+  },
   render() {
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
@@ -15,9 +21,13 @@ const Header = React.createClass({
         }}></img>
         <div className="header-right">
           <span>Enter session code:
-            <input type="text"></input>
+            <input
+              type="text"
+              value={this.state.project}
+              onChange={this.handleProjectEntry}
+            ></input>
           </span>
-          <Link className="link" to={'/app'}>Go!</Link>
+          <Link className="link" to={'/app/'+this.state.project}>Go!</Link>
         </div>
       </InlineCss>
     )
@@ -25,4 +35,3 @@ const Header = React.createClass({
 })
 
 export default Header
-
