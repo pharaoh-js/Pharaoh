@@ -68,6 +68,18 @@ class FileTree extends React.Component {
       });
     }
 
+    //child_changed looks at all child descendants without diving into nested nodes
+    this.updateProjectItem = function(refBase, folderRef){
+      let newRef = new Firebase(`${refBase}/${folderRef}`);
+      newRef.on('child_changed', (item)=> {
+        let itemVal = item.val();
+        itemVal.key = item.key();
+        let toChange = Object.assign({}, this.state.projectDirectory);
+        toChange[itemVal.key] = itemVal;
+        this.setState({projectDirectory: toChange});
+      });
+    }
+
     this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
     this.refFromRouter = 'projectKey'
     this.projectRef = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`);
@@ -78,6 +90,7 @@ class FileTree extends React.Component {
 
     this.readProjectDirectory(this.firebaseRef, this.refFromRouter);
     this.removeProjectItem(this.firebaseRef, this.refFromRouter);
+    this.updateProjectItem(this.firebaseRef, this.refFromRouter);
 
     this.handleToggle = this.handleToggle.bind(this);
     this.createFolder = this.createFolder.bind(this);
