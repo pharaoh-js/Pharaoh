@@ -10,19 +10,19 @@ class Folder extends React.Component {
     super(props)
     this.handleToggle = this.handleToggle.bind(this)
     this.createFile   = this.createFile.bind(this)
+    this.deleteItem   = this.deleteItem.bind(this)
+  }
+
+  deleteItem (){
+    this.props.deleteItem(this.props.firebaseRef, this.props.firebaseComponentPath)
   }
 
   createFile (){
-    let ref = new Firebase(`${this.props.firebaseRef}/${this.props.firebaseComponentPath}`)
-    let newFileName = 'testFile.js'
-    let that = this
-    let newFile = ref.push().set({
-      fileName: newFileName
-    })
+    this.props.createFile(this.props.firebaseRef, this.props.firebaseComponentPath)
   }
 
   handleToggle (){
-    this.props.handleToggle(this.props.folder.folderName)
+    this.props.handleToggle(this.props.folder.key)
     console.log(this.props.firebaseComponentPath)
   }
 
@@ -48,13 +48,15 @@ class Folder extends React.Component {
                 handleToggle={that.props.handleToggle}
                 isOpen={that.props.isOpen}
                 swapDoc={that.props.swapDoc}
+                createFile={that.props.createFile}
+                deleteItem={that.props.deleteItem}
                 firebaseRef={that.props.firebaseRef}
                 firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
                 setMode={that.props.setMode}
               />
-          )
-        }
-      })
+            )
+          }
+        })
 
       var files = _.values(folderObj).map((folderItem, index)=> {
         if(folderItem.fileName){
@@ -63,7 +65,8 @@ class Folder extends React.Component {
               file={folderItem}
               key={index}
               swapDoc={that.props.swapDoc}
-              firebaseRef={that.firebaseRef}
+              deleteItem={that.props.deleteItem}
+              firebaseRef={that.props.firebaseRef}
               firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
               setMode={that.props.setMode}
             />
@@ -76,7 +79,7 @@ class Folder extends React.Component {
     if(this.props.root){
       folderContents = readDirectory(this.props.folder)
     } else {
-      folderContents = this.props.isOpen[this.props.folder.folderName] ? readDirectory(this.props.folder) : null
+      folderContents = this.props.isOpen[this.props.folder.key] ? readDirectory(this.props.folder) : null
     }
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
@@ -91,4 +94,3 @@ class Folder extends React.Component {
 }
 
 export default Folder
-
