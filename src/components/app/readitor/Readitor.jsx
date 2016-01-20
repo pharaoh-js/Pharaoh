@@ -37,11 +37,11 @@ const cmConfig = {
   }
 
 const Viewer = React.createClass({
-  swapDoc (pad) {
+  swapDoc (path, name) {
     this.setState({
-      pad:pad.link,
-      activeFile: pad.fileName,
-      mode: this.modeFromFilename(pad.fileName)
+      pad: path,
+      activeFile: name,
+      mode: this.modeFromFilename(name)
     })
   },
   getInitialState () {
