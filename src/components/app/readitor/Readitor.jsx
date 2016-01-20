@@ -80,15 +80,14 @@ const Viewer = React.createClass({
     // document.addEventListener("click", this.hideSettings);
   },
   hideSettings () {
-    this.setState({ isSetting:false })
-    // document.removeEventListener("click", this.hideSettings);
+    this.setState({isSetting: false})
   },
   updateSettings (prop, val) {
     // let config = this.state.config  // don't do this!
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val
     this.setState({ cmConfig:config })
-    // console.log(prop,val)
+    console.log(prop,val)
   },
   render () {
     return (
