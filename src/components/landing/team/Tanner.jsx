@@ -11,7 +11,7 @@ const Tanner = React.createClass({
         </div>
         <big>J. Tanner Porter</big>
         <p>
-          I am young Full Stack dev excited about learning more. MEAN stack, React, and CSS.
+          I am young Full Stack dev excited about development. MEAN stack, React, and CSS.
         </p>
          <li>
           <a className="links" href="http://j-tannerporter.azurewebsites.net/">WWW</a>

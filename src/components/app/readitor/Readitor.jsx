@@ -82,7 +82,6 @@ const Viewer = React.createClass({
     // document.addEventListener("click", this.hideSettings);
   },
   hideSettings () {
-    // document.removeEventListener("click", this.hideSettings);
     this.setState({isSetting: false})
   },
   updateSettings (prop, val) {
@@ -127,4 +126,3 @@ const Viewer = React.createClass({
   })
 
 export default Viewer
-
