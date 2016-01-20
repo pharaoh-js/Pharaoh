@@ -36,6 +36,11 @@ class Folder extends React.Component {
           style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
         </img>
         {this.props.folder.folderName}
+        <span>
+          <img className="icons" src="src/shared/images/Delete-icon (2).png"></img>
+          <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
+          <img className="icons" src="src/shared/images/edit-file.png"></img>
+        </span>
       </div>) : null //keeps react from rendering an empty item
 
       var readDirectory = function(folderObj){
@@ -83,11 +88,12 @@ class Folder extends React.Component {
     }
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
-        <div className="folder" onClick={this.handleToggle}>{folderTitle}</div>
-        <button onClick={this.createFile}>mkFile</button>
-        <ul className="custom-list">
+        <div className="folder" onClick={this.handleToggle}>
+        {folderTitle}
+        </div>
+          <ul className="custom-list">
           {folderContents}
-        </ul>
+          </ul>
       </InlineCss>
     )
   }

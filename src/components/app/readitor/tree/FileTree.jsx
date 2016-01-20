@@ -115,22 +115,27 @@ class FileTree extends React.Component {
 
   render(){
     return (
-      <InlineCss componentName="FileTree" stylesheet={stylesheet}>
-        <div className="file-browser">
-          <div className="file-header">From url: {this.props.project}</div>
-          <button onClick={this.createFolder}>mkFolder</button>
-          <Folder
-            folder={this.state.projectDirectory}
-            handleToggle={this.handleToggle}
-            isOpen={this.state.isOpen}
-            createFile={this.createFile}
-            deleteItem={this.deleteItem}
-            root={true}
-            swapDoc={this.props.swapDoc}
-            setMode={this.props.setMode}
-            firebaseRef={this.firebaseRef}
-            firebaseComponentPath={this.refFromRouter}
-          />
+          <InlineCss componentName="FileTree" stylesheet={stylesheet}>
+            <div className="file-browser">
+              <div className="file-header">From url: {this.props.project}</div>
+              <div className="create-folder" onClick={this.createFolder}>
+                <img src="src/shared/images/createfolder.png"
+                  style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
+                  }}></img>
+                  create new folder
+              </div>
+              <Folder
+                folder={this.state.projectDirectory}
+                handleToggle={this.handleToggle}
+                isOpen={this.state.isOpen}
+                createFile={this.createFile}
+                deleteItem={this.deleteItem}
+                root={true}
+                swapDoc={this.props.swapDoc}
+                setMode={this.props.setMode}
+                firebaseRef={this.firebaseRef}
+                firebaseComponentPath={this.refFromRouter}
+              />
         </div>
       </InlineCss>
     )
