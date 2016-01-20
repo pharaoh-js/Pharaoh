@@ -1,4 +1,5 @@
 import React     from 'react'
+import { browserHistory, ReactRouter, Router, Route, Lifecycle } from 'react-router'
 import InlineCss from 'react-inline-css'
 import Header    from './header/Header'
 import HowTo     from './howto/HowTo'
@@ -6,6 +7,11 @@ import Team      from './team/Team'
 import Stack     from './stack/Stack'
 
 const Landing = React.createClass({
+
+  mixins: [ Lifecycle ],
+  routerWillLeave() {
+    console.log('hello from rWL');
+  },
   render () {
     return (
       <InlineCss stylesheet={`
@@ -57,4 +63,3 @@ const Landing = React.createClass({
 })
 
 export default Landing
-
