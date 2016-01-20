@@ -20,8 +20,8 @@ class File extends React.Component {
             <small>
               <img src="src/shared/images/file.png" style={{width:'20px',position:'relative',top:'3px'}}></img>
               {this.props.file.fileName}
-              <img src="src/shared/images/Delete-icon (2).png" style={{width:'15px',position:'relative',top:'4px',float:'right',margin:'0 8px'}}></img>
-              <img src="src/shared/images/edit-file.png" style={{width:'15px',position:'relative',top:'4px',float:'right'}}></img>
+              <img src="src/shared/images/Delete-icon (2).png" className="icons"></img>
+              <img src="src/shared/images/edit-file.png" className="icons"></img>
             </small>
           </li>
        </div>

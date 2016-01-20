@@ -37,9 +37,9 @@ class Folder extends React.Component {
         </img>
         {this.props.folder.folderName}
         <span className="edit-btns">
-          <img src="src/shared/images/Delete-icon (2).png" style={{width:'15px',float:'right',position:'relative',top:'4px',margin:'0 8px'}}></img>
-          <img src="src/shared/images/plus-icon.png" onClick={this.createFile} style={{width:'18px', position:'relative', top:'3px',float:'right'}}></img>
-          <img src="src/shared/images/edit-file.png" style={{width:'15px',float:'right',position:'relative',top:'4px',margin:'0 8px'}}></img>
+          <img className="icons" src="src/shared/images/Delete-icon (2).png"></img>
+          <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
+          <img className="icons" src="src/shared/images/edit-file.png"></img>
         </span>
       </div>) : null //keeps react from rendering an empty item
 
