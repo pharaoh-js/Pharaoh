@@ -13,6 +13,10 @@ const Header = React.createClass({
     } else {
       this.setState({invite: 'click'})
     }
+    let input = this.refs.textInput
+    console.log();
+    input.focus()
+    input.select()
   },
   render () {
     return (
@@ -30,7 +34,7 @@ const Header = React.createClass({
                 <div className="share" onClick={this.toggleCopying}>
                   <span className="text">Invite participants:</span><img src='src/shared/images/people.png' style={{width: '40px'}}></img>
                 </div>
-                <input className="copyURL" type="text" readOnly="true" value={'http://pharaoh.js.org/' + this.props.projectKey} />
+                <input ref="textInput" className="copyURL" type="text" readOnly="true" value={'http://pharaoh.js.org/' + this.props.projectKey} />
               </div>
             </div>
           </div>
