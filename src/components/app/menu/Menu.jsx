@@ -27,14 +27,13 @@ const Header = React.createClass({
               left:'12.5%'
               }}></img>
                <div className={this.state.invite}>
-                <div onClick={this.toggleCopying}>
-                  <img src='src/shared/images/people.png' style={{width: '40px'}}></img>
+                <div className="share" onClick={this.toggleCopying}>
+                  <span>Invite participants:</span><img src='src/shared/images/people.png' style={{width: '40px'}}></img>
                 </div>
                 <input type="text" readOnly="true" value={'http://pharaoh.js.org/' + this.props.projectKey} />
                 <button className="btn" data-clipboard-target={'http://pharaoh.js.org/' + this.props.projectKey}>
                   <i className="fa fa-clipboard"></i>
                 </button>
-                <img src='src/shared/images/people.png' style={{width: '22px'}} />
               </div>
             </div>
           </div>
