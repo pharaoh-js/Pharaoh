@@ -81,20 +81,40 @@ cursor: pointer;
   & .folder:hover .icons {
     visibility: visible;
   }
+  //////////UserInput Styles///////
   & .box {
-    z-index: 1;
-    background-color: red;
+    text-align: center;
+    z-index: 99999999;
+    background-color: rgb(40, 40, 40);
     position: absolute;
-    left: -500%;
-    top:12.3%;
-    border:1px soild gray;
-    width:20%;
+    left: 225%;
+    top:5.4%;
+    padding: 15px;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    width:250px;
     height:auto;
     input {
-
+      width:95%;
+      padding:5px;
+      border-radius: 3px;
+      background-color: black;
+      color: whitesmoke;
+      font-family: monospace;
+      font-size: 14px
     }
     & .btn-container {
-
+      margin:8px 5px 0 5px;
+      img {
+        width:20px;
+        margin:0 12%;
+      }
+      img:hover {
+        width:28px;
+        cursor: pointer;
+        margin:-1.5% 10.4%;
+      }
     }
   }
 }

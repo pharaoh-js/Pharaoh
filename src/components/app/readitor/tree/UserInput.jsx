@@ -7,9 +7,9 @@ class UserInput extends React.Component {
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="box">
-          <div>Edit/create area</div>
+          <div style={{margin:'0 0 5px 0'}}>Edit/create area</div>
           <input placeholder="file or folder name..." type="text"></input>
-          <div className="btn-container"><button>GOOD</button><button>NO GOOD</button></div>
+          <div className="btn-container"><img src="src/shared/images/checkmark-lb.png"></img><img src="src/shared/images/Delete-icon (2).png"></img></div>
         </div>
       </InlineCss>
     )
