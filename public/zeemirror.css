@@ -23,7 +23,7 @@
 .cm-s-zeemirror.CodeMirror .inline-widget code{
 	color: #ddd;
 }
-.cm-s-zeemirror.CodeMirror .CodeMirror-gutters {border-style: none;background: #393d54;}
+.cm-s-zeemirror.CodeMirror .CodeMirror-gutters {border-style: none;background: #182c34;}
 .cm-s-zeemirror.CodeMirror .CodeMirror-linenumbers {
 	background-color: #505e50;
     background-image: linear-gradient(to bottom, #393939 33%, #686868 67%);
