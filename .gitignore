@@ -34,3 +34,5 @@ x/**
 **.key
 codemirror_libs
 **/codemirror_libs
+*.swp
+
