@@ -68,6 +68,7 @@ class FileTree extends React.Component {
 
   createFolder (firebaseRef, componentRef){
     let ref = new Firebase(`${firebaseRef}/${componentRef}`)
+    let parent = ref.key()
     let newFolderName = 'testFolder'
     let newFolder = ref.push()
     let folderKey = newFolder.key()
@@ -75,6 +76,11 @@ class FileTree extends React.Component {
       folderName: newFolderName,
       key: folderKey
     })
+    if(parent !== this.refFromRouter){
+      let folderState = Object.assign({}, this.state.isOpen)
+      folderState[parent] = true
+      this.setState({isOpen: folderState})
+    }
   }
 
   createFile (firebaseRef, componentRef){

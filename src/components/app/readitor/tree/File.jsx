@@ -31,7 +31,7 @@ class File extends React.Component {
             <small>
               <img src="src/shared/images/file.png" style={{width:'20px', position:'relative', top:'3px'}}></img>
               <span onClick={this.sendLink}>{this.props.file.fileName}</span>
-              <img src="src/shared/images/Delete-icon (2).png" className="icons" onClick={this.deleteItem}></img>
+              <img src="src/shared/images/delete.png" className="icons" onClick={this.deleteItem}></img>
               <img src="src/shared/images/edit-file.png" className="icons"></img>
             </small>
           </li>

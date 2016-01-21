@@ -48,7 +48,7 @@ class Folder extends React.Component {
           {this.props.folder.folderName}
         </span>
         <span>
-          <img className="icons" src="src/shared/images/Delete-icon (2).png" onClick={this.deleteItem}></img>
+          <img className="icons" src="src/shared/images/delete.png" onClick={this.deleteItem}></img>
           <img className="icons" src="src/shared/images/edit-file.png"></img>
           <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
           <img className="icons" src="src/shared/images/createfolder.png" onClick={this.createFolder}></img>
