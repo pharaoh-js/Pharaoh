@@ -24,7 +24,7 @@ const Header = React.createClass({
                 <div onClick={this.toggleCopying}>
                   <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
                 </div>
-                <input type="text" value={'http://pharaoh.js.org/' + this.props.projectKey}></input>
+                <input type="text" readOnly="true" value={'http://pharaoh.js.org/' + this.props.projectKey}></input>
               </div>
             </div>
           </div>
