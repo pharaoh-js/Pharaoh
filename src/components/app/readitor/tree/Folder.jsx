@@ -40,11 +40,13 @@ class Folder extends React.Component {
     var folderContents
     var folderTitle = this.props.folder.folderName ? (
       <div className="folder-select">
-        <img
-          src="src/shared/images/folder2x.png"
-          style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
-        </img>
-        <span onClick={this.handleToggle}>{this.props.folder.folderName}</span>
+        <span onClick={this.handleToggle}>
+          <img
+            src="src/shared/images/folder2x.png"
+            style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
+          </img>
+          {this.props.folder.folderName}
+        </span>
         <span>
           <img className="icons" src="src/shared/images/Delete-icon (2).png" onClick={this.deleteItem}></img>
           <img className="icons" src="src/shared/images/edit-file.png"></img>
