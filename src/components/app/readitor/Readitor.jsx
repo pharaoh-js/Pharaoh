@@ -59,6 +59,18 @@ const Viewer = React.createClass({
     })
   },
   getInitialState () {
+    let student = !!(this.props.role === 'r')
+    let cmConfig = {
+        lineWrapping      : true
+      , mode              : 'javascript'
+      , theme             : 'default'
+      , lineNumbers       : true
+      , matchBrackets     : true
+      , lineWrapping      : true
+      , readOnly          : student
+      , autoCloseBrackets : true
+      , autoCloseTags     : true
+      }
     return {
         pad: 'default'
       , isSetting: false
@@ -91,9 +103,6 @@ const Viewer = React.createClass({
     this.setState({ cmConfig:config })
     console.log(prop,val)
   },
-  // componentDidMount () {
-  //   console.log('role: ', this.props.role, 'project: ', this.props.project);
-  // },
   render () {
     return (
       <InlineCss componentName="Readitor" stylesheet={stylesheet}>

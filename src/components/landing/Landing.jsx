@@ -1,5 +1,4 @@
 import React          from 'react'
-import { Lifecycle }  from 'react-router'
 import InlineCss      from 'react-inline-css'
 import Header         from './header/Header'
 import HowTo          from './howto/HowTo'

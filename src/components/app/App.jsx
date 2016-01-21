@@ -8,11 +8,7 @@ const App = React.createClass({
   },
   componentWillMount() {
     this.role = this.props.params.role
-    if (this.role === 'w') {
-
-    } else {
-      this.projectKey = this.props.params.project;
-    }
+    this.projectKey = this.props.params.project;
   },
   render () {
     return (
