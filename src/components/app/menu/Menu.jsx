@@ -20,7 +20,7 @@ const Header = React.createClass({
           <div className="header">
             <div>
               <Link className="title" to={"/"}>PHARAOH</Link>
-               <div className={this.state.invite}>
+              <div className={this.state.invite}>
                 <div onClick={this.toggleCopying}>
                   <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
                 </div>
