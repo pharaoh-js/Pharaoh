@@ -13,28 +13,31 @@ class Folder extends React.Component {
     this.createFolder = this.createFolder.bind(this)
     this.deleteItem   = this.deleteItem.bind(this)
     this.updateItem   = this.updateItem.bind(this)
+    this.showEdit     = this.showEdit.bind(this)
   }
 
   deleteItem (){
     this.props.deleteItem(this.props.firebaseRef, this.props.firebaseComponentPath)
   }
 
-  createFile (){
-    this.props.createFile(this.props.firebaseRef, this.props.firebaseComponentPath)
-    // this.props.showEdit()
+  createFile (userInput){
+    this.props.createFile(this.props.firebaseRef, this.props.firebaseComponentPath, userInput)
   }
 
-  createFolder (){
-    this.props.createFolder(this.props.firebaseRef, this.props.firebaseComponentPath)
-    // this.props.showEdit()
+  createFolder (userInput){
+    this.props.createFolder(this.props.firebaseRef, this.props.firebaseComponentPath, userInput)
   }
 
-  updateItem (){
-    this.props.updateItem(this.props.firebaseRef, this.props.firebaseComponentPath)
+  updateItem (userInput){
+    this.props.updateItem(this.props.firebaseRef, this.props.firebaseComponentPath, userInput)
   }
 
   handleToggle (){
     this.props.handleToggle(this.props.folder.key)
+  }
+
+  showEdit (editFn){
+    this.props.showEdit(editFn)
   }
 
   render(){
@@ -50,12 +53,12 @@ class Folder extends React.Component {
           {this.props.folder.folderName}
         </span>
         <span>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/delete.png" onClick={this.deleteItem}></img>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/edit-file.png"></img>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/createfolder.png" onClick={this.createFolder}></img>
+          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/delete.png" onClick={this.showEdit.bind(this, this.deleteItem)}></img>
+          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/edit-file.png" onClick={this.showEdit.bind(this, this.updateItem)}></img>
+          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/plus-icon.png" onClick={this.showEdit.bind(this, this.createFile)}></img>
+          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/createfolder.png" onClick={this.showEdit.bind(this, this.createFolder)}></img>
         </span>
-      </div>) : null //keeps react from rendering an empty item
+      </div>) : null
       var readDirectory = function(folderObj){
         var folders = _.values(folderObj).map((folderItem, index)=> {
           if(folderItem.folderName){
@@ -74,6 +77,7 @@ class Folder extends React.Component {
                 firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
                 role={that.props.role}
                 setMode={that.props.setMode}
+                showEdit={that.props.showEdit}
               />
             )
           }
@@ -92,6 +96,7 @@ class Folder extends React.Component {
               firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
               role={that.props.role}
               setMode={that.props.setMode}
+              showEdit={that.props.showEdit}
             />
           )
         }

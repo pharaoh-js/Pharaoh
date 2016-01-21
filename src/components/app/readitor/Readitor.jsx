@@ -94,8 +94,9 @@ const Viewer = React.createClass({
   hideSettings () {
     this.setState({isSetting: false})
   },
-  showEdit () {
+  showEdit (editFn) {
     this.setState({ isEditing: true })
+    this.setState({ editFn: editFn })
   },
   hideEdit () {
     this.setState({ isEditing: false })
@@ -124,6 +125,7 @@ const Viewer = React.createClass({
             showEdit={this.showEdit}
             hideEdit={this.hideEdit}
             role={this.props.role}
+            editFn={this.state.editFn}
           />
           <Wrapper
             themes={this.state.themes}
