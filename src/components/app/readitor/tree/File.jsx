@@ -6,7 +6,18 @@ class File extends React.Component {
   constructor(props){
     super(props)
     this.sendLink = this.sendLink.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
+    this.updateItem = this.updateItem.bind(this)
   }
+
+  deleteItem (){
+    this.props.deleteItem(this.props.firebaseRef, this.props.firebaseComponentPath)
+  }
+
+  updateItem (){
+    this.props.updateItem(this.props.firebaseRef, this.props.firebaseComponentPath)
+  }
+
   sendLink (){
     this.props.swapDoc(this.props.firebaseComponentPath, this.props.file.fileName)
     this.props.setMode(this.props.file.fileName)
@@ -15,12 +26,12 @@ class File extends React.Component {
   render(){
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
-        <div onClick={this.sendLink} className="file">
+        <div className="file">
           <li className="file-length">
             <small>
-              <img src="src/shared/images/file.png" style={{width:'20px',position:'relative',top:'3px'}}></img>
-              {this.props.file.fileName}
-              <img src="src/shared/images/delete.png" className="icons"></img>
+              <img src="src/shared/images/file.png" style={{width:'20px', position:'relative', top:'3px'}}></img>
+              <span onClick={this.sendLink}>{this.props.file.fileName}</span>
+              <img src="src/shared/images/delete.png" className="icons" onClick={this.deleteItem}></img>
               <img src="src/shared/images/edit-file.png" className="icons"></img>
             </small>
           </li>
@@ -31,4 +42,3 @@ class File extends React.Component {
 }
 
 export default File
-
