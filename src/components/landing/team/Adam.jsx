@@ -7,20 +7,20 @@ const Adam = React.createClass({
     return (
       <InlineCss componentName="Card" stylesheet={stylesheet}>
         <div>
-          <img src="https://www.junkfreejune.org.nz/themes/base/production/images/default-profile.png" className="card-pic"/>
+          <img src="https://avatars0.githubusercontent.com/u/1072819?v=3&s=400" className="card-pic"/>
         </div>
         <big>Adam Romines</big>
         <p>
-          I am young Full Stack dev excited about learning more. MEAN stack, React, and CSS.
+          Full Stack dev, living in Jackson, WY. MEAN stack, React, and Javascript.
         </p>
          <li>
-          <a className="links" href="">WWW</a>
+          <a className="links" href="http://adamromines.me/cv">WWW</a>
         </li>
     <li>
           <a className="links" href="https://github.com/romines">Github</a>
         </li>
         <li>
-          <a className="links" href="https://www.linkedin.com/in/adamromines">LinkedIn</a>
+          <a className="links" href="https://www.twitter.com/adamromines">@thompenn</a>
         </li>
          </InlineCss>
     )
@@ -28,4 +28,3 @@ const Adam = React.createClass({
 })
 
 export default Adam
-
