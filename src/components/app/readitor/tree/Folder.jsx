@@ -53,7 +53,7 @@ class Folder extends React.Component {
           {this.props.folder.folderName}
         </span>
         <span>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/delete.png" onClick={this.showEdit.bind(this, this.deleteItem)}></img>
+          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/delete.png" onClick={this.deleteItem}></img>
           <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/edit-file.png" onClick={this.showEdit.bind(this, this.updateItem)}></img>
           <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/plus-icon.png" onClick={this.showEdit.bind(this, this.createFile)}></img>
           <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/createfolder.png" onClick={this.showEdit.bind(this, this.createFolder)}></img>
