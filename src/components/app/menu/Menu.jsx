@@ -20,9 +20,11 @@ const Header = React.createClass({
           <div className="header">
             <div>
               <Link className="title" to={"/"}>PHARAOH</Link>
-              <div className={this.state.invite} onClick={this.toggleCopying}>
+              <div className={this.state.invite}>
+                <div onClick={this.toggleCopying}>
+                  <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
+                </div>
                 <input type="text" value={'http://pharaoh.js.org/' + this.props.projectKey}></input>
-                <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
               </div>
             </div>
           </div>
