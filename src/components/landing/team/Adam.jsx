@@ -7,7 +7,7 @@ const Adam = React.createClass({
     return (
       <InlineCss componentName="Card" stylesheet={stylesheet}>
         <div>
-          <img src="https://www.junkfreejune.org.nz/themes/base/production/images/default-profile.png" className="card-pic"/>
+          <img src="https://avatars0.githubusercontent.com/u/1072819?v=3&s=400" className="card-pic"/>
         </div>
         <big>Adam Romines</big>
         <p>
@@ -28,4 +28,3 @@ const Adam = React.createClass({
 })
 
 export default Adam
-
