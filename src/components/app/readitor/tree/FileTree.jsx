@@ -1,6 +1,7 @@
 import React     from 'react'
 import Folder    from './Folder.jsx'
 import Firebase  from 'firebase'
+import UserInput from './UserInput'
 import _         from 'lodash'
 import InlineCss from 'react-inline-css'
 const stylesheet = require('!css!less!./fileTree.less').toString()
@@ -122,7 +123,7 @@ class FileTree extends React.Component {
                   style={{width:'20px',position:'relative',top:'5px',padding:'0 5px'
                   }}></img>
                   create new folder
-            </div>
+              </div>
               <Folder
                 folder={this.state.projectDirectory}
                 handleToggle={this.handleToggle}
@@ -133,6 +134,7 @@ class FileTree extends React.Component {
                 firebaseRef={this.firebaseRef}
                 firebaseComponentPath={this.refFromRouter}
               />
+            <UserInput />
         </div>
       </InlineCss>
     )
