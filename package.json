@@ -1,6 +1,6 @@
 {
   "name": "pharaoh",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "description": "The front-end for a live code broadcasting app.",
   "main": "index.js",
   "scripts": {
@@ -57,3 +57,4 @@
     "webpack-dev-server": "^1.14.0"
   }
 }
+
