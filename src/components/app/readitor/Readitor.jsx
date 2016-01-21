@@ -28,11 +28,9 @@ const cmConfig = {
   , 'abcdef'
   , 'base16-dark'
   , 'base16-light'
-  , 'solarized-light'
-  , 'solarized-dark'
   , 'tomorrow-night-eighties'
-  , 'tomorrow-night-bright'
   , 'zenburn'
+  , 'zeemirror'
   ]
 
   const modeObj = {
@@ -145,3 +143,4 @@ const Viewer = React.createClass({
   })
 
 export default Viewer
+

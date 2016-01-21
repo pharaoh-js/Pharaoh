@@ -21,12 +21,12 @@ class Folder extends React.Component {
 
   createFile (){
     this.props.createFile(this.props.firebaseRef, this.props.firebaseComponentPath)
-    this.props.showEdit()
+    // this.props.showEdit()
   }
 
   createFolder (){
     this.props.createFolder(this.props.firebaseRef, this.props.firebaseComponentPath)
-    this.props.showEdit()
+    // this.props.showEdit()
   }
 
   updateItem (){
@@ -51,7 +51,7 @@ class Folder extends React.Component {
         </span>
         <span>
           <img className="icons" src="src/shared/images/delete.png" onClick={this.deleteItem}></img>
-          <img onClick={this.props.showEdit} className="icons" src="src/shared/images/edit-file.png"></img>
+          <img className="icons" src="src/shared/images/edit-file.png"></img>
           <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
           <img className="icons" src="src/shared/images/createfolder.png" onClick={this.createFolder}></img>
         </span>
@@ -73,8 +73,6 @@ class Folder extends React.Component {
                 firebaseRef={that.props.firebaseRef}
                 firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
                 setMode={that.props.setMode}
-                showEdit={that.props.showEdit}
-                hideEdit={that.props.hideEdit}
               />
             )
           }

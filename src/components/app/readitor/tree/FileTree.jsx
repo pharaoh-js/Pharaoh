@@ -74,6 +74,7 @@ class FileTree extends React.Component {
   }
 
   createFolder (firebaseRef, componentRef){
+    this.props.showEdit()
     let ref = new Firebase(`${firebaseRef}/${componentRef}`)
     let parent = ref.key()
     let newFolderName = 'testFolder'
@@ -91,6 +92,7 @@ class FileTree extends React.Component {
   }
 
   createFile (firebaseRef, componentRef){
+    this.props.showEdit()
     let ref = new Firebase(`${firebaseRef}/${componentRef}`)
     let parent = ref.key()
     let newFileName = 'testFile.js'
@@ -113,7 +115,8 @@ class FileTree extends React.Component {
     ref.set(null)
   }
 
-  updateItem (firebaseRef, componentRef, userInput){
+  updateItem (firebaseRef, componentRef){
+    this.props.showEdit()
     let ref = new Firebase(`${firebaseRef}/${componentRef}}`)
     if(ref.folderName){ref.set({folderName: userInput})}
     if(ref.fileName){ref.set({fileName: userInput})}

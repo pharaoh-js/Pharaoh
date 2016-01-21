@@ -1,6 +1,6 @@
 {
   "name": "pharaoh",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "description": "The front-end for a live code broadcasting app.",
   "main": "index.js",
   "scripts": {
