@@ -47,8 +47,8 @@ class Folder extends React.Component {
         <span onClick={this.handleToggle}>{this.props.folder.folderName}</span>
         <span>
           <img className="icons" src="src/shared/images/Delete-icon (2).png" onClick={this.deleteItem}></img>
-          <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
           <img className="icons" src="src/shared/images/edit-file.png"></img>
+          <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
           <img className="icons" src="src/shared/images/createfolder.png" onClick={this.createFolder}></img>
         </span>
       </div>) : null //keeps react from rendering an empty item
