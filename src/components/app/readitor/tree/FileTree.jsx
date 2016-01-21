@@ -164,6 +164,8 @@ class FileTree extends React.Component {
                 setMode={this.props.setMode}
                 firebaseRef={this.firebaseRef}
                 firebaseComponentPath={this.refFromRouter}
+                showEdit={this.props.showEdit}
+                hideEdit={this.props.hideEdit}
               />
             {editBox}
         </div>

@@ -78,7 +78,7 @@ const Viewer = React.createClass({
       , activeFile: ''
       , themes: themeNames
       , mode: ''
-      , isEditing: true
+      , isEditing: false
     }
   },
   modeFromFilename(fileName) {

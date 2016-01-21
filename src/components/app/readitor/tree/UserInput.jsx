@@ -4,7 +4,6 @@ const stylesheet = require('!css!less!./fileTree.less').toString()
 
 class UserInput extends React.Component {
   render(){
-    let handleClick = this.props.isEditing ? this.props.hideEdit : this.props.showEdit
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="box">
