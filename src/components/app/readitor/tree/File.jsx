@@ -31,11 +31,11 @@ class File extends React.Component {
             <small>
               <img src="src/shared/images/file.png" style={{width:'20px', position:'relative', top:'3px'}}></img>
               <span onClick={this.sendLink}>{this.props.file.fileName}</span>
-              <img src="src/shared/images/delete.png" className="icons" onClick={this.deleteItem}></img>
-              <img src="src/shared/images/edit-file.png" className="icons"></img>
+              <img src="src/shared/images/delete.png" className={this.props.role === 'w' ? 'icons teacher' :'icons'} onClick={this.deleteItem}></img>
+              <img src="src/shared/images/edit-file.png" className={this.props.role === 'w' ? 'icons teacher' :'icons'}></img>
             </small>
           </li>
-       </div>
+        </div>
       </InlineCss>
     )
   }

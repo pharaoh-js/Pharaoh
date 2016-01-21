@@ -12,13 +12,13 @@ const App = React.createClass({
   },
   render () {
     return (
-        <div>
-          <Menu />
-          <Readitor
-            projectKey={this.projectKey}
-            role={this.role}
-            />
-        </div>
+      <div>
+        <Menu />
+        <Readitor
+          projectKey={this.projectKey}
+          role={this.role}
+          />
+      </div>
     )
   }
 })

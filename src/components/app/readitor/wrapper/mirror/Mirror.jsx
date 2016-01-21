@@ -4,15 +4,12 @@ const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
 const Mirror = React.createClass({
 
   makeFirePad (subRef, config) {
-    // console.log(config)
     let fpRef = new Firebase(BASEREF + subRef)
     let codeMirror = CodeMirror(document.getElementById('pad'), config)
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
-      { defaultText: 'Please select or create a file to get started' })
+      { defaultText: 'Your new canvas awaits' })
   },
   shouldComponentUpdate(nextProps, nextState) {
-    // console.log('current: ', this.props.config.theme)
-    // console.log('next: ', nextProps.config.theme)
     if (this.props.pad !== nextProps.pad) {
       return true
     } else if ( this.props.config.theme !== nextProps.config.theme) {
@@ -31,9 +28,9 @@ const Mirror = React.createClass({
   },
   render () {
     return (
-        <div>
-          <div ref="parent" id="pad"></div>
-        </div>
+      <div>
+        <div ref="parent" id="pad"></div>
+      </div>
     )
   }
 })
