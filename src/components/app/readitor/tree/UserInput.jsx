@@ -3,16 +3,34 @@ import InlineCss from 'react-inline-css'
 const stylesheet = require('!css!less!./fileTree.less').toString()
 
 class UserInput extends React.Component {
+  constructor(props){
+    super(props)
+    this.inputChange = this.inputChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  inputChange (e){
+    this.setState({ userInput: e.target.value })
+  }
+
+  handleSubmit (e){
+    e.preventDefault()
+    let userInput = this.state.userInput
+    this.props.editFn(userInput)
+    this.props.hideEdit()
+  }
+
   render(){
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="box">
           <div style={{margin:'0 0 5px 0'}}>Edit/create area</div>
-          <input placeholder="file or folder name..." type="text"></input>
-          <div className="btn-container">
-            <img onClick={this.props.hideEdit} src="src/shared/images/checkmark-lb.png"></img>
-            <img onClick={this.props.hideEdit} src="src/shared/images/delete.png"></img>
-          </div>
+          <form onSubmit={this.handleSubmit}>
+            <input onChange={this.inputChange} placeholder="file or folder name..." type="text"></input>
+            <div className="btn-container">
+              <input className="submit-image" type="image" src="src/shared/images/checkmark-lb.png"></input>
+              <img onClick={this.props.hideEdit} src="src/shared/images/delete.png"></img>
+            </div>
+          </form>
         </div>
       </InlineCss>
     )
