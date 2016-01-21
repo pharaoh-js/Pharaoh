@@ -4,7 +4,11 @@ import { Link, IndexLink} from 'react-router'
 const stylesheet = require('!css!less!./header.less').toString()
 
 const Header = React.createClass({
+  getInitialState () {
+    return {copying:false}
+  }
   render () {
+    let invite = this.state.copying ? (<input type="text" value={'http://pharaoh.js.org/' + {this.props.projectKey}></input>) : ()
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
           <div className="header">
@@ -21,4 +25,3 @@ const Header = React.createClass({
 })
 
 export default Header
-
