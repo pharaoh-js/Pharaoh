@@ -10,7 +10,9 @@ class Folder extends React.Component {
     super(props)
     this.handleToggle = this.handleToggle.bind(this)
     this.createFile   = this.createFile.bind(this)
+    this.createFolder = this.createFolder.bind(this)
     this.deleteItem   = this.deleteItem.bind(this)
+    this.updateItem   = this.updateItem.bind(this)
   }
 
   deleteItem (){
@@ -19,6 +21,14 @@ class Folder extends React.Component {
 
   createFile (){
     this.props.createFile(this.props.firebaseRef, this.props.firebaseComponentPath)
+  }
+
+  createFolder (){
+    this.props.createFolder(this.props.firebaseRef, this.props.firebaseComponentPath)
+  }
+
+  updateItem (){
+    this.props.updateItem(this.props.firebaseRef, this.props.firebaseComponentPath)
   }
 
   handleToggle (){
@@ -30,17 +40,16 @@ class Folder extends React.Component {
     var folderContents
     var folderTitle = this.props.folder.folderName ? (
       <div className="folder-select">
-        <div onClick={this.handleToggle}>
-          <img
-            src="src/shared/images/folder2x.png"
-            style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
-          </img>
-          {this.props.folder.folderName}
-        </div>
+        <img
+          src="src/shared/images/folder2x.png"
+          style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
+        </img>
+        <span onClick={this.handleToggle}>{this.props.folder.folderName}</span>
         <span>
           <img className="icons" src="src/shared/images/Delete-icon (2).png" onClick={this.deleteItem}></img>
           <img className="icons" src="src/shared/images/plus-icon.png" onClick={this.createFile}></img>
           <img className="icons" src="src/shared/images/edit-file.png"></img>
+          <img className="icons" src="src/shared/images/createfolder.png" onClick={this.createFolder}></img>
         </span>
       </div>) : null //keeps react from rendering an empty item
 
@@ -55,7 +64,9 @@ class Folder extends React.Component {
                 isOpen={that.props.isOpen}
                 swapDoc={that.props.swapDoc}
                 createFile={that.props.createFile}
+                createFolder={that.props.createFolder}
                 deleteItem={that.props.deleteItem}
+                updateItem={that.props.updateItem}
                 firebaseRef={that.props.firebaseRef}
                 firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
                 setMode={that.props.setMode}
@@ -72,6 +83,7 @@ class Folder extends React.Component {
               key={index}
               swapDoc={that.props.swapDoc}
               deleteItem={that.props.deleteItem}
+              updateItem={that.props.updateItem}
               firebaseRef={that.props.firebaseRef}
               firebaseComponentPath={`${that.props.firebaseComponentPath}/${folderItem.key}`}
               setMode={that.props.setMode}

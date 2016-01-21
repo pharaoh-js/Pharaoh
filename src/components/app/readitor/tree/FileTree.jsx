@@ -30,9 +30,6 @@ class FileTree extends React.Component {
     this.removeProjectItem = function(refBase, folderRef){
       let newRef = new Firebase(`${refBase}/${folderRef}`)
       newRef.on('child_removed', (item)=> {
-        if(this.state.projectDirectory[item.key()] || typeof item.val() !== 'object'){
-          return
-        }
         let itemVal = item.val()
         let toChange = Object.assign({}, this.state.projectDirectory)
         delete toChange[itemVal.key]
@@ -69,8 +66,8 @@ class FileTree extends React.Component {
     this.updateItem   = this.updateItem.bind(this)
   }
 
-  createFolder (){
-    let ref = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`)
+  createFolder (firebaseRef, componentRef){
+    let ref = new Firebase(`${firebaseRef}/${componentRef}`)
     let newFolderName = 'testFolder'
     let newFolder = ref.push()
     let folderKey = newFolder.key()
@@ -118,18 +115,26 @@ class FileTree extends React.Component {
           <InlineCss componentName="FileTree" stylesheet={stylesheet}>
             <div className="file-browser">
               <div className="file-header">From url: {this.props.project}</div>
-              <div className="create-folder" onClick={this.createFolder}>
+              <div className="create-folder" onClick={this.createFolder.bind(this, this.firebaseRef, this.refFromRouter)}>
                 <img src="src/shared/images/createfolder.png"
                   style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
                   }}></img>
                   create new folder
+              </div>
+              <div className="create-folder" onClick={this.createFile.bind(this, this.firebaseRef, this.refFromRouter)}>
+                <img src="src/shared/images/plus-icon.png"
+                  style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
+                  }}></img>
+                  create new file
               </div>
               <Folder
                 folder={this.state.projectDirectory}
                 handleToggle={this.handleToggle}
                 isOpen={this.state.isOpen}
                 createFile={this.createFile}
+                createFolder={this.createFolder}
                 deleteItem={this.deleteItem}
+                updateItem={this.updateItem}
                 root={true}
                 swapDoc={this.props.swapDoc}
                 setMode={this.props.setMode}

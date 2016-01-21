@@ -7,10 +7,15 @@ class File extends React.Component {
     super(props)
     this.sendLink = this.sendLink.bind(this)
     this.deleteItem = this.deleteItem.bind(this)
+    this.updateItem = this.updateItem.bind(this)
   }
 
   deleteItem (){
     this.props.deleteItem(this.props.firebaseRef, this.props.firebaseComponentPath)
+  }
+
+  updateItem (){
+    this.props.updateItem(this.props.firebaseRef, this.props.firebaseComponentPath)
   }
 
   sendLink (){
@@ -23,9 +28,9 @@ class File extends React.Component {
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="file">
           <li className="file-length">
-            <small onClick={this.sendLink}>
+            <small>
               <img src="src/shared/images/file.png" style={{width:'20px', position:'relative', top:'3px'}}></img>
-              {this.props.file.fileName}
+              <span onClick={this.sendLink}>{this.props.file.fileName}</span>
               <img src="src/shared/images/Delete-icon (2).png" className="icons" onClick={this.deleteItem}></img>
               <img src="src/shared/images/edit-file.png" className="icons"></img>
             </small>
