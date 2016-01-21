@@ -5,17 +5,24 @@ const stylesheet = require('!css!less!./header.less').toString()
 
 const Header = React.createClass({
   getInitialState () {
-    return {copying:false}
-  }
+    return {invite:'click'}
+  },
+  toggleCopying () {
+    if (this.state.invite === 'click') {
+      this.setState({invite: 'copy'})
+    } else {
+      this.setState({invite: 'click'})
+    }
+  },
   render () {
-    let invite = this.state.copying ? (<input type="text" value={'http://pharaoh.js.org/' + {this.props.projectKey}></input>) : ()
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
           <div className="header">
             <div>
               <Link className="title" to={"/"}>PHARAOH</Link>
-              <div>
-                <span className="link">Start a new session</span>
+              <div className={this.state.invite} onClick={this.toggleCopying}>
+                <input type="text" value={'http://pharaoh.js.org/' + this.props.projectKey}></input>
+                <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
               </div>
             </div>
           </div>
