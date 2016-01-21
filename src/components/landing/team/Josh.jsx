@@ -11,7 +11,7 @@ const Josh = React.createClass({
         </div>
         <big>Joshua Leduc</big>
         <p>
-          I am young Full Stack dev excited about learning more. MEAN stack, React, and CSS.
+          Full Stack dev. Code is life. No pants please. MEAN stack, React, Javascript, Firebase.
         </p>
          <li>
           <a className="links" href="">WWW</a>

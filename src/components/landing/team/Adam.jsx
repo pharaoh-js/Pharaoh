@@ -11,16 +11,16 @@ const Adam = React.createClass({
         </div>
         <big>Adam Romines</big>
         <p>
-          I am young Full Stack dev excited about learning more. MEAN stack, React, and CSS.
+          Full Stack dev, living in Jackson, WY. MEAN stack, React, and Javascript.
         </p>
          <li>
-          <a className="links" href="">WWW</a>
+          <a className="links" href="http://adamromines.me/cv">WWW</a>
         </li>
     <li>
           <a className="links" href="https://github.com/romines">Github</a>
         </li>
         <li>
-          <a className="links" href="https://www.linkedin.com/in/adamromines">LinkedIn</a>
+          <a className="links" href="https://www.twitter.com/adamromines">@thompenn</a>
         </li>
          </InlineCss>
     )
