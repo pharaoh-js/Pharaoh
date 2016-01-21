@@ -14,65 +14,33 @@ class FileTree extends React.Component {
       isOpen: {}
     }
 
-    //adds firebase listeners to initialize items on state and watch for new ones
-    this.readProjectDirectory = function(refBase, folderRef, folderPath1, folderPath2){
+    this.readProjectDirectory = function(refBase, folderRef){
       let newRef = new Firebase(`${refBase}/${folderRef}`)
       newRef.on('child_added', (item)=> {
         if(this.state.projectDirectory[item.key()] || typeof item.val() !== 'object'){
           return
         }
-        let newPath1 = {}
-        let newPath2 = {}
         let itemVal = item.val()
-        itemVal.key = item.key()
         let toChange = Object.assign({}, this.state.projectDirectory)
-        if(folderPath1 === undefined){
-          toChange[itemVal.key] = itemVal
-          newPath1 = itemVal.key
-        } else if(folderPath1 && folderPath2 === undefined){
-          toChange[folderPath1][itemVal.key] = itemVal
-          newPath1 = folderPath1
-          newPath2 = itemVal.key
-        } else if(folderPath2){
-          toChange[folderPath1][folderPath2][itemVal.key] = itemVal
-        }
+        toChange[itemVal.key] = itemVal
         this.setState({projectDirectory: toChange})
-        if(itemVal.folderName){this.readProjectDirectory(newRef, itemVal.key, newPath1)}
-        if(itemVal.folderName && folderPath1 && folderPath2 === undefined){this.readProjectDirectory(newRef, itemVal.key, newPath1, newPath2)}
       })
     }
 
-    //adds firebase listeners to watch for item removal and remove from state
-    this.removeProjectItem = function(refBase, folderRef, folderPath1, folderPath2){
+    this.removeProjectItem = function(refBase, folderRef){
       let newRef = new Firebase(`${refBase}/${folderRef}`)
       newRef.on('child_removed', (item)=> {
         let itemVal = item.val()
-        itemVal.key = item.key()
-        let newPath1 = {}
-        let newPath2 = {}
         let toChange = Object.assign({}, this.state.projectDirectory)
-        if(folderPath1 === undefined){
-          delete toChange[itemVal.key]
-          newPath1 = itemVal.key
-        } else if(folderPath1 && folderPath2 === undefined){
-          delete toChange[folderPath1][itemVal.key]
-          newPath1 = folderPath1
-          newPath2 = itemVal.key
-        } else if(folder2){
-          delete toChange[folderPath1][folderPath2][itemVal.key]
-        }
+        delete toChange[itemVal.key]
         this.setState({projectDirectory: toChange})
-        if(itemVal.folderName){this.removeProjectItem(newRef, itemVal.key, newPath1)}
-        if(itemVal.folderName && folderPath1 && folderPath2 === undefined){this.removeProjectItem(newRef, itemVal.key, newPath1, newPath2)}
       })
     }
 
-    //child_changed looks at all child descendants without diving into nested nodes
     this.updateProjectItem = function(refBase, folderRef){
       let newRef = new Firebase(`${refBase}/${folderRef}`)
       newRef.on('child_changed', (item)=> {
         let itemVal = item.val()
-        itemVal.key = item.key()
         let toChange = Object.assign({}, this.state.projectDirectory)
         toChange[itemVal.key] = itemVal
         this.setState({projectDirectory: toChange})
@@ -93,40 +61,92 @@ class FileTree extends React.Component {
 
     this.handleToggle = this.handleToggle.bind(this)
     this.createFolder = this.createFolder.bind(this)
+    this.createFile   = this.createFile.bind(this)
+    this.deleteItem   = this.deleteItem.bind(this)
+    this.updateItem   = this.updateItem.bind(this)
   }
 
-  createFolder (){
-    let ref = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`)
+  createFolder (firebaseRef, componentRef){
+    let ref = new Firebase(`${firebaseRef}/${componentRef}`)
+    let parent = ref.key()
     let newFolderName = 'testFolder'
-    let newFolder = ref.push().set({
-      folderName: newFolderName
+    let newFolder = ref.push()
+    let folderKey = newFolder.key()
+    newFolder.set({
+      folderName: newFolderName,
+      key: folderKey
     })
+    if(parent !== this.refFromRouter){
+      let folderState = Object.assign({}, this.state.isOpen)
+      folderState[parent] = true
+      this.setState({isOpen: folderState})
+    }
   }
 
-  handleToggle (folderName){
-    let oldVal   = this.state.isOpen[folderName]
+  createFile (firebaseRef, componentRef){
+    let ref = new Firebase(`${firebaseRef}/${componentRef}`)
+    let parent = ref.key()
+    let newFileName = 'testFile.js'
+    let newFile = ref.push()
+    let fileKey = newFile.key()
+    newFile.set({
+      fileName: newFileName,
+      key: fileKey
+    })
+    this.props.swapDoc(`${componentRef}/${fileKey}`, newFileName)
+    if(parent !== this.refFromRouter){
+      let folderState = Object.assign({}, this.state.isOpen)
+      folderState[parent] = true
+      this.setState({isOpen: folderState})
+    }
+  }
+
+  deleteItem (firebaseRef, componentRef){
+    let ref = new Firebase(`${firebaseRef}/${componentRef}`)
+    ref.set(null)
+  }
+
+  updateItem (firebaseRef, componentRef, userInput){
+    let ref = new Firebase(`${firebaseRef}/${componentRef}}`)
+    if(ref.folderName){ref.set({folderName: userInput})}
+    if(ref.fileName){ref.set({fileName: userInput})}
+  }
+
+  handleToggle (key){
+    let oldVal   = this.state.isOpen[key]
     let newState = Object.assign({}, this.state.isOpen)
-    newState[folderName] = oldVal ? false : true
+    newState[key] = oldVal ? false : true
     this.setState({
       isOpen: newState
     })
   }
+
 
   render(){
     return (
           <InlineCss componentName="FileTree" stylesheet={stylesheet}>
             <div className="file-browser">
               <div className="file-header">From url: {this.props.project}</div>
-              <div className="create-folder" onClick={this.createFolder}>
+              <div className="create-folder" onClick={this.createFolder.bind(this, this.firebaseRef, this.refFromRouter)}>
                 <img src="src/shared/images/createfolder.png"
-                  style={{width:'20px',position:'relative',top:'5px',padding:'0 5px'
+                  style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
                   }}></img>
                   create new folder
-            </div>
+              </div>
+              <div className="create-folder" onClick={this.createFile.bind(this, this.firebaseRef, this.refFromRouter)}>
+                <img src="src/shared/images/plus-icon.png"
+                  style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
+                  }}></img>
+                  create new file
+              </div>
               <Folder
                 folder={this.state.projectDirectory}
                 handleToggle={this.handleToggle}
                 isOpen={this.state.isOpen}
+                createFile={this.createFile}
+                createFolder={this.createFolder}
+                deleteItem={this.deleteItem}
+                updateItem={this.updateItem}
                 root={true}
                 swapDoc={this.props.swapDoc}
                 setMode={this.props.setMode}
