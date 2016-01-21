@@ -21,7 +21,10 @@ const Header = React.createClass({
             <div>
               <Link className="title" to={"/"}>PHARAOH</Link>
               <div className={this.state.invite} onClick={this.toggleCopying}>
-                <input type="text" value={'http://pharaoh.js.org/' + this.props.projectKey}></input>
+                <button className="btn" data-clipboard-target={'http://pharaoh.js.org/' + this.props.projectKey}>
+                  <i className="fa fa-clipboard"></i>
+                </button>
+                <input type="text" id="share" value={'http://pharaoh.js.org/' + this.props.projectKey}></input>
                 <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
               </div>
             </div>
@@ -32,3 +35,4 @@ const Header = React.createClass({
 })
 
 export default Header
+
