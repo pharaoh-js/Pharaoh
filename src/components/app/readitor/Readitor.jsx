@@ -7,6 +7,8 @@ import Tree      from './tree/FileTree.jsx'
 
 const stylesheet = require('!css!less!./readitor.less').toString()
 
+const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
+
 const cmConfig = {
     lineWrapping      : true
   , mode              : 'javascript'
@@ -57,8 +59,20 @@ const Viewer = React.createClass({
     })
   },
   getInitialState () {
+    let student = !!(this.props.role === 'r')
+    let cmConfig = {
+        lineWrapping      : true
+      , mode              : 'javascript'
+      , theme             : 'default'
+      , lineNumbers       : true
+      , matchBrackets     : true
+      , lineWrapping      : true
+      , readOnly          : student
+      , autoCloseBrackets : true
+      , autoCloseTags     : true
+      }
     return {
-        pad: 'default'
+        pad: `${this.props.projectKey}/default`
       , isSetting: false
       , cmConfig: cmConfig
       , activeFile: ''
@@ -99,7 +113,7 @@ const Viewer = React.createClass({
             isSetting ={this.state.isSetting}
           />
           <Tree
-            project={this.props.project}
+            projectKey={this.props.projectKey}
             swapDoc={this.swapDoc}
             pad={this.state.pad}
             setMode={this.setMode}

@@ -27,7 +27,7 @@ const Header = React.createClass({
               onChange={this.handleProjectEntry}
             ></input>
           </span>
-          <Link className="link" to={'/app/'+this.state.project}>Go!</Link>
+          <Link className="link" to={'/app/r/'+this.state.project}>Go!</Link>
         </div>
       </InlineCss>
     )
@@ -35,4 +35,3 @@ const Header = React.createClass({
 })
 
 export default Header
-

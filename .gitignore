@@ -11,6 +11,7 @@ npm-debug.log*
 *.tar
 *.bz2
 *.7z
+*.zip
 TAGS
 tags
 __pycache__/
@@ -33,4 +34,3 @@ x/**
 **.key
 codemirror_libs
 **/codemirror_libs
-
