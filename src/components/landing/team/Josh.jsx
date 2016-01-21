@@ -11,12 +11,12 @@ const Josh = React.createClass({
         </div>
         <big>Joshua Leduc</big>
         <p>
-          Full Stack dev. Code is life. No pants please. MEAN stack, React, Javascript, Firebase.
+          Full Stack dev. Code is life. Tech. MEAN stack, React, Javascript, Firebase.
         </p>
          <li>
           <a className="links" href="">WWW</a>
         </li>
- <li>
+         <li>
           <a className="links" href="https://github.com/joshualeduc">Github</a>
         </li>
         <li>
