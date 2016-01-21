@@ -4,6 +4,7 @@ const stylesheet = require('!css!less!./fileTree.less').toString()
 
 class UserInput extends React.Component {
   render(){
+    let handleClick = this.props.isEditing ? this.props.hideEdit : this.props.showEdit
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="box">
@@ -11,8 +12,7 @@ class UserInput extends React.Component {
           <input placeholder="file or folder name..." type="text"></input>
           <div className="btn-container">
             <img onClick={this.props.hideEdit} src="src/shared/images/checkmark-lb.png"></img>
-            <img onClick={this.props.hideEdit}
-              src="src/shared/images/Delete-icon (2).png"></img>
+            <img onClick={this.props.hideEdit} src="src/shared/images/delete.png"></img>
           </div>
         </div>
       </InlineCss>

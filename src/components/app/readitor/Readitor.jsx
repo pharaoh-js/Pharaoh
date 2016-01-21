@@ -7,6 +7,8 @@ import Tree      from './tree/FileTree.jsx'
 
 const stylesheet = require('!css!less!./readitor.less').toString()
 
+const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
+
 const cmConfig = {
     lineWrapping      : true
   , mode              : 'javascript'
@@ -57,14 +59,26 @@ const Viewer = React.createClass({
     })
   },
   getInitialState () {
+    let student = !!(this.props.role === 'r')
+    let cmConfig = {
+        lineWrapping      : true
+      , mode              : 'javascript'
+      , theme             : 'default'
+      , lineNumbers       : true
+      , matchBrackets     : true
+      , lineWrapping      : true
+      , readOnly          : student
+      , autoCloseBrackets : true
+      , autoCloseTags     : true
+      }
     return {
-        pad: 'default'
+        pad: `${this.props.projectKey}/default`
       , isSetting: false
       , cmConfig: cmConfig
       , activeFile: ''
       , themes: themeNames
       , mode: ''
-      , edit: false
+      , isEditing: true
     }
   },
   modeFromFilename(fileName) {
@@ -84,11 +98,10 @@ const Viewer = React.createClass({
     this.setState({isSetting: false})
   },
   showEdit () {
-    console.log(edit);
-    this.setState({ edit: true })
+    this.setState({ isEditing: true })
   },
   hideEdit () {
-    this.setState({ edit: false })
+    this.setState({ isEditing: false })
   },
   updateSettings (prop, val) {
     // let config = this.state.config  // don't do this!
@@ -107,11 +120,11 @@ const Viewer = React.createClass({
             isSetting ={this.state.isSetting}
           />
           <Tree
-            project={this.props.project}
+            projectKey={this.props.projectKey}
             swapDoc={this.swapDoc}
             pad={this.state.pad}
             setMode={this.setMode}
-            edit={this.props.edit}
+            isEditing={this.state.isEditing}
             showEdit={this.showEdit}
             hideEdit={this.hideEdit}
           />

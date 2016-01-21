@@ -8,7 +8,7 @@ const Mirror = React.createClass({
     let fpRef = new Firebase(BASEREF + subRef)
     let codeMirror = CodeMirror(document.getElementById('pad'), config)
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
-      { defaultText: 'Hello Firepad!!!!' })
+      { defaultText: 'Please select or create a file to get started' })
   },
   shouldComponentUpdate(nextProps, nextState) {
     // console.log('current: ', this.props.config.theme)
@@ -39,4 +39,3 @@ const Mirror = React.createClass({
 })
 
 export default Mirror
-

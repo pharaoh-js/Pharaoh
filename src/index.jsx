@@ -1,6 +1,6 @@
 import React                        from 'react'
 import ReactDOM                     from 'react-dom'
-import {ReactRouter, Router, Route} from 'react-router'
+import { browserHistory, ReactRouter, Router, Route } from 'react-router'
 import App                          from './components/app/App'
 import Landing                      from './components/landing/Landing'
 require('./shared/styles.less')
@@ -13,8 +13,7 @@ var history = createHistory({
 ReactDOM.render(
   (
     <Router history={history}>
-      <Route path="/app/:project" component={App}/>
+      <Route path="/app/:role/:project" component={App}/>
       <Route path="/" component={Landing}/>
     </Router>
   ), document.getElementById('root'))
-
