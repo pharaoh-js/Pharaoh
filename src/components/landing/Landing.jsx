@@ -14,7 +14,8 @@ const Landing = React.createClass({
   initFirebase(projectName = 'Project Name') {
     let ref = new Firebase(BASEURL);
     let projectRef = ref.push({
-      projectName : projectName
+      projectName : projectName,
+      default: {fileName: 'gettingStarted.js', key: 'default'}
     })
     return projectRef.key();
   },

@@ -72,7 +72,7 @@ const Viewer = React.createClass({
       , autoCloseTags     : true
       }
     return {
-        pad: 'default'
+        pad: `${this.props.projectKey}/default`
       , isSetting: false
       , cmConfig: cmConfig
       , activeFile: ''
