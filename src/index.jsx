@@ -6,13 +6,13 @@ import Landing                      from './components/landing/Landing'
 require('./shared/styles.less')
 import createHistory                from 'history/lib/createHashHistory'
 
-// var history = createHistory({
-//   queryKey: false
-// })
+var history = createHistory({
+  queryKey: false
+})
 
 ReactDOM.render(
   (
-    <Router history={browserHistory}>
+    <Router history={history}>
       <Route path="/app/:role/:project" component={App}/>
       <Route path="/" component={Landing}/>
     </Router>

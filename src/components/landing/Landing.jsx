@@ -1,18 +1,27 @@
-import React     from 'react'
-import { browserHistory, ReactRouter, Router, Route, Lifecycle } from 'react-router'
-import InlineCss from 'react-inline-css'
-import Header    from './header/Header'
-import HowTo     from './howto/HowTo'
-import Team      from './team/Team'
-import Stack     from './stack/Stack'
+import React          from 'react'
+import { Lifecycle }  from 'react-router'
+import InlineCss      from 'react-inline-css'
+import Header         from './header/Header'
+import HowTo          from './howto/HowTo'
+import Team           from './team/Team'
+import Stack          from './stack/Stack'
 import GettingStarted from './gettingStarted/GettingStarted'
+import Firebase       from 'firebase'
 const stylesheet = require('!css!less!./landing.less').toString()
 
-const Landing = React.createClass({
+const BASEURL = 'https://pharaohjs.firebaseio.com/session/'
 
-  mixins: [ Lifecycle ],
-  routerWillLeave() {
-    console.log('hello from rWL');
+const Landing = React.createClass({
+  initFirebase(projectName = 'Project Name') {
+    let ref = new Firebase(BASEURL);
+    let projectRef = ref.push({
+      projectName : projectName
+    })
+    return projectRef.key();
+  },
+  startSession(projectName) {
+    let key = this.initFirebase(projectName)
+    this.props.history.pushState(null, '/app/w/' + key)
   },
   render () {
     return (
@@ -22,7 +31,7 @@ const Landing = React.createClass({
             <Header />
           </div>
           <HowTo />
-          <GettingStarted />
+          <GettingStarted startSession={this.startSession}/>
           <Team />
           <Stack />
         </div>
