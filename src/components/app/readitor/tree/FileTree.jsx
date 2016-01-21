@@ -114,6 +114,12 @@ class FileTree extends React.Component {
   }
 
   render(){
+    let editBox = this.props.edit ? '' :
+     <UserInput
+        // edit={this.props.edit}
+        showEdit={this.props.showEdit}
+        hideEdit={this.handleClick}
+      />
     return (
           <InlineCss componentName="FileTree" stylesheet={stylesheet}>
             <div className="file-browser">
@@ -134,7 +140,7 @@ class FileTree extends React.Component {
                 firebaseRef={this.firebaseRef}
                 firebaseComponentPath={this.refFromRouter}
               />
-            <UserInput />
+            {editBox}
         </div>
       </InlineCss>
     )

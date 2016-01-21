@@ -64,6 +64,7 @@ const Viewer = React.createClass({
       , activeFile: ''
       , themes: themeNames
       , mode: ''
+      , edit: false
     }
   },
   modeFromFilename(fileName) {
@@ -81,6 +82,13 @@ const Viewer = React.createClass({
   },
   hideSettings () {
     this.setState({isSetting: false})
+  },
+  showEdit () {
+    console.log(edit);
+    this.setState({ edit: true })
+  },
+  hideEdit () {
+    this.setState({ edit: false })
   },
   updateSettings (prop, val) {
     // let config = this.state.config  // don't do this!
@@ -103,6 +111,9 @@ const Viewer = React.createClass({
             swapDoc={this.swapDoc}
             pad={this.state.pad}
             setMode={this.setMode}
+            edit={this.props.edit}
+            showEdit={this.showEdit}
+            hideEdit={this.hideEdit}
           />
           <Wrapper
             themes={this.state.themes}
