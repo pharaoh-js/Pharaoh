@@ -20,15 +20,14 @@ const Header = React.createClass({
           <div className="header">
             <div>
               <Link className="title" to={"/"}>PHARAOH</Link>
-               <div className={this.state.invite}>
+              <div className={this.state.invite}>
                 <div onClick={this.toggleCopying}>
                   <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
                 </div>
-                <input type="text" readOnly="true" value={'http://pharaoh.js.org/' + this.props.projectKey} />
                 <button className="btn" data-clipboard-target={'http://pharaoh.js.org/' + this.props.projectKey}>
                   <i className="fa fa-clipboard"></i>
                 </button>
-                <img src='src/shared/images/people.png' style={{width: '22px'}} />
+                <input type="text" readOnly="true" value={'http://pharaoh.js.org/' + this.props.projectKey} />
               </div>
             </div>
           </div>
