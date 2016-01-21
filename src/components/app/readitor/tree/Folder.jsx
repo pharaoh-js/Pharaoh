@@ -21,10 +21,12 @@ class Folder extends React.Component {
 
   createFile (){
     this.props.createFile(this.props.firebaseRef, this.props.firebaseComponentPath)
+    // this.props.showEdit()
   }
 
   createFolder (){
     this.props.createFolder(this.props.firebaseRef, this.props.firebaseComponentPath)
+    // this.props.showEdit()
   }
 
   updateItem (){
@@ -54,7 +56,6 @@ class Folder extends React.Component {
           <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/createfolder.png" onClick={this.createFolder}></img>
         </span>
       </div>) : null //keeps react from rendering an empty item
-
       var readDirectory = function(folderObj){
         var folders = _.values(folderObj).map((folderItem, index)=> {
           if(folderItem.folderName){
