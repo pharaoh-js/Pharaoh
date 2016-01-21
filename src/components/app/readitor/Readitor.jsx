@@ -28,11 +28,9 @@ const cmConfig = {
   , 'abcdef'
   , 'base16-dark'
   , 'base16-light'
-  , 'solarized-light'
-  , 'solarized-dark'
   , 'tomorrow-night-eighties'
-  , 'tomorrow-night-bright'
   , 'zenburn'
+  , 'zeemirror'
   ]
 
   const modeObj = {
@@ -78,6 +76,7 @@ const Viewer = React.createClass({
       , activeFile: ''
       , themes: themeNames
       , mode: ''
+      , isEditing: false
     }
   },
   modeFromFilename(fileName) {
@@ -91,13 +90,17 @@ const Viewer = React.createClass({
  },
   showSettings () {
     this.setState({ isSetting: true })
-    // document.addEventListener("click", this.hideSettings);
   },
   hideSettings () {
     this.setState({isSetting: false})
   },
+  showEdit () {
+    this.setState({ isEditing: true })
+  },
+  hideEdit () {
+    this.setState({ isEditing: false })
+  },
   updateSettings (prop, val) {
-    // let config = this.state.config  // don't do this!
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val
     this.setState({ cmConfig:config })
@@ -117,6 +120,10 @@ const Viewer = React.createClass({
             swapDoc={this.swapDoc}
             pad={this.state.pad}
             setMode={this.setMode}
+            isEditing={this.state.isEditing}
+            showEdit={this.showEdit}
+            hideEdit={this.hideEdit}
+            role={this.props.role}
           />
           <Wrapper
             themes={this.state.themes}
@@ -130,9 +137,9 @@ const Viewer = React.createClass({
           <StatusBar currentMode={this.state.mode} />
         </div>
       </InlineCss>
-      )
-    }
-  })
+    )
+  }
+})
 
 export default Viewer
 

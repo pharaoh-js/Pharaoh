@@ -12,15 +12,16 @@ const App = React.createClass({
   },
   render () {
     return (
-        <div>
-          <Menu projectKey={this.projectKey}/>
-          <Readitor
-            projectKey={this.projectKey}
-            role={this.role}
-            />
-        </div>
+      <div>
+        <Menu />
+        <Readitor
+          projectKey={this.projectKey}
+          role={this.role}
+          />
+      </div>
     )
   }
 })
 
 export default App
+

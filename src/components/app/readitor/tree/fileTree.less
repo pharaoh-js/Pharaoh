@@ -75,11 +75,51 @@ cursor: pointer;
     top:4px;
     float:right;
   }
-  & .file:hover .icons {
+  & .file:hover .teacher {
     visibility: visible;
   }
-  & .folder:hover .icons {
+  & .folder:hover .teacher {
     visibility: visible;
+  }
+  & .hide-tree {
+    display: none;
+  }
+  //////////UserInput Styles///////
+  & .box {
+    border:2px solid #328EF5;
+    border-top: none;
+    text-align: center;
+    z-index: 99999999;
+    background-color: rgb(40, 40, 40);
+    position: absolute;
+    left: 225%;
+    top:5.4%;
+    padding: 15px;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    width:250px;
+    height:auto;
+    input {
+      width:95%;
+      padding:5px;
+      border-radius: 3px;
+      background-color: black;
+      color: whitesmoke;
+      font-family: monospace;
+      font-size: 14px
+    }
+    & .btn-container {
+      margin:8px 5px 0 5px;
+      img {
+        width:20px;
+        margin:0 12%;
+      }
+      img:hover {
+        width:28px;
+        cursor: pointer;
+        margin:-1.5% 10.4%;
+      }
+    }
   }
 }
-
