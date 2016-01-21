@@ -24,10 +24,14 @@ const Header = React.createClass({
                 <div onClick={this.toggleCopying}>
                   <img src='src/shared/images/people.png' style={{width: '22px'}}></img>
                 </div>
+<<<<<<< Updated upstream
                 <button className="btn" data-clipboard-target={'http://pharaoh.js.org/' + this.props.projectKey}>
                   <i className="fa fa-clipboard"></i>
                 </button>
                 <input type="text" readOnly="true" value={'http://pharaoh.js.org/' + this.props.projectKey} />
+=======
+                <input autofocus className="copyURL" type="text" value={'http://pharaoh.js.org/' + this.props.projectKey} />
+>>>>>>> Stashed changes
               </div>
             </div>
           </div>
