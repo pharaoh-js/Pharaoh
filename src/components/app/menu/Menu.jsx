@@ -29,12 +29,20 @@ const Header = React.createClass({
               position: 'absolute',
               top: '2px',
               left:'12.5%'
-              }}></img>
+              }}
+            />
                <div className={this.state.invite}>
                 <div className="share" onClick={this.toggleCopying}>
-                  <span className="text">Invite participants:</span><img src='src/shared/images/people.png' style={{width: '40px'}}></img>
+                  <span className="text">Invite participants:</span>
+                  <img src='src/shared/images/people.png' style={{width: '40px'}} />
                 </div>
-                <input ref="textInput" className="copyURL" type="text" readOnly="true" value={'http://pharaoh.js.org/app/r/' + this.props.projectKey} />
+                <input
+                  ref="textInput"
+                  className="copyURL"
+                  type="text"
+                  readOnly="true"
+                  value={'http://pharaoh.js.org/app/r/' + this.props.projectKey}
+                />
               </div>
             </div>
           </div>
