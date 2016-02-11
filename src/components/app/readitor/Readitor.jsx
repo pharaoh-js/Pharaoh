@@ -9,103 +9,103 @@ const stylesheet = require('!css!less!./readitor.less').toString()
 
 const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
 
-const cmConfig = {
-    lineWrapping      : true
-  , mode              : 'javascript'
-  , theme             : 'default'
-  , lineNumbers       : true
-  , matchBrackets     : true
-  , lineWrapping      : true
-  // , keyMap            : 'sublime'
-  , autoCloseBrackets : true
-  , autoCloseTags     : true
-  }
+const themeNames = [
+  'default'
+, 'monokai'
+, 'mbo'
+, 'abcdef'
+, 'base16-dark'
+, 'base16-light'
+, 'tomorrow-night-eighties'
+, 'zenburn'
+, 'zeemirror'
+]
 
-  const themeNames = [
-    'default'
-  , 'monokai'
-  , 'mbo'
-  , 'abcdef'
-  , 'base16-dark'
-  , 'base16-light'
-  , 'tomorrow-night-eighties'
-  , 'zenburn'
-  , 'zeemirror'
-  ]
-
-  const modeObj = {
-    html   : 'htmlmixed'
-  , js     : 'javascript'
-  , css    : 'css'
-  , jsx    : 'jsx'
-  , scss   : 'sass'
-  , py     : 'python'
-  , clj    : 'clojure'
-  , coffee : 'coffeescript'
-  , md     : 'gfm'
-  , php    : 'php'
-  , rb     : 'ruby'
-  , swift  : 'swift'
-  }
+const modeObj = {
+  html   : 'htmlmixed'
+, js     : 'javascript'
+, css    : 'css'
+, jsx    : 'jsx'
+, scss   : 'sass'
+, py     : 'python'
+, clj    : 'clojure'
+, coffee : 'coffeescript'
+, md     : 'gfm'
+, php    : 'php'
+, rb     : 'ruby'
+, swift  : 'swift'
+}
 
 const Viewer = React.createClass({
   swapDoc (path, name) {
     this.setState({
-      pad: path,
-      activeFile: name,
-      mode: this.modeFromFilename(name)
+      pad        : path
+    , activeFile : name
+    , mode       : this.modeFromFilename(name)
     })
   },
   getInitialState () {
     let student = !!(this.props.role === 'r')
     let cmConfig = {
-        lineWrapping      : true
-      , mode              : 'javascript'
-      , theme             : 'default'
-      , lineNumbers       : true
-      , matchBrackets     : true
-      , lineWrapping      : true
-      , readOnly          : student
-      , autoCloseBrackets : true
-      , autoCloseTags     : true
+      lineWrapping       : true
+    , mode               : 'javascript'
+    , theme              : 'abcdef'
+    , lineNumbers        : true
+    , matchBrackets      : true
+    , lineWrapping       : true
+    , tabSize            : 2
+    , undoDepth          : 1000
+    , autofocus          : true
+    , cursorScrollMargin : 2
+    , readOnly           : student
+    , autoCloseBrackets  : true
+    , autoCloseTags      : true
+    , extraKeys: {
+        'Cmd-S'  : function(instance){handleSaveButton()}
+      , 'Ctrl-S' : function(instance){handleSaveButton()}
+      , 'Cmd-O'  : function(instance){handleOpenButton()}
+      , 'Ctrl-O' : function(instance){handleOpenButton()}
+    // these will need to be hooked up with fire(pad|base) at some point.
+    //, 'Cmd-N'  : function(instance){handleNewButton()}
+    //, 'Ctrl-N' : function(instance){handleNewButton()}
       }
+    }
     return {
-        pad: `${this.props.projectKey}/default`
-      , isSetting: false
-      , cmConfig: cmConfig
-      , activeFile: ''
-      , themes: themeNames
-      , mode: ''
-      , isEditing: false
+      pad: `${this.props.projectKey}/default`
+    , isSetting: false
+    , cmConfig: cmConfig
+    , activeFile: ''
+    , themes: themeNames
+    , mode: ''
+    , isEditing: false
     }
   },
   modeFromFilename(fileName) {
-   let arr = fileName.split('.')
-   let ext = arr[arr.length-1]
-   return modeObj[ext]
- },
- setMode(fileName) {
-   let mode = this.modeFromFilename(fileName)
-   this.updateSettings('mode', mode)
- },
-  showSettings () {
-    this.setState({ isSetting: true })
+    let arr = fileName.split('.')
+    let ext = arr[arr.length-1]
+    return modeObj[ext]
   },
-  hideSettings () {
+  setMode(fileName){
+    let mode = this.modeFromFilename(fileName)
+    this.updateSettings('mode', mode)
+  },
+  showSettings(){
+    this.setState({isSetting: true})
+  },
+  hideSettings(){
     this.setState({isSetting: false})
   },
-  showEdit (editFn) {
-    this.setState({ isEditing: true })
-    this.setState({ editFn: editFn })
+  showEdit(editFn){
+    this.setState({isEditing: true})
+    this.setState({editFn: editFn})
   },
-  hideEdit () {
-    this.setState({ isEditing: false })
+  hideEdit(){
+    this.setState({isEditing: false})
   },
-  updateSettings (prop, val) {
+  updateSettings(prop, val){
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val
-    this.setState({ cmConfig:config })
-    console.log(prop,val)
+    this.setState({cmConfig:config})
   },
   render () {
     return (

@@ -49,14 +49,14 @@ class FileTree extends React.Component {
       })
     }
 
-    this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session');
-    this.refFromRouter = this.props.projectKey || 'projectKey';
+    this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session')
+    this.refFromRouter = this.props.projectKey || 'projectKey'
 
-    this.handleToggle = this.handleToggle.bind(this);
-    this.createFolder = this.createFolder.bind(this);
+    this.handleToggle = this.handleToggle.bind(this)
+    this.createFolder = this.createFolder.bind(this)
   }
   componentDidMount (){
-    this.projectRef = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`);
+    this.projectRef = new Firebase(`${this.firebaseRef}/${this.refFromRouter}`)
     this.projectRef.once('value', (project)=> {
       let projectSession = project.val()
       this.setState({projectName: projectSession.projectName})
@@ -66,14 +66,14 @@ class FileTree extends React.Component {
     this.removeProjectItem(this.firebaseRef, this.refFromRouter)
     this.updateProjectItem(this.firebaseRef, this.refFromRouter)
 
-    this.handleToggle = this.handleToggle.bind(this)
-    this.createFolder = this.createFolder.bind(this)
-    this.createFile   = this.createFile.bind(this)
-    this.deleteItem   = this.deleteItem.bind(this)
-    this.updateItem   = this.updateItem.bind(this)
-    this.createRootFile = this.createRootFile.bind(this)
+    this.handleToggle     = this.handleToggle.bind(this)
+    this.createFolder     = this.createFolder.bind(this)
+    this.createFile       = this.createFile.bind(this)
+    this.deleteItem       = this.deleteItem.bind(this)
+    this.updateItem       = this.updateItem.bind(this)
+    this.createRootFile   = this.createRootFile.bind(this)
     this.createRootFolder = this.createRootFolder.bind(this)
-    this.showEdit = this.showEdit.bind(this)
+    this.showEdit         = this.showEdit.bind(this)
   }
 
   createFolder (firebaseRef, componentRef, userInput){
@@ -162,14 +162,18 @@ class FileTree extends React.Component {
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="file-browser">
           <div className="file-header">{this.state.projectName}</div>
-          <div className={this.props.role === 'w' ? 'create-folder' :'hide-tree'} onClick={this.showEdit.bind(this, this.createRootFolder)}>
-            <img src="src/shared/images/createfolder.png"
+          <div
+            className={this.props.role === 'w' ? 'create-folder' :'hide-tree'}
+            onClick={this.showEdit.bind(this, this.createRootFolder)}>
+            <img src="images/createfolder.png"
               style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
               }}></img>
               create new folder
           </div>
-          <div className={this.props.role === 'w' ? 'create-folder' :'hide-tree'} onClick={this.showEdit.bind(this, this.createRootFile)}>
-            <img src="src/shared/images/plus-icon.png"
+          <div
+            className={this.props.role === 'w' ? 'create-folder' :'hide-tree'}
+            onClick={this.showEdit.bind(this, this.createRootFile)}>
+            <img src="images/plus-icon.png"
               style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
               }}></img>
               create new file
@@ -198,3 +202,4 @@ class FileTree extends React.Component {
 }
 
 export default FileTree
+

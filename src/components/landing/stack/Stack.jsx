@@ -8,16 +8,12 @@ const Stack = React.createClass({
       <InlineCss componentName="Stack" stylesheet={stylesheet}>
         <div className="atom-container">
           <div>Built With</div>
-          <img src="src/shared/images/lessicon.jpeg" style={{width:'105px'}}></img>
-          <img src="src/shared/images/firebase.png" className="atom-icon"></img>
-          <img src="src/shared/images/unnamed.png" style={{
-            width: '125px'
-          }}></img>
-          <img src="src/shared/images/react-opti.png" style={{
-            width: '125px'
-          }}></img>
-          <img src="src/shared/images/atom.png" className="atom-icon"/>
-          <img src="src/shared/images/codemirror.png" style={{width:'125px',marginBottom:'13px'}}></img>
+          <img src="images/lessicon.jpeg" style={{width:'105px'}} />
+          <img src="images/firebase.png" className="atom-icon"/>
+          <img src="images/unnamed.png" style={{width: '125px'}}/>
+          <img src="images/react-opti.png" style={{width: '125px'}}/>
+          <img src="images/atom.png" className="atom-icon"/>
+          <img src="images/codemirror.png" style={{width:'125px',marginBottom:'13px'}}/>
         </div>
       </InlineCss>
     )

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>vanilla/jq example</title>
+  <!-- this one works exactly like i want it to.
+       except without codemirror.
+  -->
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
+  <style type="text/css">
+    div.container{position:absolute;top:0px;left:0px;width:100%;height:90%;}
+    textarea#editor{display:inline-block;width:50%;height:100%;}
+    div#preview{position:absolute;top:0px;display:inline-block;width:50%;height:100%;}
+    div.footer{position:fixed;bottom:0px;left:0px;width:100%;}
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('textarea.tab').keydown(function(e){
+        if(e.keyCode == 9){
+          var start = $(this).get(0).selectionStart
+          $(this).val($(this).val().substring(0, start) + "\t" + $(this).val().substring($(this).get(0).selectionEnd))
+          $(this).get(0).selectionStart = $(this).get(0).selectionEnd = start + 1
+          return false
+        }
+      })
+      $('textarea.space').keydown(function(e){
+        if(e.keyCode == 9){
+          var start = $(this).get(0).selectionStart
+          $(this).val($(this).val().substring(0, start) + "    " + $(this).val().substring($(this).get(0).selectionEnd))
+          $(this).get(0).selectionStart = $(this).get(0).selectionEnd = start + 4
+          return false
+        }
+      })
+      var input = $('#editor')
+        , preview = $("[ID$=preview]")
+      input.keyup(function(e){
+        preview.html(input.val())
+      })
+    })
+    function saveTextAsFile(){
+      var textToWrite = document.getElementById("editor").value
+      var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'})
+      var fileNameToSaveAs = "foo.html"
+      var downloadLink = document.createElement("a")
+      downloadLink.download = fileNameToSaveAs
+      downloadLink.innerHTML = "download"
+      if(window.webkitURL != null){ // chrome allows clicking of link w/o adding to DOM
+        downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob)
+      } else { // firefox does not
+        downloadLink.href = window.URL.createObjectURL(textFileAsBlob)
+        downloadLink.onclick = destroyClickedElement
+        downloadLink.style.display = "none"
+        document.body.appendChild(downloadLink)
+      }
+      downloadLink.click()
+    }
+    function destroyClickedElement(event){document.body.removeChild(event.target)}
+    function loadfile(input){
+      var reader = new FileReader()
+      reader.onload = function(e){document.getElementById('editor').value = e.target.result}
+      reader.readAsText(input.files[0])
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <textarea class="tab" id="editor">
+       <style>*{background:#101010;color:#ccc;font-family:monospace;}</style>
+       <h2>howdy</h2>
+    </textarea>
+    <div id="preview"></div>
+  </div>
+  <div class="footer">
+    <center>
+      <a href="#my-header" onclick='saveTextAsFile()'>download</a>
+      <input type="file" onchange="loadfile(this)">
+    </center>
+  </div>
+</body>
+</html>

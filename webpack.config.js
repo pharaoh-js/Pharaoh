@@ -10,20 +10,20 @@ module.exports = {
   , './src/index.jsx'
   ],
   output: {
-    filename: 'bundle.js'
-  , sourceMapFilename: "[file].map"
-  , publicPath: 'http://127.0.0.1:9090/public'
+    filename          : 'bundle.js'
+  , sourceMapFilename : "[file].map"
+  , publicPath        : 'http://127.0.0.1:9090/public'
   },
   module: {
     loaders: [{
-        test: /\.jsx$/
-      , exclude: /node_modules/
-      , loaders: ['react-hot', 'babel']
+        test          : /\.jsx$/
+      , exclude       : /node_modules/
+      , loaders       : ['react-hot', 'babel']
       },
       {
-        test: /\.less$/
-      , exclude: ['node_modules', 'bower_components']
-      , loader: 'style!css!less'
+        test          : /\.less$/
+      , exclude       : ['node_modules', 'bower_components']
+      , loader        : 'style!css!less'
       }
     ]
   },
@@ -34,3 +34,4 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
 }
+

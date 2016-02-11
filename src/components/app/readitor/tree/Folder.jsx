@@ -47,16 +47,32 @@ class Folder extends React.Component {
       <div className="folder-select">
         <span onClick={this.handleToggle}>
           <img
-            src="src/shared/images/folder2x.png"
+            src="images/folder2x.png"
             style={{width:'16px', position:'relative', top:'3px', paddingRight:'3px'}}>
           </img>
           {this.props.folder.folderName}
         </span>
         <span>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/delete.png" onClick={this.deleteItem}></img>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/edit-file.png" onClick={this.showEdit.bind(this, this.updateItem)}></img>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/plus-icon.png" onClick={this.showEdit.bind(this, this.createFile)}></img>
-          <img className={this.props.role === 'w' ? 'icons teacher' :'icons'} src="src/shared/images/createfolder.png" onClick={this.showEdit.bind(this, this.createFolder)}></img>
+          <img
+            className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+            src="images/delete.png"
+            onClick={this.deleteItem}
+          />
+          <img
+            className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+            src="images/edit-file.png"
+            onClick={this.showEdit.bind(this, this.updateItem)}
+          />
+          <img
+            className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+            src="images/plus-icon.png"
+            onClick={this.showEdit.bind(this, this.createFile)}
+          />
+          <img
+            className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+            src="images/createfolder.png"
+            onClick={this.showEdit.bind(this, this.createFolder)}
+          />
         </span>
       </div>) : null
       var readDirectory = function(folderObj){
@@ -83,7 +99,7 @@ class Folder extends React.Component {
           }
         })
 
-      var files = _.values(folderObj).map((folderItem, index)=> {
+      var files = _.values(folderObj).map((folderItem, index) => {
         if(folderItem.fileName){
           return (
             <File
@@ -115,7 +131,7 @@ class Folder extends React.Component {
         {folderTitle}
         </div>
           <ul className="custom-list">
-          {folderContents}
+            {folderContents}
           </ul>
       </InlineCss>
     )
@@ -123,3 +139,4 @@ class Folder extends React.Component {
 }
 
 export default Folder
+

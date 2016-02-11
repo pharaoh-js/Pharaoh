@@ -4,11 +4,8 @@ const stylesheet = require('!css!less!./titlebar.less').toString()
 
 const TitleBar = React.createClass({
   render() {
-    let icon = this.props.isSetting
-      ? ''
-      : <img src='src/shared/images/settings-icon.png' style={{
-        width: '22px'
-      }}></img>
+    let icon = this.props.isSetting ? '' :
+      <img src='images/settings-icon.png' style={{width: '22px'}} />
     let handleClick = this.props.isSetting ? this.props.hideSettings : this.props.showSettings
     return (
       <InlineCss componentName="TitleBar" stylesheet={stylesheet}>
