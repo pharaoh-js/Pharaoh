@@ -1,2 +1,46 @@
 * filter=ignoreline
 
+* text=auto
+
+text eol=lf
+
+*.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.pdf binary
+*.png binary
+*.svg binary
+*.ttf binary
+*.woff2 binary
+*.woff binary
+
+AUTHORS text
+*.bowerrc text
+*.coffee text
+*.css text
+.editorconfig text
+*.ejs text
+.gitattributes text
+.gitconfig text
+.gitignore text
+*.html text
+*.ini text
+.jscsrc text
+.jshintignore text
+.jshintrc text
+*.json text
+*.js text
+*.jsx text
+*.less text
+LICENSE text
+*.md text
+*.npmignore text
+*.sh text
+*.styl text
+*.txt text
+*.xml text
+
+*.pdf diff=astextplain
+*.PDF	diff=astextplain
+
