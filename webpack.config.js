@@ -11,6 +11,7 @@ module.exports = {
   ],
   output: {
     filename          : 'bundle.js'
+  , path              : './public'
   , sourceMapFilename : "[file].map"
   , publicPath        : 'http://127.0.0.1:9090/public'
   },
