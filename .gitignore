@@ -7,7 +7,6 @@ bundle
 bundle.js
 *.bz2
 codemirror_libs
-completer.hist
 data
 db
 dist
