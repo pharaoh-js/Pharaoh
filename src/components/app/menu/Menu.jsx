@@ -40,7 +40,7 @@ const Header = React.createClass({
                 className="copyURL"
                 type="text"
                 readOnly="true"
-                value={'http://pharaoh.js.org/app/r/' + this.props.projectKey}
+                value={'http://pharaoh.js.org/#/app/r/' + this.props.projectKey}
               />
             </div>
           </div>
