@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react'
-import Readitor             from './readitor/Readitor'
-import Menu                 from './menu/Menu'
+import React, {PropTypes} from 'react'
+import Readitor           from './readitor/Readitor'
+import Menu               from './menu/Menu'
 
 const App = React.createClass({
   getInitialState () {
@@ -8,21 +8,22 @@ const App = React.createClass({
   },
   componentWillMount() {
     this.role = this.props.params.role
-    this.projectKey = this.props.params.project;
+    this.projectKey = this.props.params.project
   },
   render () {
     return (
       <div>
         <Menu
           projectKey={this.projectKey}
-           />
+         />
         <Readitor
           projectKey={this.projectKey}
           role={this.role}
-          />
+        />
       </div>
     )
   }
 })
 
 export default App
+

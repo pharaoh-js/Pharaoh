@@ -34,10 +34,16 @@ class File extends React.Component {
         <div className="file">
           <li className="file-length">
             <small>
-              <img src="src/shared/images/file.png" style={{width:'20px', position:'relative', top:'3px'}}></img>
+              <img src="images/file.png" style={{width:'20px', position:'relative', top:'3px'}} />
               <span onClick={this.sendLink}>{this.props.file.fileName}</span>
-              <img src="src/shared/images/delete.png" className={this.props.role === 'w' ? 'icons teacher' :'icons'} onClick={this.deleteItem}></img>
-              <img src="src/shared/images/edit-file.png" className={this.props.role === 'w' ? 'icons teacher' :'icons'} onClick={this.showEdit.bind(this, this.updateItem)}></img>
+              <img src="images/delete.png"
+                className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+                onClick={this.deleteItem}
+              />
+              <img src="images/edit-file.png"
+                className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+                onClick={this.showEdit.bind(this, this.updateItem)}
+              />
             </small>
           </li>
         </div>
@@ -47,3 +53,4 @@ class File extends React.Component {
 }
 
 export default File
+

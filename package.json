@@ -1,9 +1,11 @@
 {
   "name": "pharaoh",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "The front-end for a live code broadcasting app.",
   "main": "index.js",
   "scripts": {
+    "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
+    "build": " npm run clean && ./node_modules/.bin/webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "go": "npm-start",
     "start": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
@@ -19,7 +21,6 @@
     "instructor",
     "ide",
     "editor",
-    "atom",
     "react"
   ],
   "author": "Pharaoh Team",

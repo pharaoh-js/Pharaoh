@@ -27,8 +27,8 @@ class UserInput extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <input onChange={this.inputChange} placeholder="file or folder name..." type="text"></input>
             <div className="btn-container">
-              <input className="submit-image" type="image" src="src/shared/images/checkmark-lb.png"></input>
-              <img onClick={this.props.hideEdit} src="src/shared/images/delete.png"></img>
+              <input className="submit-image" type="image" src="images/checkmark-lb.png"></input>
+              <img onClick={this.props.hideEdit} src="images/delete.png"></img>
             </div>
           </form>
         </div>
@@ -38,3 +38,4 @@ class UserInput extends React.Component {
 }
 
 export default UserInput
+

@@ -1,18 +1,18 @@
-import React, { PropTypes } from 'react'
+import React, {PropTypes} from 'react'
 const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
 
 const Mirror = React.createClass({
 
-  makeFirePad (subRef, config) {
+  makeFirePad(subRef, config){
     let fpRef = new Firebase(BASEREF + subRef)
     let codeMirror = CodeMirror(document.getElementById('pad'), config)
     this.firepad = Firepad.fromCodeMirror(fpRef, codeMirror,
-      { defaultText: 'Your new canvas awaits' })
+      {defaultText: 'your canvas awaits'})
   },
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.pad !== nextProps.pad) {
       return true
-    } else if ( this.props.config.theme !== nextProps.config.theme) {
+    } else if (this.props.config.theme !== nextProps.config.theme) {
       return true
     }
     return false
@@ -36,3 +36,4 @@ const Mirror = React.createClass({
 })
 
 export default Mirror
+

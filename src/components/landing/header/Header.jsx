@@ -14,7 +14,7 @@ const Header = React.createClass({
     return (
       <InlineCss componentName="Header" stylesheet={stylesheet}>
         <big>Pharaoh</big>
-        <img src="src/shared/images/pharaoh.png" style={{
+        <img src="images/pharaoh.png" style={{
           width: '50px',
           position: 'relative',
           top: '6px'
@@ -35,3 +35,4 @@ const Header = React.createClass({
 })
 
 export default Header
+
