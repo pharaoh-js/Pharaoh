@@ -33,7 +33,7 @@ const HowTo = React.createClass({
           </p>
           <p>
             For Teachers enter the name of your new session, start, then share your link.
-            Or you have to option to dowload Pharaoh desktop app to be able to store files local on your machine. Enjoy!
+            Or you have to option to download Pharaoh desktop app to be able to store files local on your machine. Enjoy!
           </p>
         </div>
       </InlineCss>
@@ -42,4 +42,3 @@ const HowTo = React.createClass({
 })
 
 export default HowTo
-
