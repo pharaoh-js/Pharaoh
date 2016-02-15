@@ -1,6 +1,6 @@
 import React              from 'react'
 import InlineCss          from 'react-inline-css'
-import { Link, IndexLink} from 'react-router'
+import {Link, IndexLink}  from 'react-router'
 const stylesheet = require('!css!less!./header.less').toString()
 
 const Header = React.createClass({
