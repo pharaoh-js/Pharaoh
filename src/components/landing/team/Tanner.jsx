@@ -14,7 +14,7 @@ const Tanner = React.createClass({
           Athelte, Full Stack dev, excited about development. MEAN stack, React, and CSS/LESS.
         </p>
          <li>
-          <a className="links" href="http://j-tannerporter.azurewebsites.net/">WWW</a>
+          <a className="links" href="http://jtannerporter.azurewebsites.net/">WWW</a>
         </li>
         <li>
           <a className="links" href="https://github.com/Jtporter9">Github</a>
@@ -28,4 +28,3 @@ const Tanner = React.createClass({
 })
 
 export default Tanner
-
