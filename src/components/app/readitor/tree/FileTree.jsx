@@ -7,13 +7,14 @@ import InlineCss from 'react-inline-css'
 const stylesheet = require('!css!less!./fileTree.less').toString()
 
 class FileTree extends React.Component {
+
   constructor(props){
     super(props)
     this.state = {
-      projectName: '',
-      projectDirectory: {},
-      isOpen: {},
-      userInput: ''
+      projectName      : ''
+    , projectDirectory : {}
+    , isOpen           : {}
+    , userInput        : ''
     }
 
     this.readProjectDirectory = function(refBase, folderRef){
@@ -22,7 +23,7 @@ class FileTree extends React.Component {
         if(this.state.projectDirectory[item.key()] || typeof item.val() !== 'object'){
           return
         }
-        let itemVal = item.val()
+        let itemVal  = item.val()
         let toChange = Object.assign({}, this.state.projectDirectory)
         toChange[itemVal.key] = itemVal
         this.setState({projectDirectory: toChange})
@@ -32,7 +33,7 @@ class FileTree extends React.Component {
     this.removeProjectItem = function(refBase, folderRef){
       let newRef = new Firebase(`${refBase}/${folderRef}`)
       newRef.on('child_removed', (item)=> {
-        let itemVal = item.val()
+        let itemVal  = item.val()
         let toChange = Object.assign({}, this.state.projectDirectory)
         delete toChange[itemVal.key]
         this.setState({projectDirectory: toChange})
@@ -42,14 +43,14 @@ class FileTree extends React.Component {
     this.updateProjectItem = function(refBase, folderRef){
       let newRef = new Firebase(`${refBase}/${folderRef}`)
       newRef.on('child_changed', (item)=> {
-        let itemVal = item.val()
+        let itemVal  = item.val()
         let toChange = Object.assign({}, this.state.projectDirectory)
         toChange[itemVal.key] = itemVal
         this.setState({projectDirectory: toChange})
       })
     }
 
-    this.firebaseRef = new Firebase('https://pharaohjs.firebaseio.com/session')
+    this.firebaseRef   = new Firebase('https://pharaohjs.firebaseio.com/session')
     this.refFromRouter = this.props.projectKey || 'projectKey'
 
     this.handleToggle = this.handleToggle.bind(this)
@@ -152,11 +153,12 @@ class FileTree extends React.Component {
   }
 
   render(){
-      let editBox = this.props.isEditing ? <UserInput
-        catchInput = {this.catchInput}
+    let editBox = this.props.isEditing ?
+      <UserInput
+        catchInput={this.catchInput}
         hideEdit={this.props.hideEdit}
         editFn={this.props.editFn}
-        /> : null
+      /> : null
 
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
@@ -165,18 +167,20 @@ class FileTree extends React.Component {
           <div
             className={this.props.role === 'w' ? 'create-folder' :'hide-tree'}
             onClick={this.showEdit.bind(this, this.createRootFolder)}>
-            <img src="images/createfolder.png"
+            <img
+              src="images/createfolder.png"
               style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
-              }}></img>
-              create new folder
+            }} />
+              new directory
           </div>
           <div
             className={this.props.role === 'w' ? 'create-folder' :'hide-tree'}
             onClick={this.showEdit.bind(this, this.createRootFile)}>
-            <img src="images/plus-icon.png"
+            <img
+              src="images/plus-icon.png"
               style={{width:'20px', position:'relative', top:'5px', padding:'0 5px'
-              }}></img>
-              create new file
+            }} />
+              new file
           </div>
           <Folder
             folder={this.state.projectDirectory}

@@ -35,8 +35,16 @@ const Header = React.createClass({
                 <span className="text">Invite participants:</span>
                 <img src='images/people.png' style={{width: '40px'}} />
               </div>
+              <button
+                className="btn"
+                data-clipboard-target="#copyThis"
+                style={{display:'none'}}
+              >
+                &#128203;
+              </button>
               <input
                 ref="textInput"
+                id="copyThis"
                 className="copyURL"
                 type="text"
                 readOnly="true"
@@ -52,7 +60,9 @@ const Header = React.createClass({
 
 export default Header
 
-// <button className="btn" data-clipboard-target={'http://pharaoh.js.org/' + this.props.projectKey}>
-//   <i className="fa fa-clipboard"></i>
-// </button>
+// alternate unicode for clipboard: &#x1f4cb;
+// bassicaly the same thing as the current button:
+// <button className="btn" data-clipboard-text={'http://pharaoh.js.org/#/app/r/' + this.props.projectKey}>
+// button is set to display:none right now because wtf, it just doesn't work,
+// no idea why.
 

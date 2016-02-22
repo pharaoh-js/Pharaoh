@@ -5,10 +5,10 @@ const stylesheet = require('!css!less!./fileTree.less').toString()
 class File extends React.Component {
   constructor(props){
     super(props)
-    this.sendLink = this.sendLink.bind(this)
+    this.sendLink   = this.sendLink.bind(this)
     this.deleteItem = this.deleteItem.bind(this)
     this.updateItem = this.updateItem.bind(this)
-    this.showEdit = this.showEdit.bind(this)
+    this.showEdit   = this.showEdit.bind(this)
   }
 
   deleteItem (){
@@ -36,11 +36,13 @@ class File extends React.Component {
             <small>
               <img src="images/file.png" style={{width:'20px', position:'relative', top:'3px'}} />
               <span onClick={this.sendLink}>{this.props.file.fileName}</span>
-              <img src="images/delete.png"
+              <img
+                src="images/delete.png"
                 className={this.props.role === 'w' ? 'icons teacher' :'icons'}
                 onClick={this.deleteItem}
               />
-              <img src="images/edit-file.png"
+              <img
+                src="images/edit-file.png"
                 className={this.props.role === 'w' ? 'icons teacher' :'icons'}
                 onClick={this.showEdit.bind(this, this.updateItem)}
               />

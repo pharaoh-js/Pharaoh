@@ -54,27 +54,29 @@ class Folder extends React.Component {
         </span>
         <span>
           <img
-            className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+            className={this.props.role === 'w' ? 'icons teacher' : 'icons'}
             src="images/delete.png"
             onClick={this.deleteItem}
           />
           <img
-            className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+            className={this.props.role === 'w' ? 'icons teacher' : 'icons'}
             src="images/edit-file.png"
             onClick={this.showEdit.bind(this, this.updateItem)}
           />
           <img
-            className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+            className={this.props.role === 'w' ? 'icons teacher' : 'icons'}
             src="images/plus-icon.png"
             onClick={this.showEdit.bind(this, this.createFile)}
           />
           <img
-            className={this.props.role === 'w' ? 'icons teacher' :'icons'}
+            className={this.props.role === 'w' ? 'icons teacher' : 'icons'}
             src="images/createfolder.png"
             onClick={this.showEdit.bind(this, this.createFolder)}
           />
         </span>
-      </div>) : null
+      </div>
+    ) : null
+
       var readDirectory = function(folderObj){
         var folders = _.values(folderObj).map((folderItem, index)=> {
           if(folderItem.folderName){
@@ -128,7 +130,7 @@ class Folder extends React.Component {
     return (
       <InlineCss componentName="FileTree" stylesheet={stylesheet}>
         <div className="folder">
-        {folderTitle}
+          {folderTitle}
         </div>
           <ul className="custom-list">
             {folderContents}
