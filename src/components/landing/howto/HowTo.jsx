@@ -28,7 +28,7 @@ const HowTo = React.createClass({
           </p>
           <big>Usage:</big>
           <p>
-            Instructors: entire the desired session name (optional), hit 'START,' and share your link.
+            Instructors: entire the desired session name (optional), hit 'Start!,' and share your link.
             Also consider downloading the desktop app. Enjoy!
           </p>
           <p>

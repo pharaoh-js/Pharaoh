@@ -29,9 +29,10 @@ const GettingStarted = React.createClass({
                   style={{width:'60%'}}
                   placeholder="optional session name" type="text"
                 />
-                <input className="btn" type="submit" value="Go!" />
+                <input className="btn" type="submit" value="Start!" />
               </form>
-              <p>Launch the browser-based Pharaoh editor and send invitations.
+              <p>
+                Launch the browser-based Pharaoh editor and send invitations.
                 Start a new session above, or join an existing session at the top of the page.
               </p>
             </div>
@@ -41,7 +42,9 @@ const GettingStarted = React.createClass({
             <img src="images/desktop.png"></img>
             <div className="desktop">
               <span className="npmInstall">npm i -g pharaoh</span>
-              <p>Run Pharaoh from the desktop, and get the benefits of saving and opening your local files.
+              <p>
+                Run Pharaoh from the desktop! Get all the benefits of working with a desktop app and
+                staying out of the browser.
                 Just install using NPM and run with the command <code className="command">pharaoh</code>.
               </p>
             </div>
