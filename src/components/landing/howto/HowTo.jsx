@@ -28,12 +28,12 @@ const HowTo = React.createClass({
           </p>
           <big>Usage:</big>
           <p>
-            For students you will recieve a string of text and to enter the session, enter that test into the
-            "Enter session code:" input area, then hit "GO!".
+            Instructors: entire the desired session name (optional), hit 'START,' and share your link.
+            Also consider downloading the desktop app. Enjoy!
           </p>
           <p>
-            For Teachers enter the name of your new session, start, then share your link.
-            Or you have to option to download Pharaoh desktop app to be able to store files local on your machine. Enjoy!
+            Students: you will receive a string from your instructor. Enter this session code and hit 'GO!'
+            to join the session!
           </p>
         </div>
       </InlineCss>
@@ -42,3 +42,4 @@ const HowTo = React.createClass({
 })
 
 export default HowTo
+
