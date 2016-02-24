@@ -22,7 +22,7 @@ const GettingStarted = React.createClass({
             <big> Start a new session using the browser editor.</big>
             <img src="images/pharaohclient.png"></img>
             <div className="start-session">
-              <big>Start new Session</big>
+              <big>Start New Session</big>
               <form onSubmit={this.handleSubmit}>
                 <input
                   onChange={this.sessionNameChange}

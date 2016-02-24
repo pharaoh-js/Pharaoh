@@ -20,7 +20,7 @@ const Header = React.createClass({
           top: '6px'
         }}></img>
         <div className="header-right">
-          <span>Enter session code:
+          <span>Join Existing Session:
             <input
               type="text"
               value={this.state.project}
