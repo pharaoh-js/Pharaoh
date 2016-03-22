@@ -1,46 +1,47 @@
 FileTree {
   & .file-browser {
     position: absolute;
-    bottom:0;
-    left:0;
-    width:19%;
-    height:100%;
-    background-color:#37383A;
-    color: whitesmoke;
+    bottom: 0;
+    border-right: 1px solid #101010;
+    left: 0;
+    width: 19%;
+    height: 100%;
+    background-color: #37383A;
+    color: #ececec;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
   }
   & .file-header {
     border-bottom: 2px solid #0FB427;
-    text-align:center;
-    padding:7.25px 4px;
-    font-size: 18px;
+    text-align: center;
+    padding: 7.25px 4px;
+    font-size: 14px;
   }
   & .folder {
     list-style-type: none;
     margin-bottom: 0px;
-    padding:7px 0px;
+    padding: 7px 0px;
     & .edit-btns {
-      padding:0 7px;
+      padding: 0 7px;
     }
   }
   & .folder:hover {
     background-color: #212223;
-    color:#5B97B4;
+    color: #5B97B4;
     cursor: pointer;
   }
   & .folder:active {
     background-color: #212223;
-    color:#5B97B4;
+    color: #5B97B4;
     cursor: pointer;
   }
   & .folder-select {
     overflow: hidden;
-    width:99%;
+    width: 99%;
   }
   & .file-length {
     overflow: hidden;
-    width:99%;
+    width: 99%;
   }
   & .custom-list {
     padding-left: 10px;
@@ -48,32 +49,33 @@ FileTree {
   }
   & .file {
     list-style-type: none;
-    padding:2px 0;
+    padding: 2px 0;
   }
   & .file:hover {
     cursor: pointer;
     background-color: #212223;
-    color:#5B97B4;
+    color: #5B97B4;
   }
   & .file:active {
     cursor: pointer;
     color: #0FB427;
   }
   & .create-folder {
-    padding:5px 0;
+    padding: 5px;
+    font-size: 16px;
   }
   & .create-folder:hover {
     background-color: #212223;
-    color:#5B97B4;
+    color: #5B97B4;
     cursor: pointer;
   }
   & .icons {
     visibility: hidden;
-    margin:0 3px;
-    width:16px;
-    position:relative;
-    top:4px;
-    float:right;
+    margin: 0 3px;
+    width: 18px;
+    position: relative;
+    top: 4px;
+    float: right;
   }
   & .file:hover .teacher {
     visibility: visible;
@@ -86,48 +88,48 @@ FileTree {
   }
   //////////UserInput Styles///////
   & .box {
-    border:2px solid #328EF5;
+    border:2px solid #101010;
     border-top: none;
     text-align: center;
     z-index: 99999999;
     background-color: rgb(40, 40, 40);
     position: absolute;
     left: 225%;
-    top:5.4%;
+    top: 5.4%;
     padding: 15px;
     border-radius: 5px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    width:250px;
-    height:auto;
+    width: 250px;
+    height: auto;
     input {
-      width:95%;
-      padding:5px;
+      width: 95%;
+      padding: 5px;
       border-radius: 3px;
       background-color: #101010;
-      color: whitesmoke;
+      color: #ececec;
       font-family: 'Hack', monospace;
       font-size: 14px
     }
     & .btn-container {
-      margin:8px 5px 0 5px;
+      margin: 8px 5px 0 5px;
       img {
-        width:20px;
-        margin:0 12%;
+        width: 20px;
+        margin: 0 12%;
       }
       img:hover {
-        width:28px;
+        width: 28px;
         cursor: pointer;
         margin:-1.5% 10.4%;
       }
       & .submit-image {
-        width:20px;
-        margin:0 12%;
+        width: 20px;
+        margin: 0 12%;
       }
       & .submit-image:hover{
-        width:28px;
+        width: 28px;
         cursor: pointer;
-        margin:-1.5% 10.4%;
+        margin: -1.5% 10.4%;
       }
     }
   }

@@ -1,5 +1,5 @@
 import React     from 'react'
-import InlineCss from "react-inline-css"
+import InlineCss from 'react-inline-css'
 import Wrapper   from './wrapper/Wrapper'
 import StatusBar from './statusbar/Statusbar'
 import TitleBar  from './titlebar/Titlebar'
@@ -10,76 +10,75 @@ const stylesheet = require('!css!less!./readitor.less').toString()
 const BASEREF = 'https://pharaohjs.firebaseio.com/session/'
 
 const themeNames = [
-  'default'
-, 'monokai'
-, 'mbo'
-, 'abcdef'
+  'abcdef'
 , 'base16-dark'
 , 'base16-light'
+, 'default'
+, 'mbo'
+, 'monokai'
 , 'tomorrow-night-eighties'
 , 'zenburn'
 , 'zeemirror'
 ]
 
 const modeObj = {
-  html     : 'htmlmixed'
-, htm      : 'htmlmixed'
-, xhtml    : 'htmlmixed'
-, js       : 'javascript'
-, css      : 'css'
+  css      : 'css'
 , less     : 'css'
-, jsx      : 'jsx'
-, scss     : 'sass'
-, py       : 'python'
 , clj      : 'clojure'
 , cljs     : 'clojure'
 , coffee   : 'coffeescript'
-, md       : 'gfm'
-, php      : 'php'
-, rb       : 'ruby'
-, swift    : 'swift'
-, lisp     : 'lisp'
 , elm      : 'elm'
+, jade     : 'jade'
+, js       : 'javascript'
+, json     : 'javascript'
+, jsx      : 'jsx'
+, md       : 'gfm'
+, mkd      : 'gfm'
+, markdown : 'gfm'
+, mkdown   : 'gfm'
 , go       : 'go'
 , hs       : 'haskell'
-, jade     : 'jade'
-, json     : 'javascript'
+, html     : 'htmlmixed'
+, htm      : 'htmlmixed'
+, xhtml    : 'htmlmixed'
 , lua      : 'lua'
 , pl       : 'perl'
-, sass     : 'sass'
+, php      : 'php'
 , php3     : 'php'
 , php4     : 'php'
 , php5     : 'php'
-, phtml    : 'php'
-, rake     : 'ruby'
-, zsh      : 'shell'
-, ksh      : 'shell'
 , phps     : 'php'
-, mkd      : 'gfm'
-, mkdown   : 'gfm'
+, phtml    : 'php'
+, py       : 'python'
 , pyw      : 'python'
-, markdown : 'gfm'
+, rb       : 'ruby'
+, rake     : 'ruby'
+, sass     : 'sass'
+, scss     : 'sass'
+, scm      : 'scheme'
+, ss       : 'scheme'
+, zsh      : 'shell'
+, sh       : 'shell'
 , bash     : 'shell'
-, vue      : 'vue'
-, yaml     : 'yaml'
-, yml      : 'yaml'
-, xml      : 'xml'
+, ksh      : 'shell'
+, styl     : 'stylus'
+, swift    : 'swift'
 , sql      : 'sql'
 , sqlite   : 'sql'
-, styl     : 'stylus'
 , lsp      : 'lisp'
 , lisp     : 'lisp'
 , cl       : 'lisp'
 , el       : 'lisp'
-, scm      : 'scheme'
-, ss       : 'scheme'
+, vue      : 'vue'
+, yml      : 'yaml'
+, yaml     : 'yaml'
+, xml      : 'xml'
 , txt      : null
 , log      : null
 , text     : null
 , def      : null
 , list     : null
 , conf     : null
-, sh       : 'shell'
 }
 
 const Viewer = React.createClass({
@@ -90,69 +89,77 @@ const Viewer = React.createClass({
     , mode       : this.modeFromFilename(name)
     })
   },
-  getInitialState () {
-    let student = !!(this.props.role === 'r')
+
+  getInitialState(){
+    let student  = !!(this.props.role === 'r')
     let cmConfig = {
-      lineWrapping       : true
-    , mode               : 'javascript'
-    , theme              : 'abcdef'
-    , lineNumbers        : true
-    , matchBrackets      : true
-    , lineWrapping       : true
-    , tabSize            : 2
-    , undoDepth          : 1000
+      autoCloseBrackets  : true
+    , autoCloseTags      : true
     , autofocus          : true
     , cursorScrollMargin : 2
+    , lineNumbers        : true
+    , lineWrapping       : true
+    , matchBrackets      : true
+    , mode               : 'javascript'
+    , tabSize            : 2
+    , theme              : 'abcdef'
+    , undoDepth          : 1000
     , readOnly           : student
-    , autoCloseBrackets  : true
-    , autoCloseTags      : true
-    , extraKeys: {
-        'Cmd-S'  : function(instance){handleSave()}
-      , 'Ctrl-S' : function(instance){handleSave()}
-      , 'Cmd-O'  : function(instance){handleOpen()}
-      , 'Ctrl-O' : function(instance){handleOpen()}
-    // these will need to be hooked up with fire(pad|base) at some point.
-    //, 'Cmd-N'  : function(instance){handleNew()}
-    //, 'Ctrl-N' : function(instance){handleNew()}
-      }
+//    , extraKeys: {
+//        'Cmd-S'  : function(instance){handleSave()}
+//      , 'Ctrl-S' : function(instance){handleSave()}
+//      , 'Cmd-O'  : function(instance){handleOpen()}
+//      , 'Ctrl-O' : function(instance){handleOpen()}
+// these will need to be hooked up with fire(pad|base) at some point.
+//      , 'Cmd-N'  : function(instance){handleNew()}
+//      , 'Ctrl-N' : function(instance){handleNew()}
+//      }
     }
     return {
       pad        : `${this.props.projectKey}/default`
-    , isSetting  : false
-    , cmConfig   : cmConfig
     , activeFile : ''
-    , themes     : themeNames
-    , mode       : ''
+    , cmConfig   : cmConfig
+    , isSetting  : false
     , isEditing  : false
+    , mode       : ''
+    , themes     : themeNames
     }
   },
-  modeFromFilename(fileName) {
+
+  modeFromFilename(fileName){
     let arr = fileName.split('.')
     let ext = arr[arr.length-1]
     return modeObj[ext]
   },
+
   setMode(fileName){
     let mode = this.modeFromFilename(fileName)
     this.updateSettings('mode', mode)
   },
+
   showSettings(){
     this.setState({isSetting: true})
   },
+
   hideSettings(){
     this.setState({isSetting: false})
   },
+
   showEdit(editFn){
     this.setState({isEditing: true})
     this.setState({editFn: editFn})
   },
+
   hideEdit(){
     this.setState({isEditing: false})
   },
+
   updateSettings(prop, val){
     let config = Object.assign({},this.state.cmConfig)
     config[prop] = val
     this.setState({cmConfig:config})
   },
+
   render () {
     return (
       <InlineCss componentName="Readitor" stylesheet={stylesheet}>
@@ -190,4 +197,3 @@ const Viewer = React.createClass({
 })
 
 export default Viewer
-
