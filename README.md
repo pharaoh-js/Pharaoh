@@ -16,6 +16,7 @@ through one lecture.
 This is the front end for our tool, built in React, using Firepad. To get started, `git clone
 https://github.com/pharaoh-js/pharaoh.git`, `cd pharaoh`, `npm i`,  and `npm start`. If you have
 problems with webpack-dev-server's process not dying on `ctrl+c`, use `npm run go` instead.
+To build for production, use `npm run build`.
 
 Check out [the desktop app](https://github.com/pharaoh-js/pharaoh-desktop.git), too!
 
