@@ -1,22 +1,23 @@
-var React   = require('react')
-  , path    = require('path')
-  , webpack = require('webpack')
+const
+  React   = require('react')
+, path    = require('path')
+, webpack = require('webpack')
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map'
-, entry: [
+  devtool : 'cheap-module-eval-source-map'
+, entry   : [
     'webpack-dev-server/client?http://127.0.0.1:9090'
   , 'webpack/hot/only-dev-server'
   , './src/index.jsx'
   ],
-  output: {
+  output : {
     filename          : 'bundle.js'
   , path              : './public'
   , sourceMapFilename : "[file].map"
   , publicPath        : 'http://127.0.0.1:9090/public'
   },
-  module: {
-    loaders: [{
+  module : {
+    loaders : [{
         test          : /\.jsx$/
       , exclude       : /node_modules/
       , loaders       : ['react-hot', 'babel']
@@ -27,12 +28,12 @@ module.exports = {
       , loader        : 'style!css!less'
       }
     ]
-  },
-  plugins: [
+  }
+, plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ],
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
+  ]
+, resolve : {
+    extensions : ['', '.js', '.jsx']
+  }
 }
 
