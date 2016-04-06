@@ -1,6 +1,6 @@
 {
   "name": "pharaoh",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "The front-end for a live code broadcasting app.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": " npm run clean && ./node_modules/.bin/webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "go": "npm-start",
-    "start": "webpack-dev-server --noInfo --port 9090 --hot --inline --open",
+    "start": "webpack-dev-server --content-base public/ --noInfo --port 9090 --hot --inline --open",
     "lint": "node node_modules/.bin/eslint -c .eslintrc src/**"
   },
   "repository": {
