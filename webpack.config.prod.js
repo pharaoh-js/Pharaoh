@@ -1,10 +1,9 @@
 module.exports = {
-  devtool : 'cheap-module-eval-source-map'
+  devtool : 'cheap-module-eval-inline-source-map'
 , entry   : './src/index.jsx'
 , output  : {
     filename          : 'bundle.js'
   , path              : './public'
-  , sourceMapFilename : "[file].map"
   , publicPath        : 'http://pharaoh.js.org'
   }
 , module : {
