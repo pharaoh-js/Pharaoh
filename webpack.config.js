@@ -1,39 +1,48 @@
 const
-  React   = require('react')
-, path    = require('path')
+  path    = require('path')
 , webpack = require('webpack')
+, here    = path.resolve(__dirname)
 
 module.exports = {
-  devtool : 'cheap-module-eval-inline-source-map'
+  devtool : 'cheap-eval-source-map'
+, context : here
+, debug   : true
 , entry   : [
-    'webpack-dev-server/client?http://127.0.0.1:9090'
+    'webpack-dev-server/client?http://127.0.0.1:8080'
   , 'webpack/hot/only-dev-server'
   , './src/index.jsx'
   ],
   output : {
     filename          : 'bundle.js'
   , path              : './public'
-  , sourceMapFilename : "[file].map"
-  , publicPath        : 'http://127.0.0.1:9090/public'
+  , publicPath        : 'http://127.0.0.1:8080/'
   },
   module : {
     loaders : [{
         test          : /\.jsx$/
-      , exclude       : /node_modules/
+      , include       : path.resolve(__dirname, 'src')
       , loaders       : ['react-hot', 'babel']
       },
       {
         test          : /\.less$/
-      , exclude       : ['node_modules', 'bower_components']
+      , include       : path.resolve(__dirname, 'src')
       , loader        : 'style!css!less'
       }
     ]
+  }
+, devServer : {
+    contentBase        : './public'
+  , historyApiFallback : true
+  , hot                : true
+  , stats              : {
+      colors : true
+    }
   }
 , plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
 , resolve : {
-    extensions : ['', '.js', '.jsx']
+    extensions : ['', '.js', '.jsx', '.less']
   }
 }
 

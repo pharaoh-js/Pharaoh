@@ -1,5 +1,7 @@
+const path = require('path')
+
 module.exports = {
-  devtool : 'cheap-module-eval-inline-source-map'
+  context : path.resolve(__dirname)
 , entry   : './src/index.jsx'
 , output  : {
     filename          : 'bundle.js'
@@ -9,18 +11,18 @@ module.exports = {
 , module : {
     loaders : [{
         test          : /\.jsx$/
-      , exclude       : /node_modules/
+      , include       : path.resolve(__dirname, 'src')
       , loaders       : ['react-hot', 'babel']
       }
     , {
         test          : /\.less$/
-      , exclude       : ['node_modules', 'bower_components']
+      , include       : path.resolve(__dirname, 'src')
       , loader        : 'style!css!less'
       }
     ]
   }
 , resolve : {
-    extensions : ['', '.js', '.jsx']
+    extensions : ['', '.js', '.jsx', '.less']
   }
 }
 
