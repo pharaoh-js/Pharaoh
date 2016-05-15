@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "if [ -f public/bundle.js ] ; then rm public/bundle.js ; fi",
-    "build": " NODE_ENV=production npm run clean && webpack --config=./webpack.config.prod.js",
+    "build": " NODE_ENV=production npm run clean && webpack --config webpack.config.prod.js",
     "start": "webpack-dev-server --config webpack.config.js --hot --inline",
-    "lint": "node node_modules/.bin/eslint -c .eslintrc src/**"
+    "lint": "eslint -c .eslintrc src/**"
   },
   "repository": {
     "type": "git",
