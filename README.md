@@ -1,5 +1,9 @@
 # [PHARAOH](http://pharaoh.js.org)
 
+## ABANDONED
+
+Please use [Glitch](https://glitch.me). It's everything we wanted to make.
+
 We're a group of students at [DevMountain](https://github.com/devmountain), building just about the
 neatest instructor tool you've ever seen. Imagine a lecture with no JSBin or JSFiddle, with no
 opening the Developer Tools in your browser just to show something in the console, with no rushed
